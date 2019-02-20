@@ -22,6 +22,7 @@ class CreateBrandsTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
+
     }
 
     /**
