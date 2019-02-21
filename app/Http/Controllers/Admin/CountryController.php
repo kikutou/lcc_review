@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PostController extends Controller
+class CountryController extends Controller
 {
   public function add(Request $request){
 
-    return view("admin.post.add");
+    return view("admin.country.add");
   }
   public function index(Request $request){
 
-    return view("admin.post.index");
+    return view("admin.country.index");
   }
 }

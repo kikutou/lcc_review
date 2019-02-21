@@ -17,8 +17,13 @@ Route::get('/', function () {
 
 
 Route::get("admin", "Admin\DashboardController@index");
-Route::get("admin/post/add","Admin\PostController@newpost")->name('admin_get_post_add');
-Route::get("postlist","Admin\PostController@postlist")->name('postlist');
+// post
+Route::get("admin/post/add","Admin\PostController@add")->name('admin_get_post_add');
+Route::get("admin/post/index","Admin\PostController@index")->name('admin_get_post_index');
 
-
+// brand
 Route::get("admin/brand/add", "Admin\BrandController@add")->name("admin_get_brand_add");
+
+// country
+Route::get("admin/country/add", "Admin\CountryController@add")->name("admin_get_country_add");
+Route::get("admin/country/index", "Admin\CountryController@index")->name("admin_get_country_index");

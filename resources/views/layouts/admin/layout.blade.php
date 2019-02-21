@@ -16,6 +16,12 @@
 
         <!-- amchart css -->
         <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+        <!-- Start datatable css -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css">
+
         <!-- others css -->
 
         <link rel="stylesheet" href="{{ asset('assets/css/typography.css') }}">
@@ -43,7 +49,7 @@
         <div class="sidebar-menu">
         <div class="sidebar-header">
         <div class="logo">
-        <a href="index.html"><img src="{{ asset('assets/images/icon/logo.png') }}" alt="logo"></a>
+        <a href="admin"><img src="{{ asset('assets/images/icon/logo.png') }}" alt="logo"></a>
         </div>
         </div>
         <div class="main-menu">
@@ -51,40 +57,68 @@
           <nav>
           <ul class="metismenu" id="menu">
             <li>
-              <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>Dashboard</span></a>
+              <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>統計</span></a>
               <ul class="collapse">
-                <li><a href="index.html">user</a></li>
-                <li><a href="index2.html">post</a></li>
+                <li><a href="#">会員</a></li>
+                <li><a href="#">記事</a></li>
+            </ul>
+          </li>
+          <li
+          @if(isset($type) && $type == "post")
+            class="active"
+          @endif
+          >
+            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-book"></i><span>記事</span></a>
+            <ul class="collapse">
+              <li
+              @if(isset($action) && $action == "index")
+                class="active"
+              @endif
+              ><a href="{{ route('admin_get_post_index') }}">記事一覧</a></li>
+              <li
+              @if(isset($action) && $action == "add")
+                class="active"
+              @endif
+              ><a href="{{ route('admin_get_post_add') }}">記事追加</a></li>
+            </ul>
+          </li>
+          <li
+          @if(isset($type) && $type == "user")
+            class="active"
+          @endif
+          >
+            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-user"></i><span>会員</span></a>
+            <ul class="collapse">
+              <li
+              @if(isset($action) && $action == "index")
+                class="active"
+              @endif
+              ><a href="#">会員一覧</a></li>
             </ul>
           </li>
           <li>
-            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-book"></i><span>Post</span></a>
+            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-comments"></i><span>コメント</span></a>
             <ul class="collapse">
-              <li><a href="index.html">Post list</a></li>
-              <li><a href="new-post">New post</a></li>
-              <li><a href="index3-horizontalmenu.html">Post manage</a></li>
+                <li><a href="#">コメント一覧</a></li>
             </ul>
           </li>
-          <li>
-            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-user"></i><span>User</span></a>
+          <li
+          @if(isset($type) && $type == "flight")
+            class="active"
+          @endif
+          >
+            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-exchange-vertical"></i><span>フライト</span></a>
             <ul class="collapse">
-              <li><a href="barchart.html">User list</a></li>
-              <li><a href="linechart.html">User manage</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-comments"></i><span>Comment</span></a>
-            <ul class="collapse">
-                <li><a href="accordion.html">Comment list</a></li>
-                <li><a href="accordion.html">Comment manage</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-exchange-vertical"></i><span>Flight</span></a>
-            <ul class="collapse">
-                <li><a href="fontawesome.html">Flight list</a></li>
-                <li><a href="themify.html">New flight</a></li>
-                <li><a href="themify.html">Flight manage</a></li>
+                <li
+                @if(isset($action) && $action == "index")
+                  class="active"
+                @endif
+                ><a href="#">フライト一覧</a></li>
+                <li
+                @if(isset($action) && $action == "add")
+                  class="active"
+                @endif
+                ><a href="#">新規作成</a></li>
             </ul>
           </li>
           <li
@@ -98,12 +132,31 @@
               @if(isset($action) && $action == "index")
                 class="active"
               @endif
-              ><a href="table-basic.html">航空会社一覧</a></li>
+              ><a href="#">航空会社一覧</a></li>
               <li
               @if(isset($action) && $action == "add")
                 class="active"
               @endif
               ><a href="{{ route('admin_get_brand_add') }}">新規作成</a></li>
+            </ul>
+          </li>
+          <li
+          @if(isset($type) && $type == "country")
+            class="active"
+          @endif
+          >
+            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-exchange-vertical"></i><span>国家</span></a>
+            <ul class="collapse">
+                <li
+                @if(isset($action) && $action == "index")
+                  class="active"
+                @endif
+                ><a href="#">国家一覧</a></li>
+                <li
+                @if(isset($action) && $action == "add")
+                  class="active"
+                @endif
+                ><a href="{{ route('admin_get_country_add') }}">国家追加</a></li>
             </ul>
           </li>
         </ul>
@@ -510,6 +563,12 @@
     <script src="{{ asset("assets/js/jquery.slimscroll.min.js") }}"></script>
     <script src="{{ asset("assets/js/jquery.slicknav.min.js") }}"></script>
 
+    <!-- Start datatable js -->
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
 
 
     <!-- start chart js -->
