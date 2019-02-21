@@ -27,3 +27,6 @@ Route::get("admin/brand/add", "Admin\BrandController@add")->name("admin_get_bran
 // country
 Route::get("admin/country/add", "Admin\CountryController@add")->name("admin_get_country_add");
 Route::get("admin/country/index", "Admin\CountryController@index")->name("admin_get_country_index");
+// city
+Route::get("admin/city/add", "Admin\CityController@add")->name("admin_get_city_add");
+Route::get("admin/city/index", "Admin\CityController@index")->name("admin_get_city_index");

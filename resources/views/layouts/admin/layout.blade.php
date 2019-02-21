@@ -145,18 +145,37 @@
             class="active"
           @endif
           >
-            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-exchange-vertical"></i><span>国家</span></a>
+            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-map-alt"></i><span>国家</span></a>
             <ul class="collapse">
                 <li
                 @if(isset($action) && $action == "index")
                   class="active"
                 @endif
-                ><a href="#">国家一覧</a></li>
+                ><a href="{{ route('admin_get_country_index') }}">国家一覧</a></li>
                 <li
                 @if(isset($action) && $action == "add")
                   class="active"
                 @endif
                 ><a href="{{ route('admin_get_country_add') }}">国家追加</a></li>
+            </ul>
+          </li>
+          <li
+          @if(isset($type) && $type == "city")
+            class="active"
+          @endif
+          >
+            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-location-pin"></i><span>都市</span></a>
+            <ul class="collapse">
+                <li
+                @if(isset($action) && $action == "index")
+                  class="active"
+                @endif
+                ><a href="{{ route('admin_get_city_index') }}">都市一覧</a></li>
+                <li
+                @if(isset($action) && $action == "add")
+                  class="active"
+                @endif
+                ><a href="{{ route('admin_get_city_add') }}">都市追加</a></li>
             </ul>
           </li>
         </ul>
