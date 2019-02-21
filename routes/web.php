@@ -17,3 +17,5 @@ Route::get('/', function () {
 
 
 Route::get("admin", "Admin\DashboardController@index");
+Route::get("new-post","Admin\PostController@newpost")->name('newpost');
+Route::get("postlist","Admin\PostController@postlist")->name('postlist');
