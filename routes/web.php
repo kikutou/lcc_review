@@ -14,10 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
-/*
-trainning
-*/
-Route::group(['prefix'=>'name'],function(){
-  Route::get('name_test', 'NameController@form');
-  Route::get('name_test_result', 'NameController@result');
-});
+
+
+Route::get("admin", "Admin\DashboardController@index");
