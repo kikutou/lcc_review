@@ -24,36 +24,16 @@
                 </tr>
               </thead>
               <tbody>
+
+                @foreach($countries as $country)
                 <tr>
-                  <th scope="row">1</th>
-                  <td>Japan</td>
-                  <td>1</td>
+                  <th scope="row">{{ $country->id }}</th>
+                  <td>{{ $country->value }}</td>
+                  <td>{{ $country->rank }}</td>
                   <td><i class="ti-pencil-alt">編集</i></td>
                 </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Japan</td>
-                  <td>1</td>
-                  <td><i class="ti-pencil-alt">編集</i></td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Japan</td>
-                  <td>1</td>
-                  <td><i class="ti-pencil-alt">編集</i></td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Japan</td>
-                  <td>1</td>
-                  <td><i class="ti-pencil-alt">編集</i></td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Japan</td>
-                  <td>1</td>
-                  <td><i class="ti-pencil-alt">編集</i></td>
-                </tr>
+                @endforeach
+
 
               </tbody>
             </table>

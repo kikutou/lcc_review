@@ -1,5 +1,5 @@
 @extends("layouts.admin.layout", ["type" => "brand", "action" => "add"])
-
+<!-- layout继承，php7的函数特有简略表达[]，传递了2个值 -->
 
 @section("title", "航空会社新規作成")
 
@@ -39,10 +39,10 @@
                 <div class="form-group">
                   <label  class="col-form-label">航空会社ロゴ追加</label>
                   <div class="input-group mb-3">
-                      <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="brand-logo-pic">
-                          <label class="custom-file-label" for="brand-logo-pic">ロゴをせんたくしてください。</label>
-                      </div>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="brand-logo-pic">
+                      <label class="custom-file-label" for="brand-logo-pic">ロゴをせんたくしてください。</label>
+                    </div>
                   </div>
                 </div>
 
@@ -50,10 +50,10 @@
                 <div class="form-group">
                   <label  class="col-form-label">航空会社紹介画像追加</label>
                   <div class="input-group mb-3">
-                      <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="brand-image-pic">
-                          <label class="custom-file-label" for="brand-image-pic">紹介画像をせんたくしてください。</label>
-                      </div>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="brand-image-pic">
+                      <label class="custom-file-label" for="brand-image-pic">紹介画像をせんたくしてください。</label>
+                    </div>
                   </div>
                 </div>
 
