@@ -18,6 +18,7 @@
               <thead class="text-uppercase bg-dark">
                 <tr class="text-white">
                   <th scope="col">ID</th>
+                  <th scope="col">国家</th>
                   <th scope="col">都市名</th>
                   <th scope="col">ランク</th>
                   <th scope="col">操作</th>
@@ -26,35 +27,25 @@
               <tbody>
                 <tr>
                   <th scope="row">1</th>
+                  <td>Japan</td>
                   <td>Tokyo</td>
                   <td>1</td>
                   <td><i class="ti-pencil-alt">編集</i></td>
                 </tr>
                 <tr>
                   <th scope="row">1</th>
+                  <td>China</td>
                   <td>Beijing</td>
                   <td>1</td>
                   <td><i class="ti-pencil-alt">編集</i></td>
                 </tr>
                 <tr>
                   <th scope="row">1</th>
+                  <td>China</td>
                   <td>Shanghai</td>
                   <td>1</td>
                   <td><i class="ti-pencil-alt">編集</i></td>
                 </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Japan</td>
-                  <td>1</td>
-                  <td><i class="ti-pencil-alt">編集</i></td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Japan</td>
-                  <td>1</td>
-                  <td><i class="ti-pencil-alt">編集</i></td>
-                </tr>
-
               </tbody>
             </table>
           </div>
