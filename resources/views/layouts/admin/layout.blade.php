@@ -50,10 +50,10 @@
         <div class="menu-inner">
           <nav>
           <ul class="metismenu" id="menu">
-            <li class="active">
+            <li>
               <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>Dashboard</span></a>
               <ul class="collapse">
-                <li class="active"><a href="index.html">user</a></li>
+                <li><a href="index.html">user</a></li>
                 <li><a href="index2.html">post</a></li>
             </ul>
           </li>
@@ -87,12 +87,23 @@
                 <li><a href="themify.html">Flight manage</a></li>
             </ul>
           </li>
-          <li>
-            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-link"></i><span>Brand</span></a>
+          <li
+          @if(isset($type) && $type == "brand")
+            class="active"
+          @endif
+          >
+            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-link"></i><span>航空会社</span></a>
             <ul class="collapse">
-                <li><a href="table-basic.html">Brand list</a></li>
-            <li><a href="table-layout.html">New brand</a></li>
-            <li><a href="datatable.html">Brand manage</a></li>
+              <li
+              @if(isset($action) && $action == "index")
+                class="active"
+              @endif
+              ><a href="table-basic.html">航空会社一覧</a></li>
+              <li
+              @if(isset($action) && $action == "add")
+                class="active"
+              @endif
+              ><a href="{{ route('admin_get_brand_add') }}">新規作成</a></li>
             </ul>
           </li>
         </ul>

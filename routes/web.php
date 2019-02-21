@@ -17,5 +17,8 @@ Route::get('/', function () {
 
 
 Route::get("admin", "Admin\DashboardController@index");
-Route::get("new-post","Admin\PostController@newpost")->name('newpost');
+Route::get("admin/post/add","Admin\PostController@newpost")->name('admin_get_post_add');
 Route::get("postlist","Admin\PostController@postlist")->name('postlist');
+
+
+Route::get("admin/brand/add", "Admin\BrandController@add")->name("admin_get_brand_add");
