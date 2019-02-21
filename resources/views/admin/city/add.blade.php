@@ -17,6 +17,7 @@
               <h3 class="header-title">都市の追加</h3>
               <!-- form start -->
               <form action="admin_get_country_index" method="post">
+                @csrf
                 <div class="form-group">
                   <label class="col-form-label">国家の選択</label>
                   <select class="custom-select">

@@ -17,6 +17,7 @@
               <h3 class="header-title">国家の追加</h3>
               <!-- form start -->
               <form action="admin_get_country_index" method="post">
+                @csrf
                 <div class="form-group">
                   <label for="country-name-input" class="col-form-label">国家名</label>
                   <input class="form-control" type="text" placeholder="国家名を入力してください" id="country-name-input">

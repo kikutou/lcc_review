@@ -17,6 +17,7 @@
               <h3 class="header-title">記事の新規作成</h3>
               <!-- form start -->
               <form action="{{'route(admin/post/index)'}}" method="post">
+                @csrf
                 <div class="form-group">
                   <label class="col-form-label">記事種類の選択</label>
                   <select class="custom-select">
