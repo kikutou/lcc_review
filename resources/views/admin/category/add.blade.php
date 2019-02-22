@@ -13,11 +13,8 @@
           <div class="card">
             <div class="card-body">
               <h3 class="header-title">カテゴリの新規作成</h3>
-<<<<<<< HEAD
-              <form action="admin_post_category_index" method="post">
-=======
               <form action="{{ route('admin_post_category_add') }}" method="post">
->>>>>>> 48ac4510d9202b602d80d4936d9dd00135bd20b8
+
 
                 @csrf
 

@@ -24,6 +24,7 @@ Route::get("admin/post/index","Admin\PostController@index")->name('admin_get_pos
 
 // brand
 Route::get("admin/brand/add", "Admin\BrandController@add")->name("admin_get_brand_add");
+Route::post("admin/brand/add", "Admin\BrandController@add")->name("admin_post_brand_add");
 Route::get("admin/brand/index", "Admin\BrandController@index")->name("admin_get_brand_index");
 
 // country
