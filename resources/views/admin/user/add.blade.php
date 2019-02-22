@@ -35,7 +35,7 @@
 
                 <div class="form-group">
                   <label for="nickname-input" class="col-form-label">ニックネーム</label>
-                  <input class="form-control" type="text"  id="nickname-input" name="nickname" value="{{old('nickname')}}">
+                  <input class="form-control" type="text"  id="nickname-input" placeholder="ニックネームを10桁まで入力してください。" name="nickname" value="{{old('nickname')}}">
                   @if($errors->has('nickname'))
                     <p>{{ $errors->first('nickname') }}</p>
                   @endif

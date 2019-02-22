@@ -30,7 +30,6 @@ class User extends Model
 
   public function generateUserCode($prefixLength = 2, $suffixLength = 4)
   {
-
     $re = '';
     $letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     while(strlen($re)<2) {

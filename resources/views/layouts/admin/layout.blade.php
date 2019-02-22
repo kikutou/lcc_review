@@ -150,7 +150,7 @@
             class="active"
           @endif
           >
-            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-link"></i><span>空港情報</span></a>
+            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-rss"></i><span>空港情報</span></a>
             <ul class="collapse">
               <li
               @if(isset($action) && $action == "index")
@@ -169,7 +169,7 @@
             class="active"
           @endif
           >
-            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-link"></i><span>カテゴリ</span></a>
+            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-menu-alt"></i><span>カテゴリ</span></a>
             <ul class="collapse">
               <li
               @if(isset($action) && $action == "index")

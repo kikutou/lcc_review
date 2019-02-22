@@ -30,8 +30,6 @@ class CityController extends Controller
   public function index(Request $request){
     $cities = City::all();
 
-
-
     return view("admin.city.index",["cities" => $cities]);
   }
 }
