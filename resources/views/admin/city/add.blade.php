@@ -16,21 +16,26 @@
             <div class="card-body">
               <h3 class="header-title">都市の追加</h3>
               <!-- form start -->
-              <form action="admin_get_country_index" method="post">
+              <form action="{{ route('admin_post_city_add') }}" method="post">
                 @csrf
                 <div class="form-group">
                   <label class="col-form-label">国家の選択</label>
                   <select class="custom-select">
-                    <option selected="selected">ー</option>
-                  </select>
+                    @foreach($countries as $country)
+
+                    <option  name="mtb_country_id" value="{{ $country->id}}" >{{ $country->value }}</option>
+
+                    @endforeach
+                    </select>
+
                 </div>
                 <div class="form-group">
                   <label for="country-name-input" class="col-form-label">都市名</label>
-                  <input class="form-control" type="text" placeholder="都市名を入力してください" id="country-name-input">
+                  <input class="form-control" type="text" placeholder="都市名を入力してください" id="country-name-input" name="value">
                 </div>
                 <div class="form-group">
                   <label for="country-rank-input" class="col-form-label">都市ランク</label>
-                  <input class="form-control" type="text" placeholder="都市ランクを入力してください" id="country-rank-input">
+                  <input class="form-control" type="text" placeholder="都市ランクを入力してください" id="country-rank-input" name="rank">
                 </div>
                 <!-- button -->
                 <div class="row justify-content-md-center">
