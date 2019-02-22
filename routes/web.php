@@ -32,6 +32,7 @@ Route::get("admin/country/index", "Admin\CountryController@index")->name("admin_
 
 // city
 Route::get("admin/city/add", "Admin\CityController@add")->name("admin_get_city_add");
+Route::post("admin/city/add", "Admin\CityController@add")->name("admin_post_city_add");
 Route::get("admin/city/index", "Admin\CityController@index")->name("admin_get_city_index");
 
 //airport

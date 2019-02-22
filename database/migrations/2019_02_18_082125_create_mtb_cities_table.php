@@ -15,8 +15,8 @@ class CreateMtbCitiesTable extends Migration
     {
         Schema::create('mtb_cities', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('mtb_coutry_id');
-              $table->foreign('mtb_coutry_id')->references('id')->on('mtb_countries');
+            $table->unsignedInteger('mtb_country_id');
+              $table->foreign('mtb_country_id')->references('id')->on('mtb_countries');
             $table->text('value');
             $table->integer('rank');
             $table->softDeletes();

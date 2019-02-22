@@ -25,27 +25,15 @@
                 </tr>
               </thead>
               <tbody>
+                @foreach($cities as $city)
                 <tr>
-                  <th scope="row">1</th>
-                  <td>Japan</td>
-                  <td>Tokyo</td>
-                  <td>1</td>
+                  <th scope="row">{{ $city->id }}</th>
+                  <th scope="row">{{ $city->mtb_coutry_id }}</th>
+                  <td>{{ $city->value }}</td>
+                  <td>{{ $city->rank }}</td>
                   <td><i class="ti-pencil-alt">編集</i></td>
                 </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>China</td>
-                  <td>Beijing</td>
-                  <td>1</td>
-                  <td><i class="ti-pencil-alt">編集</i></td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>China</td>
-                  <td>Shanghai</td>
-                  <td>1</td>
-                  <td><i class="ti-pencil-alt">編集</i></td>
-                </tr>
+                @endforeach
               </tbody>
             </table>
           </div>
