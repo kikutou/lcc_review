@@ -1,6 +1,6 @@
-@extends("layouts.admin.layout", ["type" => "country", "action" => "index"])
+@extends("layouts.admin.layout", ["type" => "user", "action" => "index"])
 
-@section("title", "国家一覧")
+@section("title", "会員一覧")
 
 
 @section("content")
@@ -11,30 +11,31 @@
   <div class="col-lg-12 mt-5">
     <div class="card">
       <div class="card-body">
-        <h4 class="header-title">国家一覧</h4>
+        <h4 class="header-title">会員一覧</h4>
         <div class="single-table">
           <div class="table-responsive">
             <table class="table text-center">
               <thead class="text-uppercase bg-dark">
                 <tr class="text-white">
                   <th scope="col">ID</th>
-                  <th scope="col">国家名</th>
-                  <th scope="col">ランク</th>
+                  <th scope="col">メールアドレス</th>
+                  <th scope="col">パスワード</th>
+                  <th scope="col">会員番号</th>
+                  <th scope="col">ニックネーム</th>
                   <th scope="col">操作</th>
                 </tr>
               </thead>
               <tbody>
-
-                @foreach($countries as $country)
+                @foreach($users as $user)
                 <tr>
-                  <th scope="row">{{ $country->id }}</th>
-                  <td>{{ $country->value }}</td>
-                  <td>{{ $country->rank }}</td>
+                  <th scope="row">{{ $user->id }}</th>
+                  <td>{{ $user->mail }}</td>
+                  <td>{{ $user->password }}</td>
+                  <td>{{ $user->code }}</td>
+                  <td>{{ $user->nickname }}</td>
                   <td><i class="ti-pencil-alt">編集</i></td>
                 </tr>
                 @endforeach
-
-
               </tbody>
             </table>
           </div>
