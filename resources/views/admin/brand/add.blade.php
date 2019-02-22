@@ -1,7 +1,7 @@
 @extends("layouts.admin.layout", ["type" => "brand", "action" => "add"])
 <!-- layout继承，php7的函数特有简略表达[]，传递了2个值 -->
 
-@section("title", "航空会社新規作成")
+@section("title", "航空会社の追加")
 
 
 @section("content")
@@ -15,7 +15,7 @@
           <div class="card">
             <div class="card-body">
               <h3 class="header-title">航空会社の新規作成</h3>
-              <form action="postlist" method="post">
+              <form action="admin_post_brand_index" method="post">
 
                 @csrf
 

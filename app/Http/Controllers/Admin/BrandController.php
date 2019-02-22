@@ -9,6 +9,10 @@ class BrandController extends Controller
 {
     public function add(Request $request)
     {
-        return view("admin.brands.add");
+        return view("admin.brand.add");
+    }
+    public function index(Request $request)
+    {
+        return view("admin.brand.index");
     }
 }
