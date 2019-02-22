@@ -16,16 +16,21 @@
             <div class="card-body">
               <h3 class="header-title">国家の追加</h3>
               <!-- form start -->
-
               <form action="{{ route('admin_post_country_add') }}" method="post">
                 @csrf
                 <div class="form-group">
                   <label for="country-name-input" class="col-form-label">国家名</label>
-                  <input class="form-control" type="text" placeholder="国家名を入力してください" id="country-name-input" name="value">
+                  <input class="form-control" type="text" placeholder="国家名を入力してください" id="country-name-input" name="value" value="{{ old('value') }}">
+                  @if($errors->has('value'))
+                    <p>{{ $errors->first('value') }}</p>
+                  @endif
                 </div>
                 <div class="form-group">
                   <label for="country-rank-input" class="col-form-label">国家ランク</label>
-                  <input class="form-control" type="text" placeholder="国家ランクを入力してください" id="country-rank-input" name="rank">
+                  <input class="form-control" type="text" placeholder="国家ランクを入力してください" id="country-rank-input" name="rank" value="{{ old('rank') }}">
+                  @if($errors->has('rank'))
+                    <p>{{ $errors->first('rank') }}</p>
+                  @endif
                 </div>
                 <!-- button -->
                 <div class="row justify-content-md-center">

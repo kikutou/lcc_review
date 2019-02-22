@@ -141,6 +141,44 @@
             </ul>
           </li>
           <li
+          @if(isset($type) && $type == "airport")
+            class="active"
+          @endif
+          >
+            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-link"></i><span>空港情報</span></a>
+            <ul class="collapse">
+              <li
+              @if(isset($action) && $action == "index")
+                class="active"
+              @endif
+              ><a href="{{ route('admin_get_airport_index') }}">空港情報一覧</a></li>
+              <li
+              @if(isset($action) && $action == "add")
+                class="active"
+              @endif
+              ><a href="{{ route('admin_get_airport_add') }}">新規作成</a></li>
+            </ul>
+          </li>
+          <li
+          @if(isset($type) && $type == "category")
+            class="active"
+          @endif
+          >
+            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-link"></i><span>カテゴリ</span></a>
+            <ul class="collapse">
+              <li
+              @if(isset($action) && $action == "index")
+                class="active"
+              @endif
+              ><a href="{{ route('admin_get_category_index') }}">カテゴリ一覧</a></li>
+              <li
+              @if(isset($action) && $action == "add")
+                class="active"
+              @endif
+              ><a href="{{ route('admin_get_category_add') }}">新規作成</a></li>
+            </ul>
+          </li>
+          <li
           @if(isset($type) && $type == "country")
             class="active"
           @endif
