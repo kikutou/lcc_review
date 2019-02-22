@@ -1,4 +1,4 @@
-@extends("layouts.admin.layout", ["type" => "categry", "action" => "index"])
+@extends("layouts.admin.layout", ["type" => "category", "action" => "index"])
 
 @section("title", "カテゴリの追加")
 
