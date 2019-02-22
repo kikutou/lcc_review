@@ -43,4 +43,5 @@ Route::get("admin/airport/index", "Admin\AirportController@index")->name("admin_
 
 //category
 Route::get("admin/category/add","Admin\CategoryController@add")->name("admin_get_category_add");
+Route::post("admin/category/add", "Admin\CategoryController@add")->name("admin_post_category_add");
 Route::get("admin/category/index", "Admin\CategoryController@index")->name("admin_get_category_index");

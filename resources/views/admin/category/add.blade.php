@@ -13,19 +13,29 @@
           <div class="card">
             <div class="card-body">
               <h3 class="header-title">カテゴリの新規作成</h3>
+<<<<<<< HEAD
               <form action="admin_post_category_index" method="post">
+=======
+              <form action="{{ route('admin_post_category_add') }}" method="post">
+>>>>>>> 48ac4510d9202b602d80d4936d9dd00135bd20b8
 
                 @csrf
 
                 <!-- カテゴリ名 -->
                 <div class="form-group">
                   <label for="category-name-text-input" class="col-form-label">カテゴリ名</label>
-                  <input class="form-control" type="text" placeholder="カテゴリ名を入力してください" id="category-name-text-input">
+                  <input class="form-control" type="text" placeholder="カテゴリ名を入力してください" id="category-name-text-input" name="category">
+                  @if($errors->has('category'))
+                    <p>{{ $errors->first('category') }}</p>
+                  @endif
                 </div>
                 <!-- カテゴリ説明文 -->
                 <div class="form-group">
                   <label for="categoryt-introduction-text-input" class="col-form-label">カテゴリ説明</label>
-                  <input class="form-control" type="text" placeholder="カテゴリ説明文を入力してください" id="category-introduction-text-input">
+                  <input class="form-control" type="text" placeholder="カテゴリ説明文を入力してください" id="category-introduction-text-input" name="category_introduction">
+                  @if($errors->has('category_introduction'))
+                    <p>{{ $errors->first('category_introduction') }}</p>
+                  @endif
                 </div>
 
                 <div class="form-group">

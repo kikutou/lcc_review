@@ -1,6 +1,6 @@
 @extends("layouts.admin.layout", ["type" => "city", "action" => "index"])
 
-@section("title", "都市の追加")
+@section("title", "都市一覧")
 
 
 @section("content")
@@ -28,7 +28,7 @@
                 @foreach($cities as $city)
                 <tr>
                   <th scope="row">{{ $city->id }}</th>
-                  <th scope="row">{{ $city->mtb_coutry_id }}</th>
+                  <th scope="row">{{ $city->mtb_country_id }}</th>
                   <td>{{ $city->value }}</td>
                   <td>{{ $city->rank }}</td>
                   <td><i class="ti-pencil-alt">編集</i></td>

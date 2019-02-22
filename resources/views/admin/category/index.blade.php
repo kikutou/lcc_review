@@ -24,24 +24,15 @@
                 </tr>
               </thead>
               <tbody>
+                @foreach($categories as $category)
                 <tr>
-                  <th scope="row">1</th>
-                  <td>A</td>
-                  <td>AAAAAAAAAAAAAAAAAAAAAAAAAA</td>
+                  <th scope="row">{{ $category->id }}</th>
+                  <td>{{ $category->category }}</td>
+                  <td>{{ $category->category_introduction }}</td>
                   <td><i class="ti-pencil-alt">編集</i></td>
                 </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>B</td>
-                  <td>BBBBBBBBBBBBBBBBBBBBBBBBBBB</td>
-                  <td><i class="ti-pencil-alt">編集</i></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>C</td>
-                  <td>CCCCCCCCCCCCCCCCCCCCCCCCCCC</td>
-                  <td><i class="ti-pencil-alt">編集</i></td>
-                </tr>
+                @endforeach
+
               </tbody>
             </table>
           </div>
