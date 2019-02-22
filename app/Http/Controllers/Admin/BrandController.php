@@ -31,15 +31,8 @@ class BrandController extends Controller
     }
   }
 
-
-
-
-
-
-
-
-    public function index(Request $request)
-    {
-        return view("admin.brand.index");
+    public function index(Request $request){
+        $brands = Brand::all();
+        return view("admin.brand.index", ["brands" => $brands]);
     }
 }

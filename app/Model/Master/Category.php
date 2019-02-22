@@ -10,7 +10,7 @@ class Category extends Model
 
   public static $validation_rules = [
     "category" => "required|between:1,15",
-    "category_introduction" => "string|between:0,100"
+    "category_introduction" => "string|between:0,100",
   ];
 
   public static $validation_messages = [
