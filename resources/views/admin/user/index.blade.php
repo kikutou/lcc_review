@@ -31,7 +31,7 @@
                   <td>{{ $user->mail }}</td>
                   <td>{{ $user->code }}</td>
                   <td>{{ $user->nickname }}</td>
-                  <td><i class="ti-pencil-alt">編集</i></td>
+                  <td><a href="{{ route('admin_get_user_edit',['id'=> $user->id]) }}"><i class="ti-pencil-alt">編集</i></a></td>
                 </tr>
                 @endforeach
               </tbody>

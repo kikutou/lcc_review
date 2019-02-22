@@ -51,3 +51,5 @@ Route::get("admin/category/index", "Admin\CategoryController@index")->name("admi
 Route::get("admin/user/add", "Admin\UserController@add")->name("admin_get_user_add");
 Route::post("admin/user/add", "Admin\UserController@add")->name("admin_post_user_add");
 Route::get("admin/user/index", "Admin\UserController@index")->name("admin_get_user_index");
+Route::get("admin/user/{id}/edit", "Admin\UserController@edit")->name("admin_get_user_edit");
+Route::post("admin/user/{id}/edit", "Admin\UserController@edit")->name("admin_post_user_edit");

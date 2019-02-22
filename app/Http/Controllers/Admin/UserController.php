@@ -38,4 +38,27 @@ class UserController extends Controller
 
     return view("admin.user.index", ["users" => $users]);
   }
+
+
+  public function edit(Request $request, $id)
+
+{
+  if($request->isMethod("GET")) {
+    $user = User::where('id',$id) ->first();
+
+    return view("admin.user.edit", ['user' => $user]);
+
+  } else {
+
+
+    $user = User::find($request->user_id);
+    $user->mail = $request->mail;
+    $user->nickname = $request->nickname;
+    $user->save();
+
+
+    return redirect(route("admin_get_user_index"));
+  }
+}
+
 }
