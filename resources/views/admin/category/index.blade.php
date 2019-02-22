@@ -1,6 +1,6 @@
-@extends("layouts.admin.layout", ["type" => "city", "action" => "index"])
+@extends("layouts.admin.layout", ["type" => "categry", "action" => "index"])
 
-@section("title", "都市の追加")
+@section("title", "カテゴリの追加")
 
 
 @section("content")
@@ -11,39 +11,35 @@
   <div class="col-lg-12 mt-5">
     <div class="card">
       <div class="card-body">
-        <h4 class="header-title">都市一覧</h4>
+        <h4 class="header-title">カテゴリ一覧</h4>
         <div class="single-table">
           <div class="table-responsive">
             <table class="table text-center">
               <thead class="text-uppercase bg-dark">
                 <tr class="text-white">
                   <th scope="col">ID</th>
-                  <th scope="col">国家</th>
-                  <th scope="col">都市名</th>
-                  <th scope="col">ランク</th>
+                  <th scope="col">カテゴリ名</th>
+                  <th scope="col">カテゴリ説明</th>
                   <th scope="col">操作</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">1</th>
-                  <td>Japan</td>
-                  <td>Tokyo</td>
-                  <td>1</td>
+                  <td>A</td>
+                  <td>AAAAAAAAAAAAAAAAAAAAAAAAAA</td>
                   <td><i class="ti-pencil-alt">編集</i></td>
                 </tr>
                 <tr>
-                  <th scope="row">1</th>
-                  <td>China</td>
-                  <td>Beijing</td>
-                  <td>1</td>
+                  <th scope="row">2</th>
+                  <td>B</td>
+                  <td>BBBBBBBBBBBBBBBBBBBBBBBBBBB</td>
                   <td><i class="ti-pencil-alt">編集</i></td>
                 </tr>
                 <tr>
-                  <th scope="row">1</th>
-                  <td>China</td>
-                  <td>Shanghai</td>
-                  <td>1</td>
+                  <th scope="row">3</th>
+                  <td>C</td>
+                  <td>CCCCCCCCCCCCCCCCCCCCCCCCCCC</td>
                   <td><i class="ti-pencil-alt">編集</i></td>
                 </tr>
               </tbody>

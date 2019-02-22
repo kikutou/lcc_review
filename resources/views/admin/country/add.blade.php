@@ -16,14 +16,10 @@
             <div class="card-body">
               <h3 class="header-title">国家の追加</h3>
               <!-- form start -->
-<<<<<<< HEAD
+
               <form action="{{ route('admin_post_country_add') }}" method="post">
                 @csrf
 
-=======
-              <form action="admin_get_country_index" method="post">
-                @csrf
->>>>>>> 77b8efab8580e68e596d937bd38b0f1813999963
                 <div class="form-group">
                   <label for="country-name-input" class="col-form-label">国家名</label>
                   <input class="form-control" type="text" placeholder="国家名を入力してください" id="country-name-input" name="value">
