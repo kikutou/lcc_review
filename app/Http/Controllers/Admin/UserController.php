@@ -23,7 +23,7 @@ class UserController extends Controller
       $user = new User;
       $user->mail = $request->mail;
       $user->setPassword($request->password);
-      $user->generateUserCode();
+      $user->code = $user->generateUserCode();
       $user->nickname = $request->nickname;
       $user->save();
 

@@ -12,9 +12,7 @@ class User extends Model
   public static $validation_rules = [
     "mail" => "required|unique:users,mail",
     "password" => "required|between:6,8",
-    "code" => "required|unique:users,code",
     "nickname" => "required|between:1,10",
-    "passwordcheck" => "same:password"
   ];
 
   public static $validation_messages = [
@@ -22,14 +20,26 @@ class User extends Model
     "mail.unique" => "このメールは既に存在している",
     "password.required" => "パスワードを入力してください。",
     "password.between" => ":min桁から:max桁までのパスワードを入力してください。",
-    "code.required" => "会員番号を入力してください。",
-    "code.unique" =>  "この会員番号は既に存在している",
     "nickname.required" => "ニックネームを入力してください。",
     "nickname.between" => ":min桁から:max桁までのニックネームを入力してください。",
-    "passwordcheck.same" => "パスワードを確認してください"
   ];
 
   public function setPassword($password) {
     $this->password = Hash::make($password);
+  }
+
+  public function generateUserCode($prefixLength = 2, $suffixLength = 4)
+  {
+
+    $re = '';
+    $letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    while(strlen($re)<2) {
+      $re .= $letter[rand(0, strlen($letter)-1)]; /** 获取字母 */
+    }
+    list($usec, $sec) = explode(" ", microtime()); /** 获取微秒时间戳 */
+    $microtime = str_replace(".", "", ((float)$usec + (float)$sec)); /** 处理字符串 */
+    $tail = substr($microtime, -4);/** 截取后四位保证不出现重复 */
+    $result = $re.$tail;
+    return $result;
   }
 }

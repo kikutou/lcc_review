@@ -32,20 +32,7 @@
                       <p>{{ $errors->first('password') }}</p>
                     @endif
                 </div>
-                <div class="form-group">
-                    <label for="inputPasswordCheck" class="">パスワード確認</label>
-                    <input type="password" class="form-control" id="inputPasswordCheck" placeholder="パスワードをもう一度入力してください。"  name="passwordcheck">
-                    @if($errors->has('passwordcheck'))
-                      <p>{{ $errors->first('passwordcheck') }}</p>
-                    @endif
-                </div>
-                <div class="form-group">
-                  <label for="code-input" class="col-form-label">会員番号</label>
-                  <input class="form-control" type="text"  id="code-input" name="code" value="{{old('code')}}">
-                  @if($errors->has('code'))
-                    <p>{{ $errors->first('code') }}</p>
-                  @endif
-                </div>
+
                 <div class="form-group">
                   <label for="nickname-input" class="col-form-label">ニックネーム</label>
                   <input class="form-control" type="text"  id="nickname-input" name="nickname" value="{{old('nickname')}}">
