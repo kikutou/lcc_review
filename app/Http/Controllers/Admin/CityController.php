@@ -22,14 +22,16 @@ class CityController extends Controller
       $city->rank = $request->rank;
       $city->save();
 
-      return redirect(route("admin_get_city_index"));
+      return redirect(route("admin_get_city_index", ["cities" => $cities]));
     }
 
 
   }
   public function index(Request $request){
-    $citiess = City::all();
+    $cities = City::all();
 
-    return view("admin.city.index");
+
+
+    return view("admin.city.index",["cities" => $cities]);
   }
 }
