@@ -44,3 +44,8 @@ Route::get("admin/airport/index", "Admin\AirportController@index")->name("admin_
 Route::get("admin/category/add","Admin\CategoryController@add")->name("admin_get_category_add");
 Route::post("admin/category/add", "Admin\CategoryController@add")->name("admin_post_category_add");
 Route::get("admin/category/index", "Admin\CategoryController@index")->name("admin_get_category_index");
+
+// user
+Route::get("admin/user/add", "Admin\UserController@add")->name("admin_get_user_add");
+Route::post("admin/user/add", "Admin\UserController@add")->name("admin_post_user_add");
+Route::get("admin/user/index", "Admin\UserController@index")->name("admin_get_user_index");
