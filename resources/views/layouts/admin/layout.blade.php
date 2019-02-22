@@ -132,7 +132,7 @@
               @if(isset($action) && $action == "index")
                 class="active"
               @endif
-              ><a href="#">航空会社一覧</a></li>
+              ><a href="{{ route('admin_get_brand_index') }}">航空会社一覧</a></li>
               <li
               @if(isset($action) && $action == "add")
                 class="active"

@@ -13,7 +13,7 @@
           <div class="card">
             <div class="card-body">
               <h3 class="header-title">カテゴリの新規作成</h3>
-              <form action="admin_get_category_index" method="post">
+              <form action="admin_post_category_index" method="post">
 
                 @csrf
 

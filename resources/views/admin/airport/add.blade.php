@@ -14,8 +14,8 @@
         <div class="col-12 mt-5">
           <div class="card">
             <div class="card-body">
-              <h3 class="header-title">空港情報の新規作成</h3>
-              <form action="admin_get_airport_index" method="post">
+              <h3 class="header-title">空港情報の追加</h3>
+              <form action="admin_post_airport_index" method="post">
 
                 @csrf
 
