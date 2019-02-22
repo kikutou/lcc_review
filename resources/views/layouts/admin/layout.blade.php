@@ -93,7 +93,7 @@
               @if(isset($action) && $action == "index")
                 class="active"
               @endif
-              ><a href="#">会員一覧</a></li>
+              ><a href="{{ route('admin_get_user_index') }}">会員一覧</a></li>
               <li
               @if(isset($action) && $action == "add")
                 class="active"

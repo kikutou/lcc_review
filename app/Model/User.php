@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Model
 {
@@ -27,4 +28,8 @@ class User extends Model
     "nickname.between" => ":min桁から:max桁までのニックネームを入力してください。",
     "passwordcheck.same" => "パスワードを確認してください"
   ];
+
+  public function setPassword($password) {
+    $this->password = Hash::make($password);
+  }
 }
