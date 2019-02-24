@@ -26,33 +26,18 @@
                 </tr>
               </thead>
               <tbody>
+                @foreach($brands as $brand)
                 <tr>
-                  <th scope="row">1</th>
-                  <td>会社名</td>
-                  <td>URL</td>
-                  <td>紹介文</td>
-                  <td>IMG</td>
-                  <td>紹介図</td>
+                  <th scope="row">{{ $brand->id }}</th>
+                  <td>{{ $brand->brand_name }}</td>
+                  <td>{{ $brand->home_page }}</td>
+                  <td>{{ $brand->brand_introduction }}</td>
+                  <td>{{ $brand->logo_picture }}</td>
+                  <td>{{ $brand->profile_picture }}</td>
                   <td><i class="ti-pencil-alt">編集</i></td>
                 </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>会社名</td>
-                  <td>URL</td>
-                  <td>紹介文</td>
-                  <td>IMG</td>
-                  <td>紹介図</td>
-                  <td><i class="ti-pencil-alt">編集</i></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>会社名</td>
-                  <td>URL</td>
-                  <td>紹介文</td>
-                  <td>IMG</td>
-                  <td>紹介図</td>
-                  <td><i class="ti-pencil-alt">編集</i></td>
-                </tr>
+                @endforeach
+
               </tbody>
             </table>
           </div>

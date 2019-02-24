@@ -4,7 +4,7 @@ namespace App\Model\Master;
 
 use Illuminate\Database\Eloquent\Model;
 
-class brand extends Model
+class Brand extends Model
 {
       protected $table = "brands";
       public static $validation_rules = [
