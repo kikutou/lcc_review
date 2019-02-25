@@ -19,8 +19,8 @@
                 @csrf
                 <input type="hidden" name="user_id" value="{{ $user->id }}">
                 <div class="row justify-content-md-center">
-                  <div class="col col-lg-2">
-                    <h1>会員を削除しても宜しいですか？</h1>
+                  <div class="col col-lg-5">
+                    <h4>会員を削除しても宜しいですか？</h4>
                     <br>
                   </div>
                 </div>
@@ -33,7 +33,7 @@
                 <div class="col-md-auto">
                 </div>
                 <div class="col col-lg-2">
-                  <button type="button" class="btn btn-primary mb-3"><a href="{{ route('admin_get_user_index') }}">戻り</a></button>
+                  <a href="{{ route('admin_get_user_index') }}"><button type="button" class="btn btn-rounded btn-primary mb-3">戻り</button></a>
                 </div>
               </div>
             </form>
