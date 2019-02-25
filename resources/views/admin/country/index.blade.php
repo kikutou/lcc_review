@@ -30,7 +30,8 @@
                   <th scope="row">{{ $country->id }}</th>
                   <td>{{ $country->value }}</td>
                   <td>{{ $country->rank }}</td>
-                  <td><i class="ti-pencil-alt">編集</i></td>
+                  <td><a href="{{ route('admin_get_country_edit',['id'=> $country->id]) }}"><i class="ti-pencil-alt">編集</i></a>
+                  <a href="{{ route('admin_get_country_delete',['id'=> $country->id]) }}"><i class="ti-trash">削除</i></a></td>
                 </tr>
                 @endforeach
 

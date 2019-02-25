@@ -39,9 +39,9 @@ class UserController extends Controller
     return view("admin.user.index", ["users" => $users]);
   }
 
+
 //edit
   public function edit(Request $request, $id)
-
 {
   if($request->isMethod("GET")) {
     $user = User::where('id',$id) ->first();
@@ -49,15 +49,15 @@ class UserController extends Controller
     return view("admin.user.edit", ['user' => $user]);
 
   } else {
-
-
+    $validator = Validator::make($request->all(), User::$validation_rules_for_edit, User::$validation_messages_for_edit);
+    if($validator->fails()) {
+      return redirect(route("admin_get_user_edit", ['id' => $request->id]))->withErrors($validator)->withInput();
+    }
 
     $user = User::find($request->user_id);
     $user->mail = $request->mail;
     $user->nickname = $request->nickname;
     $user->save();
-
-
     return redirect(route("admin_get_user_index"));
   }
 
