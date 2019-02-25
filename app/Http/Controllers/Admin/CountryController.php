@@ -46,11 +46,13 @@ class CountryController extends Controller
       return view('admin.country.edit', ['country' => $country]);
 
     }else{
-      $validator = Validator::make($request->all(), Country::$validation_rules, Country::$validation_messages);
-      if($validator->fails()) {
-        return redirect(route("admin_get_country_edit"),['id' => $request->id])->withErrors($validator)->withInput();
-      }
       $country = Country::find($request->country_id);
+      if ($country->rank != $request->rank) {
+        $validator = Validator::make($request->all(), Country::$validation_rules, Country::$validation_messages);
+        if($validator->fails()) {
+          return redirect(route("admin_get_country_edit",['id' => $request->id]))->withErrors($validator)->withInput();
+        }
+      }
       $country->value = $request->value;
       $country->rank = $request->rank;
       $country->save();

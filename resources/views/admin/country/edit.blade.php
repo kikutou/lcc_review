@@ -16,7 +16,7 @@
             <div class="card-body">
               <h3 class="header-title">国の編集</h3>
               <!-- form start -->
-              <form action="{{route('admin_post_country_edit', ['id' => $country->id])}}" method="post">
+              <form action="{{route('admin_post_country_edit', ['id' => $country->id] )}}" method="post">
                 @csrf
                 <input type="hidden" name="country_id" value="{{ $country->id }}">
 
@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group">
                   <label for="rank-input" class="col-form-label">ランク</label>
-                  <input class="form-control" type="text"  id="rank-input"  name="rank" value="{{ $country->rank }}">
+                  <input class="form-control" type="text"  id="rank-input"  name="rank" value="{{ old('rank', $country->rank) }}">
                   @if($errors->has('rank'))
                     <p>{{ $errors->first('rank') }}</p>
                   @endif

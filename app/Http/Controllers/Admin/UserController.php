@@ -49,12 +49,13 @@ class UserController extends Controller
     return view("admin.user.edit", ['user' => $user]);
 
   } else {
-    $validator = Validator::make($request->all(), User::$validation_rules_for_edit, User::$validation_messages_for_edit);
-    if($validator->fails()) {
-      return redirect(route("admin_get_user_edit", ['id' => $request->id]))->withErrors($validator)->withInput();
-    }
-
     $user = User::find($request->user_id);
+    if ($user->mail != $request->mail) {
+      $validator = Validator::make($request->all(), User::$validation_rules_for_edit, User::$validation_messages_for_edit);
+      if($validator->fails()) {
+        return redirect(route("admin_get_user_edit", ['id' => $request->id]))->withErrors($validator)->withInput();
+      }
+    }
     $user->mail = $request->mail;
     $user->nickname = $request->nickname;
     $user->save();

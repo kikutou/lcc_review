@@ -22,14 +22,14 @@
 
                 <div class="form-group">
                     <label for="email-input" class="col-form-label">メールアドレス</label>
-                    <input class="form-control" type="email" value="{{ old('email', $user->mail) }}" id="email-input" name="mail">
+                    <input class="form-control" type="email" value="{{ old('mail', $user->mail) }}" id="email-input" name="mail">
                     @if($errors->has('mail'))
                       <p>{{ $errors->first('mail') }}</p>
                     @endif
                 </div>
                 <div class="form-group">
                   <label for="nickname-input" class="col-form-label">ニックネーム</label>
-                  <input class="form-control" type="text"  id="nickname-input"  name="nickname" value="{{ $user->nickname }}">
+                  <input class="form-control" type="text"  id="nickname-input"  name="nickname" value="{{old('nickname', $user->nickname) }}">
                   @if($errors->has('nickname'))
                     <p>{{ $errors->first('nickname') }}</p>
                   @endif
