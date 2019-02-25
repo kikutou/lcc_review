@@ -33,6 +33,11 @@ Route::post("admin/brand/{id}/edit", "Admin\BrandController@edit")->name("admin_
 Route::get("admin/country/add", "Admin\CountryController@add")->name("admin_get_country_add");
 Route::post("admin/country/add", "Admin\CountryController@add")->name("admin_post_country_add");
 Route::get("admin/country/index", "Admin\CountryController@index")->name("admin_get_country_index");
+Route::get("admin/country/{id}/edit", "Admin\CountryController@edit")->name("admin_get_country_edit");
+Route::post("admin/country/{id}/edit", "Admin\CountryController@edit")->name("admin_post_country_edit");
+Route::get("admin/country/{id}/delete", "Admin\CountryController@delete")->name("admin_get_country_delete");
+Route::post("admin/country/{id}/delete", "Admin\CountryController@delete")->name("admin_post_country_delete");
+
 
 // city
 Route::get("admin/city/add", "Admin\CityController@add")->name("admin_get_city_add");
