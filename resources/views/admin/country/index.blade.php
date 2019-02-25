@@ -39,6 +39,12 @@
               </tbody>
             </table>
           </div>
+        </div><br>
+        <!-- button -->
+        <div class="row justify-content-md-center">
+            <div class="col-lg-2">
+              <a href="{{ route('admin_get_country_add') }}"><button type="button" class="btn btn-primary mb-3">追加</button></a>
+            </div>
         </div>
       </div>
     </div>
