@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterCategoriesTable extends Migration
+class AddCategoryNameColumnToCategories extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class AlterCategoriesTable extends Migration
      */
     public function up()
     {
-        //
         Schema::table('mtb_categories', function (Blueprint $table) {
-            $table->renameColumn('category_name', 'category_name');
-            });
+            //
+            $table->renameColumn('category', 'category_name');
+        });
     }
 
     /**
@@ -26,8 +26,7 @@ class AlterCategoriesTable extends Migration
      */
     public function down()
     {
-        //
-        Schema::table('mtb_categories', function (Blueprint $table) {
+        Schema::table('categories', function (Blueprint $table) {
             //
         });
     }
