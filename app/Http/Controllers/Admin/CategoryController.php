@@ -20,10 +20,10 @@ class CategoryController extends Controller
         return redirect(route("admin_get_category_add"))->withErrors($validator)->withInput();
       }
 
-      $categories = new Category;
-      $categories->category = $request->category;
-      $categories->category_introduction = $request->category_introduction;
-      $categories->save();
+      $category = new Category;
+      $category->category_name = $request->category_name;
+      $category->category_introduction = $request->category_introduction;
+      $category->save();
 
       return redirect(route("admin_get_category_index"));
     }
@@ -36,4 +36,24 @@ class CategoryController extends Controller
     return view("admin.category.index", ["categories" => $categories]);
   }
 
+    public function edit(Request $request, $id)
+
+  {
+    if($request->isMethod("GET")) {
+      $category = Category::where('id',$id) ->first();
+
+      return view("admin.category.edit", ['category' => $category]);
+
+    } else {
+
+
+      $category = Category::find($request->category_id);
+      $category->category_name = $request->category_name;
+      $category->category_introduction = $request->category_introduction;
+      $category->save();
+
+
+      return redirect(route("admin_get_category_index"));
+    }
+  }
 }

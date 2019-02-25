@@ -26,6 +26,8 @@ Route::get("admin/post/index","Admin\PostController@index")->name('admin_get_pos
 Route::get("admin/brand/add", "Admin\BrandController@add")->name("admin_get_brand_add");
 Route::post("admin/brand/add", "Admin\BrandController@add")->name("admin_post_brand_add");
 Route::get("admin/brand/index", "Admin\BrandController@index")->name("admin_get_brand_index");
+Route::get("admin/brand/{id}/edit", "Admin\BrandController@edit")->name("admin_get_brand_edit");
+Route::post("admin/brand/{id}/edit", "Admin\BrandController@edit")->name("admin_post_brand_edit");
 
 // country
 Route::get("admin/country/add", "Admin\CountryController@add")->name("admin_get_country_add");
@@ -46,6 +48,8 @@ Route::get("admin/airport/index", "Admin\AirportController@index")->name("admin_
 Route::get("admin/category/add","Admin\CategoryController@add")->name("admin_get_category_add");
 Route::post("admin/category/add", "Admin\CategoryController@add")->name("admin_post_category_add");
 Route::get("admin/category/index", "Admin\CategoryController@index")->name("admin_get_category_index");
+Route::get("admin/category/{id}/edit", "Admin\CategoryController@edit")->name("admin_get_category_edit");
+Route::post("admin/category/{id}/edit", "Admin\CategoryController@edit")->name("admin_post_category_edit");
 
 // user
 Route::get("admin/user/add", "Admin\UserController@add")->name("admin_get_user_add");

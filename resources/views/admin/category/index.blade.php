@@ -27,9 +27,9 @@
                 @foreach($categories as $category)
                 <tr>
                   <th scope="row">{{ $category->id }}</th>
-                  <td>{{ $category->category }}</td>
+                  <td>{{ $category->category_name }}</td>
                   <td>{{ $category->category_introduction }}</td>
-                  <td><i class="ti-pencil-alt">編集</i></td>
+                  <td><a href="{{ route('admin_get_category_edit',['id'=> $category->id]) }}"><i class="ti-pencil-alt">編集</i></a></td>
                 </tr>
                 @endforeach
 
