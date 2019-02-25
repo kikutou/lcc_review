@@ -4,7 +4,7 @@ namespace App\Model\Master;
 
 use Illuminate\Database\Eloquent\Model;
 
-class brand extends Model
+class Brand extends Model
 {
       protected $table = "brands";
       public static $validation_rules = [
@@ -20,6 +20,7 @@ class brand extends Model
         "brand_name.between" => ":min以上:max以内の航空会社名を入力してください。",
         "logo_picture.image" => "図を挿入してください。",
         "profile_picture.image" => "図を挿入してください。",
+        "brand_introduction.string" => "説明文を必ず入力してください。",
         "brand_introduction.between" => "100字以内の説明を入力してください。",
         "home_page.url" => "正しい形式のurlを入力してください。",
       ];
