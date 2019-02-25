@@ -7,7 +7,7 @@
 
 <div class="main-content-inner">
   <div class="row">
-    <div class="col-lg-6 col-ml-12">
+    <div class="col-lg-12 col-ml-12">
       <div class="row">
 
         <!-- Textual inputs start -->
@@ -20,7 +20,7 @@
                 <input type="hidden" name="category_id" value="{{ $category->id }}">
                 <div class="row justify-content-md-center">
                   <div class="col col-lg-5">
-                    <h4>カテゴリを削除しても宜しいですか？</h4>
+                    <h5>カテゴリを削除しても宜しいですか？</h5>
                     <br>
                   </div>
                 </div>
