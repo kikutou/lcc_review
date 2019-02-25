@@ -32,8 +32,8 @@
                   <td>{{ $brand->brand_name }}</td>
                   <td>{{ $brand->home_page }}</td>
                   <td>{{ $brand->brand_introduction }}</td>
-                  <td>{{ $brand->logo_picture }}</td>
-                  <td>{{ $brand->profile_picture }}</td>
+                  <td><img src="{{ asset($brand->logo_picture) }}" alt="logo" width="200" ></td>
+                  <td><img src="{{ asset($brand->profile_picture) }}" alt="profile" width="200"></td>
                   <td><a href="{{ route('admin_get_brand_edit',['id'=> $brand->id]) }}"><i class="ti-pencil-alt">編集</i></a></td>
                 </tr>
                 @endforeach

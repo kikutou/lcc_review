@@ -15,7 +15,7 @@
           <div class="card">
             <div class="card-body">
               <h3 class="header-title">航空会社の新規作成</h3>
-              <form action="{{ route('admin_post_brand_add') }}" method="post">
+              <form action="{{ route('admin_post_brand_add') }}" method="post" enctype="multipart/form-data">
 
                 @csrf
 

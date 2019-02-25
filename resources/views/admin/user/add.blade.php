@@ -50,7 +50,7 @@
                     <div class="col col-lg-2">
                       <input type="reset" class="btn btn-rounded btn-danger mb-3" value="Reset">
                     </div>
-                    
+
                 </div>
               </form>
               <!-- form end -->

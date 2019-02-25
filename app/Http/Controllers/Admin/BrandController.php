@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Master\Brand;
 use Validator;
+
 class BrandController extends Controller
 {
   public function add(Request $request){
@@ -19,10 +20,15 @@ class BrandController extends Controller
         return redirect(route("admin_get_brand_add"))->withErrors($validator)->withInput();
       }
 
+      $logo_path = $request->file('logo_picture')->store('public/logo_pictures');
+      $profile_path = $request->file('profile_picture')->store('public/profile_pictures');
+
+  
+
       $brand = new Brand;
       $brand->brand_name = $request->brand_name;
-      $brand->logo_picture = $request->logo_picture;
-      $brand->profile_picture = $request->profile_picture;
+      $brand->logo_picture = str_replace("public", "storage", $logo_path);
+      $brand->profile_picture = str_replace("public", "storage", $profile_path);
       $brand->brand_introduction = $request->brand_introduction;
       $brand->home_page = $request->home_page;
       $brand->save();
