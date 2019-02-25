@@ -1,4 +1,4 @@
-@extends("layouts.admin.layout", ["type" => "user", "action" => "add"])
+@extends("layouts.admin.layout", ["type" => "user"])
 
 @section("title", "会員の編集")
 
@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group">
                   <label for="nickname-input" class="col-form-label">ニックネーム</label>
-                  <input class="form-control" type="text"  id="nickname-input" placeholder="ニックネームを10桁まで入力してください。" name="nickname" value="{{ $user->nickname }}">
+                  <input class="form-control" type="text"  id="nickname-input"  name="nickname" value="{{ $user->nickname }}">
                   @if($errors->has('nickname'))
                     <p>{{ $errors->first('nickname') }}</p>
                   @endif

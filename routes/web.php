@@ -53,3 +53,5 @@ Route::post("admin/user/add", "Admin\UserController@add")->name("admin_post_user
 Route::get("admin/user/index", "Admin\UserController@index")->name("admin_get_user_index");
 Route::get("admin/user/{id}/edit", "Admin\UserController@edit")->name("admin_get_user_edit");
 Route::post("admin/user/{id}/edit", "Admin\UserController@edit")->name("admin_post_user_edit");
+Route::get("admin/user/{id}/delete", "Admin\UserController@delete")->name("admin_get_user_delete");
+Route::post("admin/user/{id}/delete", "Admin\UserController@delete")->name("admin_post_user_delete");
