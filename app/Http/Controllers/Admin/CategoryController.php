@@ -56,4 +56,17 @@ class CategoryController extends Controller
       return redirect(route("admin_get_category_index"));
     }
   }
+  public function delete(Request $request, $id)
+
+  {
+  if($request->isMethod("GET")) {
+    $category = Category::where('id',$id) ->first();
+
+    return view("admin.category.delete", ['category' => $category]);
+
+  } else {
+    $category = Category::find($request->category_id)->delete();
+    return redirect(route("admin_get_category_index"));
+  }
+  }
 }

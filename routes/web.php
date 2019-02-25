@@ -50,6 +50,8 @@ Route::post("admin/category/add", "Admin\CategoryController@add")->name("admin_p
 Route::get("admin/category/index", "Admin\CategoryController@index")->name("admin_get_category_index");
 Route::get("admin/category/{id}/edit", "Admin\CategoryController@edit")->name("admin_get_category_edit");
 Route::post("admin/category/{id}/edit", "Admin\CategoryController@edit")->name("admin_post_category_edit");
+Route::get("admin/category/{id}/delete", "Admin\CategoryController@delete")->name("admin_get_category_delete");
+Route::post("admin/category/{id}/delete", "Admin\CategoryController@delete")->name("admin_post_category_delete");
 
 // user
 Route::get("admin/user/add", "Admin\UserController@add")->name("admin_get_user_add");

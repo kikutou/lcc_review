@@ -29,7 +29,8 @@
                   <th scope="row">{{ $category->id }}</th>
                   <td>{{ $category->category_name }}</td>
                   <td>{{ $category->category_introduction }}</td>
-                  <td><a href="{{ route('admin_get_category_edit',['id'=> $category->id]) }}"><i class="ti-pencil-alt">編集</i></a></td>
+                  <td><a href="{{ route('admin_get_category_edit',['id'=> $category->id]) }}"><i class="ti-pencil-alt">編集</i></a>
+                  <a href="{{ route('admin_get_category_delete',['id'=> $category->id]) }}"><i class="ti-trash">削除</i></a></td>
                 </tr>
                 @endforeach
 

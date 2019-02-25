@@ -17,7 +17,7 @@ class CreateMtbAirportStatusTable extends Migration
             $table->increments('id');
             $table->text('airport_name');
             $table->unsignedInteger('mtb_city_id');
-              $table->foreign('mtb_city_id')->references('id')->on('mtb_cities');
+            $table->foreign('mtb_city_id')->references('id')->on('mtb_cities');
             $table->softDeletes();
             $table->timestamps();
         });

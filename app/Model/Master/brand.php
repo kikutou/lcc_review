@@ -24,4 +24,5 @@ class Brand extends Model
         "brand_introduction.between" => "100字以内の説明を入力してください。",
         "home_page.url" => "正しい形式のurlを入力してください。",
       ];
+
 }
