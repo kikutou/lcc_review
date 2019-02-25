@@ -19,13 +19,13 @@ class BrandController extends Controller
         return redirect(route("admin_get_brand_add"))->withErrors($validator)->withInput();
       }
 
-      $categories = new Brand;
-      $categories->brand_name = $request->brand_name;
-      $categories->logo_picture = $request->logo_picture;
-      $categories->profile_picture = $request->profile_picture;
-      $categories->brand_introduction = $request->brand_introduction;
-      $categories->home_page = $request->home_page;
-      $categories->save();
+      $brand = new Brand;
+      $brand->brand_name = $request->brand_name;
+      $brand->logo_picture = $request->logo_picture;
+      $brand->profile_picture = $request->profile_picture;
+      $brand->brand_introduction = $request->brand_introduction;
+      $brand->home_page = $request->home_page;
+      $brand->save();
 
       return redirect(route("admin_get_brand_index"));
     }

@@ -3,6 +3,7 @@
 namespace App\Model\Master;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model
 {
@@ -19,4 +20,12 @@ class Category extends Model
     "category_introduction.string" => "文字を入力してください。",
     "category_introduction.between" => "100字以内の説明を入力してください。",
   ];
+  use SoftDeletes;
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 }
