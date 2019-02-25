@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Master\Brand;
+use Illuminate\Support\Facades\Storage;
 use Validator;
 
 class BrandController extends Controller
@@ -22,8 +23,6 @@ class BrandController extends Controller
 
       $logo_path = $request->file('logo_picture')->store('public/logo_pictures');
       $profile_path = $request->file('profile_picture')->store('public/profile_pictures');
-
-  
 
       $brand = new Brand;
       $brand->brand_name = $request->brand_name;

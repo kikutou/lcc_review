@@ -45,30 +45,24 @@
                 </div>
 
                 <!-- 航空会社ロゴファイル -->
-                <div class="form-group">
-                  <label  class="col-form-label">航空会社ロゴ追加</label>
-                  <div class="input-group mb-3">
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="brand-logo-pic" name="logo_picture" value="{{old('logo_picture')}}">
-                      @if($errors->has('logo_picture'))
-                        <p>{{ $errors->first('logo_picture') }}</p>
-                      @endif
-                      <label class="custom-file-label" for="brand-logo-pic">ロゴをせんたくしてください。</label>
-                    </div>
-                  </div>
+              <div class="form-group">
+                <label  class="col-form-label" for="brand-logo-pic">ロゴ追加</label>
+                <div class="input-group mb-3">
+                  <input type="file" name="logo_picture" value="{{old('logo_picture')}}" id="brand-logo-pic">
+                    @if($errors->has('logo_picture'))
+                      <p>{{ $errors->first('logo_picture') }}</p>
+                    @endif
                 </div>
+              </div>
 
                 <!-- 航空会社紹介ファイル -->
                 <div class="form-group">
-                  <label  class="col-form-label">航空会社紹介画像追加</label>
+                  <label  class="col-form-label" for="brand-image-pic">紹介画像追加</label>
                   <div class="input-group mb-3">
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="brand-image-pic" name="profile_picture" value="{{old('profile_picture')}}">
+                      <input type="file" id="brand-image-pic" name="profile_picture" value="{{old('profile_picture')}}">
                       @if($errors->has('profile_picture'))
                         <p>{{ $errors->first('profile_picture') }}</p>
                       @endif
-                      <label class="custom-file-label" for="brand-image-pic">紹介画像をせんたくしてください。</label>
-                    </div>
                   </div>
                 </div>
 

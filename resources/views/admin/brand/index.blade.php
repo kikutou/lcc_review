@@ -17,11 +17,11 @@
               <thead class="text-uppercase bg-dark">
                 <tr class="text-white">
                   <th scope="col">ID</th>
-                  <th scope="col">航空会社名</th>
-                  <th scope="col">航空会社サイト</th>
-                  <th scope="col">航空会紹介文</th>
-                  <th scope="col">航空会社ロゴ</th>
-                  <th scope="col">航空会社紹介図</th>
+                  <th scope="col">会社名</th>
+                  <th scope="col">公式サイト</th>
+                  <th scope="col">紹介</th>
+                  <th scope="col">ロゴ</th>
+                  <th scope="col">紹介図</th>
                   <th scope="col">操作</th>
                 </tr>
               </thead>
@@ -32,9 +32,10 @@
                   <td>{{ $brand->brand_name }}</td>
                   <td>{{ $brand->home_page }}</td>
                   <td>{{ $brand->brand_introduction }}</td>
-                  <td><img src="{{ asset($brand->logo_picture) }}" alt="logo" width="200" ></td>
+                  <td><img src="{{ asset($brand->logo_picture) }}" alt="logo" width="100" ></td>
                   <td><img src="{{ asset($brand->profile_picture) }}" alt="profile" width="200"></td>
                   <td><a href="{{ route('admin_get_brand_edit',['id'=> $brand->id]) }}"><i class="ti-pencil-alt">編集</i></a></td>
+                  <i class="ti-trash">削除</i>
                 </tr>
                 @endforeach
 
