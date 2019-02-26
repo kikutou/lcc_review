@@ -26,7 +26,7 @@ class AddCategoryNameColumnToCategories extends Migration
      */
     public function down()
     {
-        Schema::table('categories', function (Blueprint $table) {
+        Schema::table('mtb_categories', function (Blueprint $table) {
             //
         });
     }
