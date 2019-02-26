@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class InspectStatus extends Model
 {
     protected $table = "mtb_inspect_statuses";
-    return $this->belongsToMany('App\Model\Comment');
+
+    //conect comments
+    public function comments(){
+        return $this->hasMany('App\Model\Comment','mtb_inspect_status_id');
+    }
 }
