@@ -44,7 +44,7 @@ class BrandController extends Controller
 
   {
     if($request->isMethod("GET")) {
-      $brand = User::where('id',$id) ->first();
+      $brand = Brand::where('id',$id) ->first();
 
       return view("admin.brand.edit", ['brand' => $brand]);
 
@@ -62,5 +62,18 @@ class BrandController extends Controller
 
       return redirect(route("admin_get_brand_index"));
     }
+  }
+  public function delete(Request $request, $id)
+
+  {
+  if($request->isMethod("GET")) {
+    $brand = Brand::where('id',$id) ->first();
+
+    return view("admin.brand.delete", ['brand' => $brand]);
+
+  } else {
+    $brand = Brand::find($request->brand_id)->delete();
+    return redirect(route("admin_get_brand_index"));
+  }
   }
 }

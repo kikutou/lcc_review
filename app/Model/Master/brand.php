@@ -3,6 +3,7 @@
 namespace App\Model\Master;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Brand extends Model
 {
@@ -24,5 +25,13 @@ class Brand extends Model
         "brand_introduction.between" => "100字以内の説明を入力してください。",
         "home_page.url" => "正しい形式のurlを入力してください。",
       ];
+      use SoftDeletes;
+
+        /**
+         * The attributes that should be mutated to dates.
+         *
+         * @var array
+         */
+        protected $dates = ['deleted_at'];
 
 }

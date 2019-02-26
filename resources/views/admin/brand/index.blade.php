@@ -1,6 +1,6 @@
 @extends("layouts.admin.layout", ["type" => "brand", "action" => "index"])
 
-@section("title", "航空会社の追加")
+@section("title", "航空会社一覧")
 
 
 @section("content")
@@ -34,8 +34,9 @@
                   <td>{{ $brand->brand_introduction }}</td>
                   <td><img src="{{ asset($brand->logo_picture) }}" alt="logo" width="100" ></td>
                   <td><img src="{{ asset($brand->profile_picture) }}" alt="profile" width="200"></td>
-                  <td><a href="{{ route('admin_get_brand_edit',['id'=> $brand->id]) }}"><i class="ti-pencil-alt">編集</i></a></td>
-                  <i class="ti-trash">削除</i>
+                  <td><a href="{{ route('admin_get_brand_edit',['id'=> $brand->id]) }}"><i class="ti-pencil-alt">編集</i></a>
+                    <a href="{{ route('admin_get_brand_delete',['id'=> $brand->id]) }}"><i class="ti-trash">削除</i></a>
+                  </td>
                 </tr>
                 @endforeach
 

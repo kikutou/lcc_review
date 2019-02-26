@@ -28,6 +28,8 @@ Route::post("admin/brand/add", "Admin\BrandController@add")->name("admin_post_br
 Route::get("admin/brand/index", "Admin\BrandController@index")->name("admin_get_brand_index");
 Route::get("admin/brand/{id}/edit", "Admin\BrandController@edit")->name("admin_get_brand_edit");
 Route::post("admin/brand/{id}/edit", "Admin\BrandController@edit")->name("admin_post_brand_edit");
+Route::get("admin/brand/{id}/delete", "Admin\BrandController@delete")->name("admin_get_brand_delete");
+Route::post("admin/brand/{id}/delete", "Admin\BrandController@delete")->name("admin_post_brand_delete");
 
 // country
 Route::get("admin/country/add", "Admin\CountryController@add")->name("admin_get_country_add");
