@@ -22,8 +22,8 @@ class Country extends Model
       "rank.integer" => "ランクを数字で入力してください。",
 
     ];
-    public function mtb_cities(){
-      return $this->hasMany('App\Model\Master\City','mtb_country_id','mtb_country_id');
+    public function city(){
+      return $this->hasMany('App\Model\Master\City','mtb_country_id');
 
     }
 

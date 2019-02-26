@@ -8,7 +8,7 @@ class City extends Model
 {
     protected $table = "mtb_cities";
 
-    public function mtb_airports(){
+    public function airport(){
       return $this->hasMany('App\Model\Master\Airport','mtb_city_id');
 
     }
