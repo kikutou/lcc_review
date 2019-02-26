@@ -33,18 +33,11 @@
                   <td>{{ $brand->home_page }}</td>
                   <td>{{ $brand->brand_introduction }}</td>
                   <td><img src="{{ asset($brand->logo_picture) }}" alt="logo" width="100" ></td>
-<<<<<<< HEAD
                   <td><img src="{{ asset($brand->profile_picture) }}" alt="profile" width="200"></td>
                   <td><a href="{{ route('admin_get_brand_edit',['id'=> $brand->id]) }}"><i class="ti-pencil-alt">編集</i></a>
                     <a href="{{ route('admin_get_brand_delete',['id'=> $brand->id]) }}"><i class="ti-trash">削除</i></a>
                   </td>
-=======
-                  <td><img src="{{ asset($brand->profile_picture) }}" alt="profile" width="100"></td>
-                  <td><a href="{{ route('admin_get_brand_edit',['id'=> $brand->id]) }}"><i class="ti-pencil-alt">編集</i></a>
-                    <i class="ti-trash">削除</i>
-                  </td>
 
->>>>>>> a850f314a4da26e24a7f7c0117c4887d49e3d11b
                 </tr>
                 @endforeach
 
