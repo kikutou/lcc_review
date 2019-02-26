@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Master\Brand;
+use App\Model\Brand;
 use Illuminate\Support\Facades\Storage;
 use Validator;
 
