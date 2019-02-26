@@ -13,7 +13,7 @@ class Flight extends Model
 
     }
     public function mtb_airports(){
-      return $this->belongsTo('App\Model\Msater\Airport');
+      return $this->belongsTo('App\Model\Msater\Airport','mtb_airport_id');
 
     }
     public function brands(){

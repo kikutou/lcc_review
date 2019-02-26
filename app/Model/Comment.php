@@ -21,6 +21,6 @@ class Comment extends Model
     }
     //connect status
     public function mtb_inspect_status(){
-      return $this->belongsTo('App\Model\Master\InspectStatus');
+      return $this->belongsTo('App\Model\Master\InspectStatus','mtb_inspect_status_id');
     }
 }

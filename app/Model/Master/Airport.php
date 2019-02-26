@@ -14,7 +14,7 @@ class Airport extends Model
 
   }
   public function mtb_cities(){
-    return $this->belongsTo('App\Model\Master\City');
+    return $this->belongsTo('App\Model\Master\City','mtb_city_id');
 
   }
 }

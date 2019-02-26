@@ -13,6 +13,6 @@ class UserDetail extends Model
     }
     //conect with table address
     public function mtb_address_prefecture(){
-      return this->belongsTo('App\Model\Master\AddressPrefecture');
+      return this->belongsTo('App\Model\Master\AddressPrefecture','mtb_address_prefecture_id');
     }
 }
