@@ -11,18 +11,18 @@ use App\Model\Master\City;
 class CityController extends Controller
 {
   public function add(Request $request){
-    $country = Country::all();
 
     if ($request->isMethod("GET")) {
-      return view("admin.city.add",['countries'=>$country]);
+      $countries = Country::all();
+      return view("admin.city.add",['countries'=>$countries]);
     }else{
       $city = new City;
-      $city->mtb_country_id = $request->country;
+      $city->mtb_country_id = $request->mtb_country_id;
       $city->value = $request->value;
       $city->rank = $request->rank;
       $city->save();
 
-      return redirect(route("admin_get_city_index", ["cities" => $cities]));
+      return redirect(route("admin_get_city_index"));
     }
 
 

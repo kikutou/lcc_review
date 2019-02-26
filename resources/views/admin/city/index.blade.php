@@ -28,7 +28,7 @@
                 @foreach($cities as $city)
                 <tr>
                   <th scope="row">{{ $city->id }}</th>
-                  <th scope="row">{{ $city->mtb_country_id }}</th>
+                  <th scope="row">{{ $city->country->value }}</th>
                   <td>{{ $city->value }}</td>
                   <td>{{ $city->rank }}</td>
                   <td><i class="ti-pencil-alt">編集</i></td>

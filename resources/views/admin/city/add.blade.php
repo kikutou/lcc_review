@@ -20,10 +20,14 @@
                 @csrf
                 <div class="form-group">
                   <label class="col-form-label">国家の選択</label>
-                  <select class="custom-select">
+                  <select class="custom-select" name="mtb_country_id">
                     @foreach($countries as $country)
 
-                    <option  name="mtb_country_id" value="{{ $country->id}}" >{{ $country->value }}</option>
+                    <option value="{{ $country->id}}"
+                      @if(old('mtb_country_id') == $country->id)
+                        selected
+                      @endif
+                      >{{ $country->value }}</option>
 
                     @endforeach
                     </select>

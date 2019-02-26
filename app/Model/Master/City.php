@@ -12,9 +12,9 @@ class City extends Model
       return $this->hasMany('App\Model\Master\Airport','mtb_city_id');
 
     }
-    public function mtb_countries(){
-      return $this->belongsTo('App\Model\Master\Cuntry');
-
+    public function country()
+    {
+      return $this->belongsTo('App\Model\Master\Country', "mtb_country_id");
     }
 
 
