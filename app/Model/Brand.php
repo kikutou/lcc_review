@@ -43,7 +43,7 @@ class Brand extends Model
 
         }
         public function flights(){
-          return $this->hasMany('App\Model\Flight');
+          return $this->hasMany('App\Model\Flight','brand_id');
 
         }
 

@@ -23,7 +23,7 @@ class Country extends Model
 
     ];
     public function mtb_cities(){
-      return $this->hasMany('App\Model\Master\City','coutry_id');
+      return $this->hasMany('App\Model\Master\City','mtb_country_id','mtb_country_id');
 
     }
 
