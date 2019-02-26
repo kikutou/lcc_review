@@ -28,4 +28,9 @@ class Category extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    //connect posts
+    public function posts(){
+      return $this->hasMany('App\Model\Post','mtb_category_id');
+    }
 }

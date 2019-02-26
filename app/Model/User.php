@@ -64,8 +64,11 @@ class User extends Model
 
   //conect with table user_details
   public function user_detail(){
-    return this->hasOne('App\Model\UserDetail');
-
+    return $this->hasOne('App\Model\UserDetail');
+  }
+  //conect comments
+  public function comments(){
+    return $tihs->hasMany('App\Model\Comment');
   }
 
 }
