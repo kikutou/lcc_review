@@ -15,7 +15,7 @@ class CreateMtbCategoriesTable extends Migration
     {
         Schema::create('mtb_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('category');
+            $table->text('category_name');
             $table->text('category_introduction')->nullable();
             $table->softDeletes();
             $table->timestamps();
