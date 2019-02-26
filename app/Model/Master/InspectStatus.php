@@ -4,7 +4,7 @@ namespace App\Model\Master;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Airport extends Model
+class InspectStatus extends Model
 {
-  protected $table = "mtb_airports"; 
+    protected $table = "mtb_inspect_statuses";
 }

@@ -61,4 +61,11 @@ class User extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+  //conect with table user_details
+  public function user_detail(){
+    return this->hasOne('App\Model\UserDetail');
+
+  }
+
 }
