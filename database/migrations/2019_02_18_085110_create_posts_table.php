@@ -19,11 +19,11 @@ class CreatePostsTable extends Migration
             $table->text('writer')->nullable();
             $table->date('createdate');
             $table->unsignedInteger('brand_id');
-              $table->foreign('brand_id')->references('id')->on('brands');
+            $table->foreign('brand_id')->references('id')->on('brands');
             $table->unsignedInteger('mtb_category_id');
-              $table->foreign('mtb_category_id')->references('id')->on('mtb_categories');
+            $table->foreign('mtb_category_id')->references('id')->on('mtb_categories');
             $table->unsignedInteger('admin_id');
-              $table->foreign('admin_id')->references('id')->on('admins');
+            $table->foreign('admin_id')->references('id')->on('admins');
             $table->datetime('start_time')->nullable();
             $table->datetime('finish_time')->nullable();
             $table->text('content');
