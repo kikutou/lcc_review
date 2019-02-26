@@ -9,8 +9,8 @@ class Post extends Model
     protected $table = "posts";
 
     //connect category
-    public function mtb_category(){
-      return $this->belongsTo('App\Model\Master\Category');
+    public function category(){
+      return $this->belongsTo('App\Model\Master\Category','mtb_category_id');
     }
 
     //connect admin

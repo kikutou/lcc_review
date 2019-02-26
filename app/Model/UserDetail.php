@@ -12,7 +12,7 @@ class UserDetail extends Model
       return $this->belongsTo('App\Model\User');
     }
     //conect with table address
-    public function mtb_address_prefecture(){
-      return this->belongsTo('App\Model\Master\AddressPrefecture');
+    public function address_prefecture(){
+      return this->belongsTo('App\Model\Master\AddressPrefecture','mtb_address_prefecture_id');
     }
 }
