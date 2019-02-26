@@ -25,7 +25,7 @@ class CreateFlightsTable extends Migration
             $table->dateTimeTz('start_time');
             $table->dateTimeTz('destination_time');
             $table->unsignedInteger('mtb_airport_id');
-              $table->foreign('mtb_airport_id')->references('id')->on('mtb_airport');
+              $table->foreign('mtb_airport_id')->references('id')->on('mtb_airports');
             $table->softDeletes();
             $table->timestamps();
         });
