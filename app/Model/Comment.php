@@ -20,7 +20,7 @@ class Comment extends Model
       return $this->belongsTo('App\Model\Flight');
     }
     //connect status
-    public function mtb_inspect_status(){
+    public function inspect_status(){
       return $this->belongsTo('App\Model\Master\InspectStatus','mtb_inspect_status_id');
     }
 }
