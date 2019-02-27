@@ -47,7 +47,7 @@ class UserController extends Controller
   //index
   public function index(Request $request){
 
-    $users = User::all();
+    $users = User::paginate(config("parameters.admin.pagination_per_page"));
 
     return view("admin.user.index", ["users" => $users]);
   }
