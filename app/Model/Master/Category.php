@@ -30,7 +30,7 @@ class Category extends Model
     protected $dates = ['deleted_at'];
 
     //connect posts
-    public function posts(){
+    public function post(){
       return $this->hasMany('App\Model\Post','mtb_category_id');
     }
 }
