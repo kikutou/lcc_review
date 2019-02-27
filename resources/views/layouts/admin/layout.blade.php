@@ -221,6 +221,25 @@
                 ><a href="{{ route('admin_get_city_add') }}">都市追加</a></li>
             </ul>
           </li>
+          <li
+          @if(isset($type) && $type == "admin")
+            class="active"
+          @endif
+          >
+            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-id-badge"></i><span>管理員</span></a>
+            <ul class="collapse">
+                <li
+                @if(isset($action) && $action == "index")
+                  class="active"
+                @endif
+                ><a href="{{ route('admin_get_admin_index') }}">管理員一覧</a></li>
+                <li
+                @if(isset($action) && $action == "add")
+                  class="active"
+                @endif
+                ><a href="{{ route('admin_get_admin_add') }}">管理員追加</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </div>
