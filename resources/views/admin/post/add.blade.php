@@ -7,66 +7,142 @@
 @section("content")
 <div class="main-content-inner">
   <div class="row">
-    <div class="col-lg-12 col-ml-12">
-      <div class="row">
-
-        <!-- Textual inputs start -->
-        <div class="col-12 mt-5">
-          <div class="card">
-            <div class="card-body">
-              <h3 class="header-title">記事の新規作成</h3>
-              <form action="{{ route('admin_post_post_add') }}" method="post" enctype="multipart/form-data">
-
-                @csrf
-
-                <!-- 記事名 -->
-                <div class="form-group">
-                  <label for="post-name-input" class="col-form-label">記事名</label>
-                  <input class="form-control" type="text" placeholder="記事名を入力してください" id="post-name-input" name="post_name" value="{{old('post_name')}}">
-                  @if($errors->has('post_name'))
-                    <p>{{ $errors->first('post_name') }}</p>
-                  @endif
-                </div>
-                <!-- 記事URL -->
-                <div class="form-group">
-                  <label for="post-url-input" class="col-form-label">記事サイト</label>
-                  <input class="form-control" type="text" placeholder="記事サイトを入力してください" id="post-url-input" name="home_page" value="{{old('home_page')}}">
-                  @if($errors->has('home_page'))
-                    <p>{{ $errors->first('home_page') }}</p>
-                  @endif
-                </div>
-                <!-- 記事紹介 -->
-                <div class="form-group">
-                  <label for="post-introduction-input" class="col-form-label">紹介</label>
-                  <textarea class="form-control" id="post-introduction-input" rows="8" cols="80" name="post_introduction" value="{{old('post_introduction')}}"></textarea>
-                  @if($errors->has('post_introduction'))
-                    <p>{{ $errors->first('post_introduction') }}</p>
-                  @endif
-                </div>
-
-                <!-- 記事ロゴファイル -->
-              <div class="form-group">
-                <label  class="col-form-label" for="post-logo-pic">ロゴ追加</label>
-                <div class="input-group mb-3">
-                  <input type="file" name="logo_picture" value="{{old('logo_picture')}}" id="post-logo-pic">
-                    @if($errors->has('logo_picture'))
-                      <p>{{ $errors->first('logo_picture') }}</p>
-                    @endif
-                </div>
+    <!-- Textual inputs start -->
+    <div class="col-12 mt-5">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="header-title">記事の新規作成</h3>
+          <form action="{{ route('admin_post_post_add') }}" method="post" enctype="multipart/form-data">
+            @csrf
+            <!-- 記事名 -->
+            <div class="form-group">
+              <label for="title-input" class="col-form-label">記事名</label>
+              <input class="form-control" type="text" placeholder="記事名を入力してください" id="title-input" name="title" value="{{old('title')}}">
+              @if($errors->has('title'))
+              <p>{{ $errors->first('title') }}</p>
+              @endif
+            </div>
+            <!-- 記事画像 -->
+            <div class="form-group">
+              <label  class="col-form-label" for="post-pic">画像追加</label>
+              <div class="input-group mb-3">
+                <input type="file" name="picture" value="{{old('picture')}}" id="post-pic">
+                @if($errors->has('picture'))
+                <p>{{ $errors->first('picture') }}</p>
+                @endif
               </div>
-
-                <!-- 記事紹介ファイル -->
-                <div class="form-group">
-                  <label  class="col-form-label" for="post-image-pic">紹介画像追加</label>
-                  <div class="input-group mb-3">
-                      <input type="file" id="post-image-pic" name="profile_picture" value="{{old('profile_picture')}}">
-                      @if($errors->has('profile_picture'))
-                        <p>{{ $errors->first('profile_picture') }}</p>
-                      @endif
-                  </div>
+            </div>
+            <!-- 航空会社 -->
+            <div class="form-group">
+              <label class="col-form-label">航空会社</label>
+              <select class="custom-select" name="brand_id">
+                @foreach($brands as $brand)
+                {{$brand_id = $brand->id}}
+                <option value="{{ $brand->id}}"
+                  @if(old('brand_id') == $brand_id)
+                  selected
+                  @endif
+                  >{{ $brand->brand_name }}</option>
+                  @endforeach
+                </select>
+              </div>
+              <!-- カテゴリー -->
+              <div class="form-group">
+                <label class="col-form-label">カテゴリー</label>
+                <select class="custom-select" name="mtb_category_id">
+                  @foreach($categories as $category)
+                  {{$category_id = $country->id}}
+                  <option value="{{ $category->id}}"
+                    @if(old('mtb_category_id') == $category_id)
+                    selected
+                    @endif
+                    >{{ $category->category_name }}</option>
+                    @endforeach
+                  </select>
                 </div>
+                <!-- 管理員 -->
+                <div class="form-group">
+                  <label class="col-form-label">管理員</label>
+                  <select class="custom-select" name="admin_id">
+                    @foreach($admins as $admin)
+                    {{$admin_id = $admin->id}}
+                    <option value="{{ $admin->id}}"
+                      @if(old('admin_id') == $admin_id)
+                      selected
+                      @endif
+                      >{{ $admin->value }}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                  <!-- 有効期間 -->
+                  <div class="form-group">
+                    <label class="col-form-label">開始時間</label>
+                    <input class="form-control col-lg-4" type="datetime-local" value="{{old('start_time')}}"  name="start_time">
+                    @if($errors->has('start_time'))
+                    <p>{{ $errors->first('start_time') }}</p>
+                    @endif
+                    <label class="col-form-label">終了時間</label>
+                    <input class="form-control col-lg-4" type="datetime-local" value="{{old('finish_time')}}"  name="finish_time">
+                    @if($errors->has('finish_time'))
+                    <p>{{ $errors->first('finish_time') }}</p>
+                    @endif
+                  </div>
 
-                <div class="row justify-content-md-center">
+
+
+
+                  <!-- 内容 -->
+                  <div class="form-group">
+                    <label for="content-input" class="col-form-label">内容</label>
+
+
+                    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+                    <textarea name="content" class="form-control my-editor form-control">{!! old('content') !!}</textarea>
+                    <script>
+                      var editor_config = {
+                        path_absolute : "/",
+                        selector: "textarea.my-editor",
+                        plugins: [
+                          "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                          "searchreplace wordcount visualblocks visualchars code fullscreen",
+                          "insertdatetime media nonbreaking save table contextmenu directionality",
+                          "emoticons template paste textcolor colorpicker textpattern"
+                        ],
+                        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
+                        relative_urls: false,
+                        file_browser_callback : function(field_name, url, type, win) {
+                          var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+                          var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
+
+                          var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
+                          if (type == 'image') {
+                            cmsURL = cmsURL + "&type=Images";
+                          } else {
+                            cmsURL = cmsURL + "&type=Files";
+                          }
+
+                          tinyMCE.activeEditor.windowManager.open({
+                            file : cmsURL,
+                            title : 'Filemanager',
+                            width : x * 0.8,
+                            height : y * 0.8,
+                            resizable : "yes",
+                            close_previous : "no"
+                          });
+                        }
+                      };
+
+                      tinymce.init(editor_config);
+                    </script>
+
+
+                    @if($errors->has('content'))
+                    <p>{{ $errors->first('content') }}</p>
+                    @endif
+                  </div>
+
+                  <!-- button -->
+                  <div class="row justify-content-md-center">
                     <div class="col col-lg-2">
                       <input class="btn btn-rounded btn-primary mb-3" type="submit" value="Submit">
                     </div>
@@ -75,14 +151,13 @@
                     <div class="col col-lg-2">
                       <input type="reset" class="btn btn-rounded btn-danger mb-3" value="Reset">
                     </div>
-                </div>
+                  </div>
 
-              </form>
+                </form>
+              </div>
             </div>
+
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-@endsection
+      @endsection
