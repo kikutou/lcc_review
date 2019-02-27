@@ -20,7 +20,7 @@
                 <input type="hidden" name="post_id" value="{{ $post->id }}">
                 <div class="row justify-content-md-center">
                   <div class="col col-lg-5">
-                    <h5>削除しても宜しいですか？</h5>
+                    <h5>記事{{ $post->id }}を削除しても宜しいですか？</h5>
                     <br>
                   </div>
                 </div>

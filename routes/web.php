@@ -26,6 +26,8 @@ Route::get("admin/post/{id}/edit", "Admin\PostController@edit")->name("admin_get
 Route::post("admin/post/{id}/edit", "Admin\PostController@edit")->name("admin_post_post_edit");
 Route::get("admin/post/{id}/delete", "Admin\PostController@delete")->name("admin_get_post_delete");
 Route::post("admin/post/{id}/delete", "Admin\PostController@delete")->name("admin_post_post_delete");
+//postdetail
+Route::get("admin/post/{id}/detail", "Admin\PostController@detail")->name("admin_get_post_detail");
 
 // brand
 Route::get("admin/brand/add", "Admin\BrandController@add")->name("admin_get_brand_add");

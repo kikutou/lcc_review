@@ -19,7 +19,6 @@
                 <tr class="text-white">
                   <th scope="col">ID</th>
                   <th scope="col">管理員番号</th>
-                  <th scope="col">ニックネーム</th>
                   <th scope="col">操作</th>
                 </tr>
               </thead>
