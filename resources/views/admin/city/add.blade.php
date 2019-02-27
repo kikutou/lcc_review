@@ -30,7 +30,6 @@
                       >{{ $country->value }}</option>
                     @endforeach
                     </select>
-
                 </div>
                 <div class="form-group">
                   <label for="country-name-input" class="col-form-label">都市名</label>
