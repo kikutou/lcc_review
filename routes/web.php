@@ -70,3 +70,14 @@ Route::get("admin/user/{id}/edit", "Admin\UserController@edit")->name("admin_get
 Route::post("admin/user/{id}/edit", "Admin\UserController@edit")->name("admin_post_user_edit");
 Route::get("admin/user/{id}/delete", "Admin\UserController@delete")->name("admin_get_user_delete");
 Route::post("admin/user/{id}/delete", "Admin\UserController@delete")->name("admin_post_user_delete");
+//userdetail
+Route::get("admin/user/{id}/detail", "Admin\UserController@detail")->name("admin_get_user_detail");
+
+// admin
+Route::get("admin/admin/add", "Admin\AdminController@add")->name("admin_get_admin_add");
+Route::post("admin/admin/add", "Admin\AdminController@add")->name("admin_post_admin_add");
+Route::get("admin/admin/index", "Admin\AdminController@index")->name("admin_get_admin_index");
+Route::get("admin/admin/{id}/edit", "Admin\AdminController@edit")->name("admin_get_admin_edit");
+Route::post("admin/admin/{id}/edit", "Admin\AdminController@edit")->name("admin_post_admin_edit");
+Route::get("admin/admin/{id}/delete", "Admin\AdminController@delete")->name("admin_get_admin_delete");
+Route::post("admin/admin/{id}/delete", "Admin\AdminController@delete")->name("admin_post_admin_delete");

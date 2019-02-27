@@ -22,13 +22,12 @@
                   <label class="col-form-label">国家の選択</label>
                   <select class="custom-select" name="mtb_country_id">
                     @foreach($countries as $country)
-
+                    {{$country_id = $country->id}}
                     <option value="{{ $country->id}}"
-                      @if(old('mtb_country_id') == $country->id)
+                      @if(old('mtb_country_id') == $country_id)
                         selected
                       @endif
                       >{{ $country->value }}</option>
-
                     @endforeach
                     </select>
 

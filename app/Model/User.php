@@ -63,7 +63,7 @@ class User extends Model
     protected $dates = ['deleted_at'];
 
   //conect with table user_details
-  public function user_detail(){
+  public function detail(){
     return $this->hasOne('App\Model\UserDetail');
   }
   //conect comments

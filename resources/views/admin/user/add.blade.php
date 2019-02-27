@@ -40,6 +40,51 @@
                     <p>{{ $errors->first('nickname') }}</p>
                   @endif
                 </div>
+                <h3 class="header-title">会員情報</h3>
+                <div class="form-group">
+                    <label for="name-input" class="col-form-label">名前</label>
+                    <input class="form-control" type="text" value="{{old('name')}}" id="name-input" name="name">
+                    @if($errors->has('name'))
+                      <p>{{ $errors->first('name') }}</p>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <label for="birthday-input" class="col-form-label">生年月日</label>
+                    <input class="form-control" type="date" value="{{old('birthday')}}" id="birthday-input" name="birthday">
+                    @if($errors->has('birthday'))
+                      <p>{{ $errors->first('birthday') }}</p>
+                    @endif
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label">所在地</label>
+                  <select class="custom-select" name="mtb_address_prefecture_id">
+                    <option value=""></option>
+                    @foreach( $prefectures as $prefecture)
+                    {{$prefecture_id = $prefecture->id}}
+                    <option value="{{ $prefecture->id}}"
+                      @if(old('mtb_address_prefecture_id') == $prefecture_id)
+                        selected
+                      @endif
+                      >{{ $prefecture->value }}</option>
+                    @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="address_detail-input" class="col-form-label">住所</label>
+                    <input class="form-control" type="text" value="{{old('address_detail')}}" id="address_detail-input" name="address_detail">
+                    @if($errors->has('address_detail'))
+                      <p>{{ $errors->first('address_detail') }}</p>
+                    @endif
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label">性別</label>
+                  <select class="custom-select" name="gender_flg">
+                    <option value="1" @if (old('gender_flg') == "1") {{ 'selected' }} @endif>ー</option>
+                    <option value="2" @if (old('gender_flg') == "2") {{ 'selected' }} @endif>男性</option>
+                    <option value="3" @if (old('gender_flg') == "3") {{ 'selected' }} @endif>女性</option>
+                    </select>
+                </div>
+
                 <!-- button -->
                 <div class="row justify-content-md-center">
                     <div class="col col-lg-2">

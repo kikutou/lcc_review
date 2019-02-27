@@ -1,26 +1,26 @@
-@extends("layouts.admin.layout", ["type" => "user"])
+@extends("layouts.admin.layout", ["type" => "post"])
 
-@section("title", "会員の削除")
+@section("title", "記事の削除")
 
 
 @section("content")
 
 <div class="main-content-inner">
   <div class="row">
-    <div class="col-lg-6 col-ml-12">
+    <div class="col-lg-12 col-ml-12">
       <div class="row">
 
         <!-- Textual inputs start -->
         <div class="col-12 mt-5">
           <div class="card">
             <div class="card-body">
-              <h3 class="header-title">会員の削除</h3>
-              <form action="{{route('admin_post_user_delete', ['id' => $user->id])}}" method="post">
+              <h3 class="header-title">記事の削除</h3>
+              <form action="{{route('admin_post_post_delete', ['id' => $post->id])}}" method="post">
                 @csrf
-                <input type="hidden" name="user_id" value="{{ $user->id }}">
+                <input type="hidden" name="post_id" value="{{ $post->id }}">
                 <div class="row justify-content-md-center">
                   <div class="col col-lg-5">
-                    <h5>会員{{$user->code}}を<strong>削除</strong>しても宜しいですか？</h5>
+                    <h5>削除しても宜しいですか？</h5>
                     <br>
                   </div>
                 </div>
@@ -33,7 +33,7 @@
                 <div class="col-md-auto">
                 </div>
                 <div class="col col-lg-2">
-                  <a href="{{ route('admin_get_user_index') }}"><button type="button" class="btn btn-rounded btn-primary mb-3">戻り</button></a>
+                  <a href="{{ route('admin_get_post_index') }}"><button type="button" class="btn btn-rounded btn-primary mb-3">戻り</button></a>
                 </div>
               </div>
             </form>
