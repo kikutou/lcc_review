@@ -67,7 +67,7 @@ class User extends Model
     return $this->hasOne('App\Model\UserDetail');
   }
   //conect comments
-  public function comments(){
+  public function comment(){
     return $tihs->hasMany('App\Model\Comment');
   }
 

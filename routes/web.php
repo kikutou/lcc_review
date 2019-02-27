@@ -48,8 +48,10 @@ Route::get("admin/city/index", "Admin\CityController@index")->name("admin_get_ci
 
 //airport
 Route::get("admin/airport/add","Admin\AirportController@add")->name("admin_get_airport_add");
-// 暂时 Route::post("admin/airport/add", "Admin\AirportControllerr@add")->name("admin_post_air_add");
+Route::post("admin/airport/add", "Admin\AirportController@add")->name("admin_post_airport_add");
 Route::get("admin/airport/index", "Admin\AirportController@index")->name("admin_get_airport_index");
+Route::get("admin/airport/{id}/edit", "Admin\AirportController@edit")->name("admin_get_airport_edit");
+Route::post("admin/airport/{id}/edit", "Admin\AirportController@edit")->name("admin_post_ariport_edit");
 
 //category
 Route::get("admin/category/add","Admin\CategoryController@add")->name("admin_get_category_add");

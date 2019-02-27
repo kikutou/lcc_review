@@ -1,6 +1,6 @@
 @extends("layouts.admin.layout", ["type" => "airport", "action" => "index"])
 
-@section("title", "空港情報の追加")
+@section("title", "空港情報の一覧")
 
 
 @section("content")
@@ -24,24 +24,16 @@
                 </tr>
               </thead>
               <tbody>
+                @foreach($airports as $airport)
                 <tr>
-                  <th scope="row">1</th>
-                  <td>成田空港</td>
-                  <td>Tokyo</td>
-                  <td><i class="ti-pencil-alt">編集</i></td>
+                  <th scope="row">{{ $airport->id }}</th>
+                  <td>{{ $airport->airport_name }}</td>
+                  <th scope="row">{{ $airport->city->value }}</th>
+                  <td><a href="{{ route('admin_get_airport_edit',['id'=> $airport->id]) }}"><i class="ti-pencil-alt">編集</i></a>
+                  <a><i class="ti-trash">削除</i></a></td>
                 </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>羽田空港</td>
-                  <td>Tokyo</td>
-                  <td><i class="ti-pencil-alt">編集</i></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>大阪国際空港</td>
-                  <td>Osaka</td>
-                  <td><i class="ti-pencil-alt">編集</i></td>
-                </tr>
+                @endforeach
+
               </tbody>
             </table>
           </div>
