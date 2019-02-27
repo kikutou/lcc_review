@@ -51,7 +51,7 @@ Route::get("admin/airport/add","Admin\AirportController@add")->name("admin_get_a
 Route::post("admin/airport/add", "Admin\AirportController@add")->name("admin_post_airport_add");
 Route::get("admin/airport/index", "Admin\AirportController@index")->name("admin_get_airport_index");
 Route::get("admin/airport/{id}/edit", "Admin\AirportController@edit")->name("admin_get_airport_edit");
-Route::post("admin/airport/{id}/edit", "Admin\AirportController@edit")->name("admin_post_ariport_edit");
+Route::post("admin/airport/{id}/edit", "Admin\AirportController@edit")->name("admin_post_airport_edit");
 
 //category
 Route::get("admin/category/add","Admin\CategoryController@add")->name("admin_get_category_add");

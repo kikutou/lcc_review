@@ -34,8 +34,12 @@
                 </tr>
                 @endforeach
 
+
+
               </tbody>
             </table>
+
+            {{ $airports->links() }}
           </div>
         </div>
       </div>

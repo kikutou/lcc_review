@@ -1,7 +1,7 @@
 @extends("layouts.admin.layout", ["type" => "airport", "action" => "add"])
 <!-- layout继承，php7的函数特有简略表达[]，传递了2个值 -->
 
-@section("title", "airportの編集")
+@section("title", "空港情報の編集")
 
 
 @section("content")
@@ -18,8 +18,8 @@
                 @csrf
 
                 <div class="form-group">
-                  <label for="category-name-input" class="col-form-label">空港名</label>
-                  <input class="form-control" type="text" placeholder="空港名を入力してください" id="airport-name-input" name="airport_name" value="{{ old('airport_name', $airport->airport_name) }}">
+                  <label for="airport-name-input" class="col-form-label">空港名</label>
+                  <input class="form-control" type="text" id="airport-name-input" name="airport_name" value="{{ old('airport_name', $airport->airport_name) }}">
                   @if($errors->has('airport_name'))
                     <p>{{ $errors->first('airport_name') }}</p>
                   @endif
@@ -27,9 +27,9 @@
 
                 <div class="form-group">
                   <label for="mtb_city_id-input" class="col-form-label">都市名</label>
-                  <input class="form-control" type="text" id="mtb_city_id-input" value="{{ $airport->mtb_city_id }}">
-                  @if($errors->has('mtb_city_id'))
-                    <p>{{ $errors->first('mtb_city_id') }}</p>
+                  <input class="form-control" type="text" id="mtb_city_id-input" value="{{ old('mtb_city_id', $airport->city->value) }}">
+                  @if($errors->has('$airport->city->value'))
+                    <p>{{ $errors->first('$airport->city->value') }}</p>
                   @endif
                 </div>
 

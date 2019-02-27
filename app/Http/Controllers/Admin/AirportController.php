@@ -32,7 +32,7 @@ class AirportController extends Controller
   }
 
     public function index(Request $request){
-        $airports = Airport::all();
+        $airports = Airport::paginate(config("parameters.admin.pagination_per_page"));
         return view("admin.airport.index", ["airports" => $airports]);
     }
 
@@ -46,7 +46,7 @@ class AirportController extends Controller
   } else {
     $airport = Airport::find($request->airport_id);
     $airport->airport_name  = $request->airport_name;
-    $airport->mtb_city_id = $request->mtb_city_id ;
+    //$airport->mtb_city_id = $request->mtb_city_id ;
     $airport->save();
     return redirect(route("admin_get_airport_index"));
   }

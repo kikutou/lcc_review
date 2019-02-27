@@ -22,7 +22,7 @@
                 <!-- 空港名 -->
                 <div class="form-group">
                   <label for="brand-name-input" class="col-form-label">空港名</label>
-                  <input class="form-control" type="text" placeholder="航空会社名を入力してください" id="airport-name-input" name="airport_name" value="{{old('airport_name')}}">
+                  <input class="form-control" type="text" placeholder="空港名を入力してください" id="airport-name-input" name="airport_name" value="{{old('airport_name')}}">
                   @if($errors->has('airport_name'))
                     <p>{{ $errors->first('airport_name') }}</p>
                   @endif
