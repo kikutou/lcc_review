@@ -20,12 +20,13 @@ class BrandController extends Controller
       if($validator->fails()) {
         return redirect(route("admin_get_brand_add"))->withErrors($validator)->withInput();
       }
-
+      //file uploade
       $logo_path = $request->file('logo_picture')->store('public/logo_pictures');
       $profile_path = $request->file('profile_picture')->store('public/profile_pictures');
 
       $brand = new Brand;
       $brand->brand_name = $request->brand_name;
+      //change file path for show picture
       $brand->logo_picture = str_replace("public", "storage", $logo_path);
       $brand->profile_picture = str_replace("public", "storage", $profile_path);
       $brand->brand_introduction = $request->brand_introduction;

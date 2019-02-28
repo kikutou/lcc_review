@@ -16,7 +16,7 @@ class Post extends Model
       "mtb_category_id" => "required",
       "content" => "required"
     ];
-    
+
     public static $validation_messages = [
       "title.required" => "タイトルを入力してください。",
       "picture.required" => "画像を入れてしてください。",

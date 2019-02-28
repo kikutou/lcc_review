@@ -88,3 +88,14 @@ Route::get("admin/admin/{id}/edit", "Admin\AdminController@edit")->name("admin_g
 Route::post("admin/admin/{id}/edit", "Admin\AdminController@edit")->name("admin_post_admin_edit");
 Route::get("admin/admin/{id}/delete", "Admin\AdminController@delete")->name("admin_get_admin_delete");
 Route::post("admin/admin/{id}/delete", "Admin\AdminController@delete")->name("admin_post_admin_delete");
+
+// comment
+Route::get("admin/comment/add", "Admin\CommentController@add")->name("admin_get_comment_add");
+Route::post("admin/comment/add", "Admin\CommentController@add")->name("admin_post_comment_add");
+Route::get("admin/comment/index", "Admin\CommentController@index")->name("admin_get_comment_index");
+Route::get("admin/comment/{id}/edit", "Admin\CommentController@edit")->name("admin_get_comment_edit");
+Route::post("admin/comment/{id}/edit", "Admin\CommentController@edit")->name("admin_post_comment_edit");
+Route::get("admin/comment/{id}/delete", "Admin\CommentController@delete")->name("admin_get_comment_delete");
+Route::post("admin/comment/{id}/delete", "Admin\CommentController@delete")->name("admin_post_comment_delete");
+//commentsdetail
+Route::get("admin/comment/{id}/detail", "Admin\CommentController@detail")->name("admin_get_comment_detail");

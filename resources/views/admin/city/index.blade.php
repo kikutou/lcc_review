@@ -38,6 +38,19 @@
             </table>
           </div>
         </div>
+        <!-- button -->
+        <div class="row justify-content-md-center">
+          <div class="col-lg-3">
+            <a href="{{ route('admin_get_city_add') }}"><button type="button" class="btn btn-primary mb-3">追加</button></a>
+          </div>
+        </div>
+
+        <!-- pagention -->
+        <div class="row justify-content-md-center">
+          <div class="col-md-4">
+            <div>{{ $cities->links() }}</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

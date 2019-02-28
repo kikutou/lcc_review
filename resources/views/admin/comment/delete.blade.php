@@ -1,6 +1,6 @@
-@extends("layouts.admin.layout", ["type" => "post"])
+@extends("layouts.admin.layout", ["type" => "comment"])
 
-@section("title", "記事の削除")
+@section("title", "コメントの削除")
 
 
 @section("content")
@@ -14,13 +14,13 @@
         <div class="col-12 mt-5">
           <div class="card">
             <div class="card-body">
-              <h3 class="header-title">記事の削除</h3>
-              <form action="{{route('admin_post_post_delete', ['id' => $post->id])}}" method="post">
+              <h3 class="header-title">コメントの削除</h3>
+              <form action="{{route('admin_post_comment_delete', ['id' => $comment->id])}}" method="post">
                 @csrf
-                <input type="hidden" name="post_id" value="{{ $post->id }}">
+                <input type="hidden" name="comment_id" value="{{ $comment->id }}">
                 <div class="row justify-content-md-center">
                   <div class="col col-lg-5">
-                    <h5>記事{{ $post->id }}を削除しても宜しいですか？</h5>
+                    <h5>コメントを削除しても宜しいですか？</h5>
                     <br>
                   </div>
                 </div>
@@ -33,7 +33,7 @@
                 <div class="col-md-auto">
                 </div>
                 <div class="col col-lg-2">
-                  <a href="{{ route('admin_get_post_index') }}"><button type="button" class="btn btn-rounded btn-primary mb-3">戻り</button></a>
+                  <a href="{{ route('admin_get_comment_index') }}"><button type="button" class="btn btn-rounded btn-primary mb-3">戻り</button></a>
                 </div>
               </div>
             </form>

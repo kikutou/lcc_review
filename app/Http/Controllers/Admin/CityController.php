@@ -28,7 +28,7 @@ class CityController extends Controller
 
   }
   public function index(Request $request){
-    $cities = City::all();
+    $cities = City::paginate(config("parameters.admin.pagination_per_page"));
 
     return view("admin.city.index",["cities" => $cities]);
   }
