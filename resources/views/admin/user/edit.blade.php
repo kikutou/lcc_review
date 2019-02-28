@@ -28,6 +28,13 @@
                     @endif
                 </div>
                 <div class="form-group">
+                    <label for="email-input" class="col-form-label">パスワード</label>
+                    <input class="form-control" type="password" value="{{ old('password') }}" placeholder="パスワードを変更する場合のみ新しいパスワードをご記入ください" id="email-input" name="password">
+                    @if($errors->has('password'))
+                      <p>{{ $errors->first('password') }}</p>
+                    @endif
+                </div>
+                <div class="form-group">
                   <label for="nickname-input" class="col-form-label">ニックネーム</label>
                   <input class="form-control" type="text"  id="nickname-input"  name="nickname" value="{{old('nickname', $user->nickname) }}">
                   @if($errors->has('nickname'))

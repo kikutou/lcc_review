@@ -20,10 +20,7 @@ class Comment extends Model
   public function flight(){
     return $this->belongsTo('App\Model\Flight');
   }
-  //connect status
-  public function inspect_status(){
-    return $this->belongsTo('App\Model\Master\InspectStatus','mtb_inspect_status_id');
-  }
+
   //SoftDeletes
   use SoftDeletes;
 
@@ -44,6 +41,35 @@ class Comment extends Model
 
     "comment.between:0,500" => "五百字以内のコメントを書いてください"
   ];
+//Status
+  public function inspect_status($read_by_admin_at){
+    $status = null;
+    if (is_null($read_by_admin_at)){
+      $status = "未審査";
+    }else {
+      $status = "審査済み";
+    }
+    return $status;
+  }
+
+//average_score
+  public function average_score($service,$clean,$food,$seat,$entertainment,$cost_performance){
+    $totalscore = $service+$clean+$food+$seat+$entertainment+$cost_performance;
+    $score = $totalscore/6;
+    $average_score = round($score,1);
+    return $average_score;
+  }
+
+//show average_score with star
+  public  function star($average_score){
+    if (strpos($average_score,".")) {
+      for ($x=1; $x<$average_score; $x++) {
+        echo "<i class=\"fa fa-star\"></i>";
+      }
+      echo "<i class=\"fa fa-star-half-o\"></i>";
+    }
+  }
+
 
 
 }
