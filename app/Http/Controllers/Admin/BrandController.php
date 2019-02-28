@@ -26,16 +26,9 @@ class BrandController extends Controller
 
       $brand = new Brand;
       $brand->brand_name = $request->brand_name;
-<<<<<<< HEAD
-      //$brand->logo_picture = str_replace("public", "storage", $logo_path);
-      //$brand->profile_picture = str_replace("public", "storage", $profile_path);
-      $brand->logo_picture = $logo_path;
-      $brand->profile_picture = $profile_path;
-=======
-      //change file path for show picture
+      //更改路径显示图片
       $brand->logo_picture = str_replace("public", "storage", $logo_path);
       $brand->profile_picture = str_replace("public", "storage", $profile_path);
->>>>>>> f49ae16c0819b6a473feff789f094cbca90720f8
       $brand->brand_introduction = $request->brand_introduction;
       $brand->home_page = $request->home_page;
       $brand->save();
@@ -52,6 +45,7 @@ class BrandController extends Controller
 
   {
     if($request->isMethod("GET")) {
+
       $brand = Brand::where('id',$id) ->first();
 
       return view("admin.brand.edit", ['brand' => $brand]);
@@ -61,8 +55,15 @@ class BrandController extends Controller
 
       $brand = Brand::find($request->brand_id);
       $brand->brand_name = $request->brand_name;
-      $brand->logo_picture = $request->logo_picture;
-      $brand->profile_picture = $request->profile_picture;
+      if ($request->file('logo_picture')) {
+        $logo_path = $request->file('logo_picture')->store('public/logo_pictures');
+        $brand->logo_picture = str_replace("public", "storage", $logo_path);
+      }else{}
+      if ($request->file('profile_picture')) {
+        $profile_path = $request->file('profile_picture')->store('public/profile_pictures');
+        $brand->profile_picture = str_replace("public", "storage", $profile_path);
+      }else{}
+
       $brand->brand_introduction = $request->brand_introduction;
       $brand->home_page = $request->home_page;
       $brand->save();

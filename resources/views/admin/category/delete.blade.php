@@ -20,7 +20,7 @@
                 <input type="hidden" name="category_id" value="{{ $category->id }}">
                 <div class="row justify-content-md-center">
                   <div class="col col-lg-5">
-                    <h5>カテゴリを削除しても宜しいですか？</h5>
+                    <h5>{{ $category->category_name }}を削除しても宜しいですか？</h5>
                     <br>
                   </div>
                 </div>

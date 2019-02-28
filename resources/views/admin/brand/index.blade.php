@@ -33,7 +33,7 @@
                   <td>{{ $brand->home_page }}</td>
                   <td>{!! nl2br(e($brand->brand_introduction)) !!}</td>
                   <td><img src="{{ asset($brand->logo_picture) }}" alt="logo" width="100" ></td>
-                  <td><img src="{{ asset($brand->profile_picture) }}" alt="profile" width="200"></td>
+                  <td><img src="{{ asset($brand->profile_picture) }}" alt="profile" width="150"></td>
                   <td><a href="{{ route('admin_get_brand_edit',['id'=> $brand->id]) }}"><i class="ti-pencil-alt">編集</i></a>
                     <a href="{{ route('admin_get_brand_delete',['id'=> $brand->id]) }}"><i class="ti-trash">削除</i></a>
                   </td>
