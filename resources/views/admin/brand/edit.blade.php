@@ -16,7 +16,7 @@
             <div class="card-body">
               <h3 class="header-title">航空会社の編集</h3>
               <!-- form start -->
-              <form action="{{route('admin_post_brand_edit', ['id' => $brand->id])}}" method="post">
+              <form action="{{route('admin_post_brand_edit', ['id' => $brand->id])}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="brand_id" value="{{ $brand->id }}">
 
@@ -42,36 +42,53 @@
                     <p>{{ $errors->first('brand_introduction') }}</p>
                   @endif
                 </div>
-                <!-- 航空会社ロゴファイル -->
+                <!-- 航空会社ロゴ -->
                 <div class="form-group">
-                  <label  class="col-form-label">航空会社ロゴ追加</label>
-                  <div class="input-group mb-3">
-                    <div class="custom-file">
-
-                      <td><img src="{{ asset($brand->logo_picture) }}" alt="logo" width="100" ></td>
-
-                      <input type="file" class="custom-file-input" id="brand-logo-pic" name="logo_picture">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <p>ロゴ</p>
+                    </div><br>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <img src="{{ asset($brand->logo_picture) }}" alt="picture" width="100">
+                    </div>
+                  </div>
+                </div>
+                <!-- ロゴ変更 -->
+                  <div class="form-group">
+                    <label  class="col-form-label" for="logo-picture">ロゴ変更</label>
+                    <div class="input-group mb-3">
+                      <input type="file" name="logo_picture" value="{{ old($brand->logo_picture) }}" id="logo-picture">
                       @if($errors->has('logo_picture'))
-                        <p>{{ $errors->first('logo_picture') }}</p>
+                      <p>{{ $errors->first('logo_picture') }}</p>
                       @endif
-                      <label class="custom-file-label" for="brand-logo-pic">ロゴをせんたくしてください。</label>
                     </div>
                   </div>
-                </div>
 
-                <!-- 航空会社紹介ファイル -->
+                <!-- 航空会社紹介図 -->
                 <div class="form-group">
-                  <label  class="col-form-label">航空会社紹介画像追加</label>
-                  <div class="input-group mb-3">
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="brand-image-pic" name="profile_picture">
-                      @if($errors->has('profile_picture'))
-                        <p>{{ $errors->first('profile_picture') }}</p>
-                      @endif
-                      <label class="custom-file-label" for="brand-image-pic">紹介画像をせんたくしてください。</label>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <p>紹介図</p>
+                    </div><br>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <img src="{{ asset($brand->profile_picture) }}" alt="profile-picture" width="150">
                     </div>
                   </div>
                 </div>
+                <!-- 紹介図変更 -->
+                  <div class="form-group">
+                    <label  class="col-form-label" for="profile-picture">紹介図変更</label>
+                    <div class="input-group mb-3">
+                      <input type="file" name="profile_picture" value="{{old($brand->profile_picture) }}" id="profile-picture">
+                      @if($errors->has('profile_picture'))
+                      <p>{{ $errors->first('profile_picture') }}</p>
+                      @endif
+                    </div>
+                  </div>
                 <!-- button -->
                 <div class="row justify-content-md-center">
                     <div class="col col-lg-2">
