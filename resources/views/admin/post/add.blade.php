@@ -26,7 +26,7 @@
             <div class="form-group">
               <label  class="col-form-label" for="post-pic">画像追加</label>
               <div class="input-group mb-3">
-                <input type="file" name="picture" value="{{old('picture')}}" id="post-pic">
+                <input type="file" name="picture" id="post-pic">
                 @if($errors->has('picture'))
                 <p>{{ $errors->first('picture') }}</p>
                 @endif
@@ -36,10 +36,10 @@
             <div class="form-group">
               <label class="col-form-label">航空会社</label>
               <select class="custom-select" name="brand_id">
+                <option value=""> </option>
                 @foreach($brands as $brand)
-                {{$brand_id = $brand->id}}
-                <option value="{{ old('$brand->id')}}"
-                  @if(old('brand_id') == $brand_id)
+                <option value="{{ $brand->id }}"
+                  @if(old('brand_id') == $brand->id)
                   selected
                   @endif
                   >{{ $brand->brand_name }}</option>
@@ -52,29 +52,35 @@
                 <div class="form-group col-md-4">
                   <label class="col-form-label">カテゴリー</label>
                   <select class="custom-select" name="mtb_category_id">
+                    <option value=""> </option>
                     @foreach($categories as $category)
-                    {{$category_id = $category->id}}
-                    <option value="{{ old('$category->id')}}"
-                      @if(old('mtb_category_id') == $category_id)
+                    <option value="{{ $category->id }}"
+                      @if(old('mtb_category_id') == $category->id)
                       selected
                       @endif
                       >{{ $category->category_name }}</option>
                       @endforeach
                     </select>
+                    @if($errors->has('mtb_category_id'))
+                    <p>{{ $errors->first('mtb_category_id') }}</p>
+                    @endif
                   </div>
                   <!-- 管理員 -->
                   <div class="form-group col-md-4">
                     <label class="col-form-label">管理員</label>
                     <select class="custom-select" name="admin_id">
+                      <option value=""> </option>
                       @foreach($admins as $admin)
-                      {{$admin_id = $admin->id}}
-                      <option value="{{ old('$admin->id')}}"
-                        @if(old('admin_id') == $admin_id)
+                      <option value="{{ $admin->id }}"
+                        @if(old('admin_id') == $admin->id)
                         selected
                         @endif
                         >{{ $admin->admin_user }}</option>
                         @endforeach
                       </select>
+                      @if($errors->has('admin_id'))
+                      <p>{{ $errors->first('admin_id') }}</p>
+                      @endif
                     </div>
                   </div>
                   <!-- 有効期間 -->
@@ -83,18 +89,12 @@
                       <div class="form-group">
                         <label class="col-form-label">開始時間</label>
                         <input class="form-control" type="text" value="{{old('start_time')}}" name="start_time">
-                        @if($errors->has('start_time'))
-                        <p>{{ $errors->first('start_time') }}</p>
-                        @endif
                       </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
                         <label class="col-form-label">終了時間</label>
                         <input class="form-control " type="text" value="{{old('finish_time')}}" name="finish_time">
-                        @if($errors->has('finish_time'))
-                        <p>{{ $errors->first('finish_time') }}</p>
-                        @endif
                       </div>
                     </div>
                   </div>

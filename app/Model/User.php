@@ -68,7 +68,10 @@ class User extends Model
   }
   //conect comments
   public function comment(){
-    return $tihs->hasMany('App\Model\Comment');
+    return $this->hasMany('App\Model\Comment');
   }
-
+  //conect user_status
+  public function user_status(){
+    return $this->belongsTo('App\Model\Master\UserStatus', "mtb_user_status_id");
+  }
 }

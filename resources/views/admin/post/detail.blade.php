@@ -23,7 +23,7 @@
               <li class="list-group-item">カテゴリー：{{ $post->category->category_name }}</li>
               <li class="list-group-item">管理員：{{ $post->admin->admin_user }}</li>
               <li class="list-group-item">有効期間：{{ $post->start_time }} ～ {{ $post->finish_time }}</li>
-              <li class="list-group-item">内容：<br>{{ $post->content }}</li>
+              <li class="list-group-item">内容：<br>{!! $post->content !!}</li>
             </ul><br>
             <a href="{{ route('admin_get_post_index') }}"><button type="button" class="btn btn-rounded btn-info mb-3">戻り</button></a>
           </div>

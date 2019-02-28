@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\User;
 use App\Model\UserDetail;
 use App\Model\Master\AddressPrefecture;
+use App\Model\Master\UserStatus;
 use Validator;
 
 class UserController extends Controller
@@ -15,7 +16,8 @@ class UserController extends Controller
 
     if($request->isMethod("GET")) {
       $prefectures = AddressPrefecture::all();
-      return view("admin.user.add",['prefectures'=>$prefectures]);
+      $user_statuses = UserStatus::all();
+      return view("admin.user.add",['prefectures'=>$prefectures, 'user_statuses'=>$user_statuses]);
     } else {
 
       $validator = Validator::make($request->all(), User::$validation_rules, User::$validation_messages);
@@ -28,6 +30,7 @@ class UserController extends Controller
       $user->setPassword($request->password);
       $user->code = $user->generateUserCode();
       $user->nickname = $request->nickname;
+      $user->mtb_user_status_id = $request->user_status;
       $user->save();
 
       //detail
@@ -57,9 +60,10 @@ class UserController extends Controller
   {
     if($request->isMethod("GET")) {
       $prefectures = AddressPrefecture::all();
+      $user_statuses = UserStatus::all();
       $user = User::where('id',$id) ->first();
       $user_detail = $user->detail->where('user_id',$id)->first();
-      return view("admin.user.edit", ['user' => $user, 'user_detail' => $user_detail, 'prefectures'=>$prefectures]);
+      return view("admin.user.edit", ['user' => $user, 'user_detail' => $user_detail, 'prefectures'=>$prefectures, 'user_statuses'=>$user_statuses]);
 
     } else {
       $user = User::find($request->user_id);
@@ -76,6 +80,10 @@ class UserController extends Controller
 
       $user->mail = $request->mail;
       $user->nickname = $request->nickname;
+      if ($request->password) {
+        $user->setPassword($request->password);
+      }
+      $user->mtb_user_status_id = $request->user_status;
       $user->save();
       $user_detail->user_id = $request->user_id;
       $user_detail->name = $request->name;
@@ -90,7 +98,6 @@ class UserController extends Controller
 
   //delete
   public function delete(Request $request, $id)
-
   {
     if($request->isMethod("GET")) {
       $user = User::where('id',$id) ->first();
