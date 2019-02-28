@@ -32,7 +32,7 @@
                   <td>{{ $comment->user->code }}</td>
                   <td>{{ $comment->brand->brand_name ?? "" }}</td>
                   <td>{{ $comment->flight->flight_number ?? "" }}</td>
-                  <td><i class="ti-star"></i>{{ $comment->average_score ?? "" }}</td>
+                  <td>{{ $comment->star($comment->average_score) ?? "" }}{{ $comment->average_score }}</td>
                   <td>{{ $comment->inspect_status($comment->read_by_admin_at) }}</td>
                   <td><a href="{{ route('admin_get_comment_edit',['id'=> $comment->id]) }}"><i class="ti-pencil-alt">編集</i></a>
                     <a href="{{ route('admin_get_comment_delete',['id'=> $comment->id]) }}"><i class="ti-trash">削除</i></a>

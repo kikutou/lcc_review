@@ -47,7 +47,6 @@ class CommentController extends Controller
       $comment->cost_performance = $cost_performance;
       $comment->comment = $request->comment;
       $comment->average_score = $comment->average_score = $comment->average_score($service,$clean,$food,$seat,$entertainment,$cost_performance);
-
       $comment->save();
 
       return redirect(route("admin_get_comment_index"));

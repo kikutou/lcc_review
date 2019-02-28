@@ -63,10 +63,15 @@ class Comment extends Model
 //show average_score with star
   public  function star($average_score){
     if (strpos($average_score,".")) {
-      for ($x=1; $x<$average_score; $x++) {
+
+      for ($x=1; $x<=$average_score; $x++) {
         echo "<i class=\"fa fa-star\"></i>";
       }
       echo "<i class=\"fa fa-star-half-o\"></i>";
+    }else {
+      for ($x=1; $x<=$average_score; $x++) {
+        echo "<i class=\"fa fa-star\"></i>";
+      }
     }
   }
 
