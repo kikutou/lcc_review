@@ -37,12 +37,24 @@
                   <td><a href="{{ route('admin_get_post_edit',['id'=> $post->id]) }}"><i class="ti-pencil-alt">編集</i></a>
                     <a href="{{ route('admin_get_post_delete',['id'=> $post->id]) }}"><i class="ti-trash">削除</i></a>
                   </td>
-
                 </tr>
                 @endforeach
-
               </tbody>
             </table>
+          </div>
+        </div>
+
+        <!-- button -->
+        <div class="row justify-content-md-center">
+          <div class="col-lg-3">
+            <a href="{{ route('admin_get_post_add') }}"><button type="button" class="btn btn-primary mb-3">追加</button></a>
+          </div>
+        </div>
+
+        <!-- pagention -->
+        <div class="row justify-content-md-center">
+          <div class="col-md-4">
+            <div>{{ $posts->links() }}</div>
           </div>
         </div>
       </div>

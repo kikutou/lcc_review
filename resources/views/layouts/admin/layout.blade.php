@@ -101,10 +101,23 @@
               ><a href="{{ route('admin_get_user_add') }}">新規作成</a></li>
             </ul>
           </li>
-          <li>
+          <li
+          @if(isset($type) && $type == "comment")
+            class="active"
+          @endif
+          >
             <a href="javascript:void(0)" aria-expanded="true"><i class="ti-comments"></i><span>コメント</span></a>
             <ul class="collapse">
-                <li><a href="#">コメント一覧</a></li>
+                <li
+                @if(isset($action) && $action == "index")
+                class="active"
+              @endif
+              ><a href="{{ route('admin_get_comment_index') }}">コメント一覧</a></li>
+              <li
+              @if(isset($action) && $action == "add")
+                class="active"
+              @endif
+              ><a href="{{ route('admin_get_comment_add') }}">新規作成</a></li>
             </ul>
           </li>
           <li

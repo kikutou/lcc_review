@@ -19,7 +19,7 @@ class CreateUserDetailsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->text('name')->nullable();
             $table->date('birthday')->nullable();
-            $table->unsignedInteger('mtb_address_prefecture_id');
+            $table->unsignedInteger('mtb_address_prefecture_id')->nullable();
             $table->foreign('mtb_address_prefecture_id')->references('id')->on('mtb_address_prefectures');
             $table->text('address_detail')->nullable();
             $table->integer('gender_flg')->default('1');

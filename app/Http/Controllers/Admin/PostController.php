@@ -11,6 +11,7 @@ use App\Model\Master\Category;
 use Illuminate\Support\Facades\Storage;
 use Validator;
 
+
 class PostController extends Controller
 {
   //add
@@ -48,7 +49,8 @@ class PostController extends Controller
 
   //index
   public function index(Request $request){
-    $posts = Post::all();
+    $posts = Post::paginate(config("parameters.admin.pagination_per_page"));
+
     return view("admin.post.index", ["posts" => $posts]);
   }
 
