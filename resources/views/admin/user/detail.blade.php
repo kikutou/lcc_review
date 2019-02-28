@@ -21,6 +21,7 @@
               <li class="list-group-item">所在地：{{ $user->detail->address_prefecture->value }}</li>
               <li class="list-group-item">住所：{{ $user->detail->address_detail }}</li>
               <li class="list-group-item">性別：{{ $user->detail->gender_flg }}</li>
+              <li class="list-group-item">会員状態：{{ $user->user_status->value }}</li>
             </ul><br>
             <a href="{{ route('admin_get_user_index') }}"><button type="button" class="btn btn-rounded btn-info mb-3">戻り</button></a>
           </div>

@@ -21,21 +21,18 @@
                   <th scope="col">メールアドレス</th>
                   <th scope="col">会員番号</th>
                   <th scope="col">ニックネーム</th>
+                  <th scope="col">会員状態</th>
                   <th scope="col">操作</th>
                 </tr>
               </thead>
               <tbody>
                 @foreach($users as $user)
                 <tr>
-                  <th scope="row">
-                    @if(isset($user->detail->user_id))
-                    <a href="{{route('admin_get_user_detail',['id'=> $user->id]) }}">
-                    @endif
-                      {{ $user->id }}</a>
-                  </th>
+                  <th scope="row"><a href="{{route('admin_get_user_detail',['id'=> $user->id]) }}">{{ $user->id }}</a></th>
                   <td>{{ $user->mail }}</td>
                   <td>{{ $user->code }}</td>
                   <td>{{ $user->nickname }}</td>
+                  <td>{{ $user->user_status->value }}</td>
                   <td>
                     <a href="{{ route('admin_get_user_edit',['id'=> $user->id]) }}"><i class="ti-pencil-alt">編集</i></a>
                     <a href="{{ route('admin_get_user_delete',['id'=> $user->id]) }}"><i class="ti-trash">削除</i></a></td>

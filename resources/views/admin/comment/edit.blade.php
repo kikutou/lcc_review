@@ -196,7 +196,7 @@
                               @if(old('mtb_inspect_status_id', $comment->mtb_inspect_status_id) ==  $inspect_status->id)
                               selected
                               @endif
-                              >{{ $inspect_status->inspect_status }}</option>
+                              >{{ $inspect_status->value }}</option>
                               @endforeach
                             </select>
                           </div>

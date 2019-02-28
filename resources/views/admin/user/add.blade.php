@@ -60,9 +60,8 @@
                   <select class="custom-select" name="mtb_address_prefecture_id">
                     <option value=""></option>
                     @foreach( $prefectures as $prefecture)
-                    {{$prefecture_id = $prefecture->id}}
                     <option value="{{ $prefecture->id}}"
-                      @if(old('mtb_address_prefecture_id') == $prefecture_id)
+                      @if(old('mtb_address_prefecture_id') == $prefecture->id)
                         selected
                       @endif
                       >{{ $prefecture->value }}</option>
@@ -82,6 +81,19 @@
                     <option value="1" @if (old('gender_flg') == "1") {{ 'selected' }} @endif>ー</option>
                     <option value="2" @if (old('gender_flg') == "2") {{ 'selected' }} @endif>男性</option>
                     <option value="3" @if (old('gender_flg') == "3") {{ 'selected' }} @endif>女性</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label">会員状態</label>
+                  <select class="custom-select" name="user_status">
+                    <option value=""></option>
+                    @foreach( $user_statuses as $user_status)
+                    <option value="{{ $user_status->id}}"
+                      @if(old('user_status') == $user_status->id)
+                        selected
+                      @endif
+                      >{{ $user_status->value }}</option>
+                    @endforeach
                     </select>
                 </div>
 

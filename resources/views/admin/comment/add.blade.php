@@ -151,12 +151,11 @@
                       <label class="col-form-label">審査状況</label>
                       <select class="custom-select" name="mtb_inspect_status_id">
                         @foreach($inspect_statuses as $inspect_status)
-                        {{$inspect_status_id = $inspect_status->id}}
                         <option value="{{ $inspect_status->id }}"
-                          @if(old('mtb_inspect_status_id') == $inspect_status)
+                          @if(old('mtb_inspect_status_id') == $inspect_status->id)
                           selected
                           @endif
-                          >{{ $inspect_status->inspect_status }}</option>
+                          >{{ $inspect_status->value }}</option>
                           @endforeach
                         </select>
                       </div>
