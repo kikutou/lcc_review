@@ -29,7 +29,7 @@
                   <label for="mtb_city_id-input" class="col-form-label">都市名</label>
                   <input class="form-control" type="text" id="mtb_city_id-input" value="{{ old('mtb_city_id', $airport->city->value) }}">
                   @if($errors->has('$airport->city->value'))
-                    <p>{{ $errors->first('$airport->city->value') }}</p>
+                    <p>{{ $errors->first('mtb_city_id') }}</p>
                   @endif
                 </div>
 

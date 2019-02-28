@@ -38,7 +38,7 @@
                 <!-- 航空会社紹介 -->
                 <div class="form-group">
                   <label for="brand-introduction-input" class="col-form-label">紹介</label>
-                  <textarea class="form-control" id="brand-introduction-input" rows="8" cols="80" name="brand_introduction" value="{{old('brand_introduction')}}"></textarea>
+                  <textarea class="form-control" id="brand-introduction-input" rows="8" cols="80" name="brand_introduction">{{old('brand_introduction')}}</textarea>
                   @if($errors->has('brand_introduction'))
                     <p>{{ $errors->first('brand_introduction') }}</p>
                   @endif

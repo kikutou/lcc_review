@@ -21,6 +21,7 @@
                 <div class="row justify-content-md-center">
                   <div class="col col-lg-5">
                     <h5>削除しても宜しいですか？</h5>
+                    <td><img src="{{ asset($brand->profile_picture) }}" alt="profile" width="200"></td>
                     <br>
                   </div>
                 </div>
