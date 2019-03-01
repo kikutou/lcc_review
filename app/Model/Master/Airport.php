@@ -3,6 +3,7 @@
 namespace App\Model\Master;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Airport extends Model
 {
@@ -16,6 +17,15 @@ class Airport extends Model
     "brand_name.required" => "空港名は必ず入力してください。",
     "brand_name.between" => ":min以上:max以内の空港名を入力してください。",
   ];
+  use SoftDeletes;
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+
 
 
   public function flight(){

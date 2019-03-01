@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label for="category_introduction-input" class="">カテゴリ説明文</label>
-                    <input type="category_introduction" class="form-control" id="category_introduction-input" name="category_introduction"  placeholder="説明文を入力してください。"　name="category_introduction"　value="{{old('category_introduction')}}">
+                    <input type="category_introduction" class="form-control" id="category_introduction-input" name="category_introduction"  placeholder="説明文を入力してください。"　value="{{old('category_introduction')}}">
                     @if($errors->has('category_introduction'))
                       <p>{{ $errors->first('category_introduction') }}</p>
                     @endif
