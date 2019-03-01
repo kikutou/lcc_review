@@ -28,7 +28,7 @@
               <tbody>
                 @foreach($brands as $brand)
                 <tr>
-                  <th scope="row">{{ $brand->id }}</th>
+                  <th scope="row"><a href="{{route('admin_get_brand_detail',['id'=> $brand->id]) }}">{{ $brand->id }}</a></th>
                   <td>{{ $brand->brand_name }}</td>
                   <td>{{ $brand->home_page }}</td>
                   <td>{!! nl2br(e($brand->brand_introduction)) !!}</td>

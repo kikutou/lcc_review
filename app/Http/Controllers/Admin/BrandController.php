@@ -26,17 +26,8 @@ class BrandController extends Controller
 
       $brand = new Brand;
       $brand->brand_name = $request->brand_name;
-<<<<<<< HEAD
-      //更改路径显示图片
       $brand->logo_picture = str_replace("public", "storage", $logo_path);
       $brand->profile_picture = str_replace("public", "storage", $profile_path);
-=======
-
-      //change file path for show picture
-      $brand->logo_picture = str_replace("public", "storage", $logo_path);
-      $brand->profile_picture = str_replace("public", "storage", $profile_path);
-
->>>>>>> 94ad2d224c95afc676cccb8c854bc58b70026f33
       $brand->brand_introduction = $request->brand_introduction;
       $brand->home_page = $request->home_page;
       $brand->save();
@@ -45,10 +36,13 @@ class BrandController extends Controller
     }
   }
 
+
     public function index(Request $request){
         $brands = Brand::all();
         return view("admin.brand.index", ["brands" => $brands]);
     }
+
+
     public function edit(Request $request, $id)
 
   {
@@ -59,10 +53,9 @@ class BrandController extends Controller
       return view("admin.brand.edit", ['brand' => $brand]);
 
     } else {
-
-
       $brand = Brand::find($request->brand_id);
       $brand->brand_name = $request->brand_name;
+
       if ($request->file('logo_picture')) {
         $logo_path = $request->file('logo_picture')->store('public/logo_pictures');
         $brand->logo_picture = str_replace("public", "storage", $logo_path);
@@ -76,21 +69,28 @@ class BrandController extends Controller
       $brand->home_page = $request->home_page;
       $brand->save();
 
-
       return redirect(route("admin_get_brand_index"));
     }
   }
-  public function delete(Request $request, $id)
 
-  {
-  if($request->isMethod("GET")) {
-    $brand = Brand::where('id',$id) ->first();
 
-    return view("admin.brand.delete", ['brand' => $brand]);
+    public function delete(Request $request, $id)
 
-  } else {
-    $brand = Brand::find($request->brand_id)->delete();
-    return redirect(route("admin_get_brand_index"));
-  }
-  }
+    {
+    if($request->isMethod("GET")) {
+      $brand = Brand::where('id',$id) ->first();
+
+      return view("admin.brand.delete", ['brand' => $brand]);
+
+    } else {
+      $brand = Brand::find($request->brand_id)->delete();
+      return redirect(route("admin_get_brand_index"));
+    }
+    }
+
+
+    public function detail(Request $request, $id){
+      $brand = Brand::where('id',$id)->first();
+      return view("admin.brand.detail",['brand' => $brand]);
+    }
 }

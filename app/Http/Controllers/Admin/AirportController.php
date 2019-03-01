@@ -36,21 +36,35 @@ class AirportController extends Controller
         return view("admin.airport.index", ["airports" => $airports]);
     }
 
-    public function edit(Request $request, $id)
+      public function edit(Request $request, $id)
+    {
+    if($request->isMethod("GET")) {
+      $airport = Airport::where('id',$id) ->first();
+
+      return view("admin.airport.edit", ['airport' => $airport]);
+
+    } else {
+      $airport = Airport::find($request->airport_id);
+      $airport->airport_name  = $request->airport_name;
+      //$airport->mtb_city_id = $request->mtb_city_id ;
+      $airport->save();
+      return redirect(route("admin_get_airport_index"));
+    }
+  }
+
+  public function delete(Request $request, $id)
+
   {
   if($request->isMethod("GET")) {
-    $airport = Airport::where('id',$id) ->first();
+    $airport= Airport::where('id',$id) ->first();
 
-    return view("admin.airport.edit", ['airport' => $airport]);
+    return view("admin.airport.delete", ['airport' => $airport]);
 
   } else {
-    $airport = Airport::find($request->airport_id);
-    $airport->airport_name  = $request->airport_name;
-    //$airport->mtb_city_id = $request->mtb_city_id ;
-    $airport->save();
+    $airport = Airport::find($request->airport_id)->delete();
     return redirect(route("admin_get_airport_index"));
   }
-}
+  }
 
 
 

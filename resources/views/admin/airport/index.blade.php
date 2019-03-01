@@ -30,7 +30,8 @@
                   <td>{{ $airport->airport_name }}</td>
                   <th scope="row">{{ $airport->city->value }}</th>
                   <td><a href="{{ route('admin_get_airport_edit',['id'=> $airport->id]) }}"><i class="ti-pencil-alt">編集</i></a>
-                  <a><i class="ti-trash">削除</i></a></td>
+                      <a href="{{ route('admin_get_airport_delete',['id'=> $airport->id]) }}"><i class="ti-trash">削除</i></a>
+                  </td>
                 </tr>
                 @endforeach
 
