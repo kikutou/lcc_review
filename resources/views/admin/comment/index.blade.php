@@ -20,8 +20,8 @@
                   <th scope="col">ユーザーコード</th>
                   <th scope="col">航空会社</th>
                   <th scope="col">航路</th>
+                  <th scope="col">平均点</th>
                   <th scope="col">審査状況</th>
-                  <th scope="col">審査メモ</th>
                   <th scope="col">操作</th>
                 </tr>
               </thead>
@@ -32,8 +32,8 @@
                   <td>{{ $comment->user->code }}</td>
                   <td>{{ $comment->brand->brand_name ?? "" }}</td>
                   <td>{{ $comment->flight->flight_number ?? "" }}</td>
-                  <td>{{ $comment->inspect_status->value }}</td>
-                  <td>{{ $comment->inspect_memo ?? "" }}</td>
+                  <td>{{ $comment->star($comment->average_score) ?? "" }}{{ $comment->average_score }}</td>
+                  <td>{{ $comment->inspect_status($comment->read_by_admin_at) }}</td>
                   <td><a href="{{ route('admin_get_comment_edit',['id'=> $comment->id]) }}"><i class="ti-pencil-alt">編集</i></a>
                     <a href="{{ route('admin_get_comment_delete',['id'=> $comment->id]) }}"><i class="ti-trash">削除</i></a>
                   </td>

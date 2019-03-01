@@ -102,3 +102,4 @@ Route::get("admin/comment/{id}/delete", "Admin\CommentController@delete")->name(
 Route::post("admin/comment/{id}/delete", "Admin\CommentController@delete")->name("admin_post_comment_delete");
 //commentsdetail
 Route::get("admin/comment/{id}/detail", "Admin\CommentController@detail")->name("admin_get_comment_detail");
+Route::post("admin/comment/{id}/detail", "Admin\CommentController@detail")->name("admin_post_comment_detail");

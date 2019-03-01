@@ -26,10 +26,13 @@
               <li class="list-group-item">エンターテインメント：{{ $comment->entertainment ?? "" }}</li>
               <li class="list-group-item">コストパフォーマンス：{{ $comment->cost_performance ?? "" }}</li>
               <li class="list-group-item">コメント内容：{{ $comment->comment ?? "" }}</li>
-              <li class="list-group-item">審査状況：{{ $comment->inspect_status->inspect_status }}</li>
-              <li class="list-group-item">メモ：<br>{{ $comment->memo ?? "なし" }}</li>
+              <li class="list-group-item">審査状況：{{ $comment->inspect_status($comment->read_by_admin_at) }}</li>
             </ul><br>
-            <a href="{{ route('admin_get_comment_index') }}"><button type="button" class="btn btn-rounded btn-info mb-3">戻り</button></a>
+            <form action="{{route('admin_post_comment_detail', ['id' => $comment->id])}}" method="post">
+              @csrf
+              <input type="hidden" name="comment_id" value="{{ $comment->id }}">
+            <button type="submit" class="btn btn-rounded btn-info mb-3">戻り</button>
+          </form>
           </div>
         </div>
       </div>

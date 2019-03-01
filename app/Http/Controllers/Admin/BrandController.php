@@ -26,6 +26,7 @@ class BrandController extends Controller
 
       $brand = new Brand;
       $brand->brand_name = $request->brand_name;
+      //change file path for show picture
       $brand->logo_picture = str_replace("public", "storage", $logo_path);
       $brand->profile_picture = str_replace("public", "storage", $profile_path);
       $brand->brand_introduction = $request->brand_introduction;
