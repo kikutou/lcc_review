@@ -100,3 +100,15 @@ Route::post("admin/comment/{id}/delete", "Admin\CommentController@delete")->name
 //commentsdetail
 Route::get("admin/comment/{id}/detail", "Admin\CommentController@detail")->name("admin_get_comment_detail");
 Route::post("admin/comment/{id}/detail", "Admin\CommentController@detail")->name("admin_post_comment_detail");
+
+
+
+
+// User pages
+
+Route::get("user", "User\HomepageController@index");
+
+//post
+Route::get("user/post/index", "User\PostController@index")->name("user_get_post_index");
+//postdetail
+Route::get("user/post/{id}/detail", "User\PostController@detail")->name("user_get_post_detail");
