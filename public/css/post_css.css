@@ -1,0 +1,219 @@
+/*for all page*/
+body {
+  padding-top: 56px;
+
+}
+.search-sec{
+    padding: 2rem;
+}
+.search-slt{
+    display: block;
+    width: 100%;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #55595c;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    height: calc(3rem + 2px) !important;
+    border-radius:0;
+}
+.wrn-btn{
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    height: calc(3rem + 2px) !important;
+    border-radius:0;
+}
+@media (min-width: 992px){
+    .search-sec{
+        position: relative;
+        top: -114px;
+        background: rgba(26, 70, 104, 0.51);
+    }
+}
+
+@media (max-width: 992px){
+    .search-sec{
+        background: #1A4668;
+    }
+}
+
+.otherpost{
+  text-align: center;
+}
+  /* #main {
+    clear: both;
+    width: 980px;
+    margin: 20px auto;
+    padding: 0;
+    position: relative;
+    background-color:#f2f7fc;
+  }
+  em.category {
+      padding: 0 3px;
+      color: red;
+      background-color: #fe8;
+      border: 1px solid #fa6;
+      border-radius: 4px;
+      margin-right:10%;
+  }
+  span.brand {
+    background-color:gray;
+    margin: 2px 0;
+    padding: 0 10px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 14px;
+}
+   div.ul {
+     margin: 10px 0;
+     text-align: center;
+   }
+  ul.pagination {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+  }
+
+  ul.pagination li {
+    display: inline;
+  }
+
+  ul.pagination li a {
+      color: black;
+      float: left;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 5px;
+  }
+  ul.pagination li a.active {
+    background-color: #228aab;
+    color: white;
+    border-radius: 5px;
+}
+
+ul.pagination li a:hover:not(.active) {background-color: #ddd;}
+  /*for post_list page*/
+    /*for headline*/
+    .search{
+      display: block;
+      margin: 20px auto 0;
+      position:relative;
+      width:400px;
+      margin:0 auto;
+    }
+    .search #keyword{
+      border:2px solid #228aab;
+      border-radius:5px;
+      background:transparent;
+      top:0;
+      right:0;
+      padding-left: 10px;
+      }
+    .search #search_button{
+      margin-left:80%;
+      width:100px;
+      height: 30px;
+      background-color:#228aab;
+      color:#fff;
+      border:none;
+      border-radius:5px;
+      position: relative;
+    }
+    .search #category{
+      border: 1px solid #228aab;
+    }
+    .search #brand{
+      border: 1px solid #228aab;
+    }
+    .search #airport{
+      border: 1px solid #228aab;
+    }
+
+    /*for list*/
+    .list .try {
+      display: block;
+      float: left;
+      width: 300px;
+      height: 290px;
+      box-sizing: border-box;
+      padding: 5px 10px;
+    }
+    .try .headline{
+      margin: 3px 0;
+      line-height: 18px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .date {
+      display: block;
+      float: right;
+      font-size: 12px;
+      color: #555;
+      text-align: right;
+      margin-bottom: 30px;
+    }
+
+
+/*for post_detail page*/
+  .title{
+    display: block;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 0;
+    font-size: 26px;
+    line-height: 1.3em;
+    color: #000;
+    font-weight: 700;
+  }
+  .inpdate {
+    padding: 4px 0;
+    font-size: 14px;
+    color: #000;
+  }
+  .title .category {
+      padding: 0 3px;
+      color: red;
+      background-color: #fe8;
+      border: 1px solid #fa6;
+      border-radius: 4px;
+      margin-right:5%;
+  }
+  #main .body{
+    margin: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    line-height: 1.5em;
+    text-indent: 1em;
+    color: #000;
+  }
+  #main .titleimg{
+    display: block;
+    float: center;
+    margin: auto;
+    padding: 5px;
+    box-shadow: 0 0 5px #ccc;
+    width: 500px;
+  }
+  #main .blog{
+    margin: 0;
+    padding: 40px 50px;
+  }
+  .blog .contenttext{
+    border-bottom: 1px dashed;
+    margin-bottom: 10px;
+  }
+  .blog .samebrand{
+    border-bottom: 1px dashed;
+    padding: inherit;
+    margin:10px;
+  }
+
+  .blog .samecategory{
+    border-bottom: 1px dashed;
+    padding: inherit;
+    margin:10px;
+  } */
