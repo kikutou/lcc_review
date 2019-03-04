@@ -120,3 +120,5 @@ Route::get("user", "User\HomepageController@index");
 Route::get("user/post/index", "User\PostController@index")->name("user_get_post_index");
 //postdetail
 Route::get("user/post/{id}/detail", "User\PostController@detail")->name("user_get_post_detail");
+//brand
+Route::get("user/brand/index", "User\BrandController@index")->name("user_get_brand_index");

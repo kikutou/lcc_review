@@ -31,7 +31,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item 
+          <li class="nav-item
           @if(isset($type) && $type == 'home')
             active
           @endif"
@@ -45,8 +45,12 @@
           >
             <a class="nav-link" href="{{ route('user_get_post_index') }}">Post</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Brand</a>
+          <li class="nav-item
+          @if(isset($type) && $type == 'brand')
+            active
+          @endif"
+          >
+            <a class="nav-link" href="{{ route('user_get_brand_index') }}">Brand</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>

@@ -31,7 +31,8 @@
                   <th scope="row"><a href="{{route('admin_get_brand_detail',['id'=> $brand->id]) }}">{{ $brand->id }}</a></th>
                   <td>{{ $brand->brand_name }}</td>
                   <td>{{ $brand->home_page }}</td>
-                  <td>{!! nl2br(e($brand->brand_introduction)) !!}</td>
+                  <!-- <td>{!! nl2br(e($brand->brand_introduction)) !!}</td> -->
+                  <td><?php echo substr("{$brand->brand_introduction}",0,30);?></td>
                   <td><img src="{{ asset($brand->logo_picture) }}" alt="logo" width="100" ></td>
                   <td><img src="{{ asset($brand->profile_picture) }}" alt="profile" width="150"></td>
                   <td><a href="{{ route('admin_get_brand_edit',['id'=> $brand->id]) }}"><i class="ti-pencil-alt">編集</i></a>

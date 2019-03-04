@@ -1,0 +1,81 @@
+#divbox{
+margin-top:1%;
+margin-bottom: 1%;
+margin-left:3%;
+margin-right: 3%;
+padding: 1%;
+border:1px;
+background:#FBFBFF;
+
+
+}
+#box{
+    width: 380px;
+    margin: 10px auto;
+    font-family: 'Microsoft YaHei';
+    font-size: 14px;
+}
+.input1{
+    width: 260px;
+    border: 1px solid #e2e2e2;
+    height: 30px;
+    float: left;
+    background-image: url(images/search.jpg);
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position:5px center;
+    padding:0 0 0 40px;
+}
+#search{
+    width: 78px;
+    height: 32px;
+    float: right;
+    background: LightSkyBlue;
+    color: white;
+    text-align: center;
+    line-height: 32px;
+    cursor: pointer;
+}
+
+#logotable{
+
+  rowspan="2";
+}
+table{
+      width: 60%;
+      border:1px solid #00BFFF;
+      margin-top:3px;
+      margin-bottom:3px;
+}
+td{
+     border:1px solid #00BFFF;
+     margin:1px;
+}
+.brand_namefont{
+  font-size: 150%;
+  text-align: center;
+}
+
+.font2{
+  font-size: 140%;
+}
+
+.intro{
+  margin:0 auto;
+  padding:1px;
+  border:1px solid #00BFFF;
+  text-align:center;
+  width: 60%;
+}
+.pic{
+  text-align:center;
+
+}
+
+.brand_homepage{
+  text-align:center;
+}
+
+.top{
+  margin-top:20px;
+}
