@@ -44,25 +44,8 @@ class FlightController extends Controller
 
     public function index(Request $request){
         $flights = Flight::all();
-  //出发机场的id在$start_flight_result
-        $start_flight_result = array();
-        foreach($flights as $flight){
-          $start_flight_result[] = $flight->mtb_start_airport_id;
-        }
+        return view("admin.flight.index", ["flights" => $flights]);
 
-        $start_flight = Airport::whereIN('id',$start_flight_result)
-        ->get();
-//到达机场的id在$end_flight_result
-        $end_flight_result = array();
-        foreach($flights as $flight){
-          $end_flight_result[] = $flight->mtb_destination_airport_id;
-        }
-
-        $end_flight = Airport::whereIN('id',$end_flight_result)
-        ->get();
-        dd($start_flight);
-
-        return view("admin.flight.index", ["flights" => $flights,"start_flight" => $start_flight,"end_flight" => $end_flight]);
     }
 
 
