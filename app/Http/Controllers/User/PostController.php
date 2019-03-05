@@ -23,21 +23,23 @@ class PostController extends Controller
       }
 
       if($request->brand_id) {
-        // $brand_id = $request->brand_id;
-        // $posts->whereHas("brands", function($q) use($brand_id){
-        //   $q->where('brands.id', $brand_id);
-        // });
+        $brand_id = $request->brand_id;
+        // wherehas('在哪张表里',function($a) use(函数外变量){where条件})
+        $posts->whereHas("brands", function($q) use($brand_id){
+          $q->where('brands.id', $brand_id);
+        });
 
-        $brand_posts = PostBrand::query()->where("brand_id", $request->brand_id)->get();
-        $post_ids= array();
-        foreach($brand_posts as $brand_post) {
-          $post_ids[] = $brand_post->post_id;
-        }
-        $posts->whereIn("id", $post_ids);
-      }
+      //   $brand_posts = PostBrand::query()->where("brand_id", $request->brand_id)->get();
+      //   $post_ids= array();
+      //   foreach($brand_posts as $brand_post) {
+      //     $post_ids[] = $brand_post->post_id;
+      //   }
+      //   $posts->whereIn("id", $post_ids);
+      // }
 
       if($request->key_word) {
         $key_word = $request->key_word;
+        // where('列名','Like',%模糊搜索用关键字%)
         $posts->where("title", "LIKE", '%' . $key_word . '%');
       }
 
