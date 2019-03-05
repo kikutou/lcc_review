@@ -16,15 +16,14 @@ class PostController extends Controller
     //index
     public function index(Request $request){
 
-
       $posts = Post::query();
+
       if($request->mtb_category_id) {
         $posts->where("mtb_category_id", $request->mtb_category_id);
       }
 
       if($request->brand_id) {
         $brand_id = $request->brand_id;
-        // wherehas('在哪张表里',function($a) use(函数外变量){where条件})
         $posts->whereHas("brands", function($q) use($brand_id){
           $q->where('brands.id', $brand_id);
         });
@@ -35,21 +34,22 @@ class PostController extends Controller
       //     $post_ids[] = $brand_post->post_id;
       //   }
       //   $posts->whereIn("id", $post_ids);
-      // }
+    }
 
       if($request->key_word) {
         $key_word = $request->key_word;
-        // where('列名','Like',%模糊搜索用关键字%)
+
         $posts->where("title", "LIKE", '%' . $key_word . '%');
       }
 
-
       $posts = $posts->paginate(9);
+
+
       $categories = Category::all();
       $brands = Brand::all();
       return view("user.post.index", ["posts" => $posts, 'brands'=> $brands, 'categories'=>$categories]);
     }
-  }
+
 
     //detail
     public function detail(Request $request,$id){
