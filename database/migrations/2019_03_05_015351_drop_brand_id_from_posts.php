@@ -14,7 +14,8 @@ class DropBrandIdFromPosts extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-             $table->dropColumn('brand_id');
+          $table->dropForeign(['brand_id']);
+          $table->dropColumn('brand_id');
         });
     }
 
