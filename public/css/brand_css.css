@@ -1,41 +1,3 @@
-#divbox{
-margin-top:1%;
-margin-bottom: 1%;
-margin-left:3%;
-margin-right: 3%;
-padding: 1%;
-border:1px;
-background:#FBFBFF;
-
-
-}
-#box{
-    width: 380px;
-    margin: 10px auto;
-    font-family: 'Microsoft YaHei';
-    font-size: 14px;
-}
-.input1{
-    width: 260px;
-    border: 1px solid #e2e2e2;
-    height: 30px;
-    float: left;
-    background-image: url(images/search.jpg);
-    background-repeat: no-repeat;
-    background-size: 25px;
-    background-position:5px center;
-    padding:0 0 0 40px;
-}
-#search{
-    width: 78px;
-    height: 32px;
-    float: right;
-    background: LightSkyBlue;
-    color: white;
-    text-align: center;
-    line-height: 32px;
-    cursor: pointer;
-}
 
 #logotable{
 
@@ -72,10 +34,29 @@ td{
 
 }
 
+.name{
+  font-size: 150%;
+  padding-top: 2%;
+}
+
 .brand_homepage{
   text-align:center;
 }
 
-.top{
-  margin-top:20px;
+.detaildiv{
+  width: 60%;
+
+  /* 对DIV设置margin:0 auto样式，是为了让DIV在浏览器中水平居中。布局居中、水平居中，均加入margin:0 auto即可 */
+  margin:0 auto;
+}
+
+.namepage{
+  text-align:center;
+}
+
+.introduction{
+  /* 当text-align设置为"justify"，每一行被展开为宽度相等，左，右外边距是对齐（如杂志和报纸）。 */
+ text-align:justify;
+ /* 文本缩进属性是用来指定文本的第一行的缩进。 */
+ text-indent:15px;
 }

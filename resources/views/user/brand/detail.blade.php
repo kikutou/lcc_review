@@ -6,31 +6,31 @@
 @section("content")
 
 <meta charset="utf-8">
+<link rel="stylesheet" href="{{ URL::asset('css/brand_css.css') }}">
 
 <body align="center" bgcolor="LightSkyBlue">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
 
-          @foreach($brands as $brand)
-          <div>
-              <div>
-                <p><a href="{{route('admin_get_brand_detail',['id'=> $brand->id]) }}">{{ $brand->brand_name }}</p>
-              </div>
 
+          <div class=detaildiv>
+            <div class=namepage>
               <div>
-                <a>{{ $brand->home_page }}</a>
+                <p class=name>{{ $brand->brand_name }}</p>
               </div>
-
               <div>
-                <img src="{{ asset($brand->profile_picture) }}" alt="profile" width="150">
+                <img src="{{ asset($brand->profile_picture) }}" alt="profile" width="300">
               </div>
-
               <div>
-                <textera>{{ $brand->brand_introduction }}</textera>
+                <a href="{{$brand->home_page}}">{{ $brand->home_page }}</a>
+              </div>
+            </br>
+              <div>
+                <p class=introduction>{{$brand->brand_introduction}}</p>
               </div>
             </div>
-          @endforeach
+
       </div>
     </div>
 </div>
