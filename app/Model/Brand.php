@@ -12,7 +12,7 @@ class Brand extends Model
         "brand_name" => "required|between:1,10",
         "logo_picture" => "required|image",
         "profile_picture" => "required|image",
-        "brand_introduction" => "string|between:0,100",
+        "brand_introduction" => "string|between:0,500",
         "home_page" => "required|url",
 
       ];
@@ -25,7 +25,7 @@ class Brand extends Model
         "profile_picture.required" => "図を挿入してください。",
         "profile_picture.image" => "正しい形式の図を挿入してください。",
         "brand_introduction.string" => "説明文を必ず入力してください。",
-        "brand_introduction.between" => "100字以内の説明を入力してください。",
+        "brand_introduction.between" => "500字以内の説明を入力してください。",
         "home_page.url" => "正しい形式のurlを入力してください。",
       ];
       use SoftDeletes;

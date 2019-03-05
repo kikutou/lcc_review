@@ -96,25 +96,20 @@
 
     @foreach($brands as $brand)
     <div>
-  <div>
-    <table align="center">
-        <tr>
-           <td class="pic" rowspan="2"><img src="{{ asset($brand->logo_picture) }}" alt="logo" width="100" ></td>
-           <td class="brand_namefont"><p><font>{{ $brand->brand_name }}</font></p></td>
-        </tr>
-        <tr>
-          <td class="brand_homepage">{{ $brand->home_page }}</td>
-        </tr>
-    </table>
-    <div class="intro">
-      <p><?php echo substr("{$brand->brand_introduction}",0,30);?>...</p>
-    </div>
-  </div>
-
-
-
-
-
+      <div>
+        <table align="center">
+            <tr>
+               <td class="pic" rowspan="2"><img src="{{ asset($brand->logo_picture) }}" alt="logo" width="100" ></td>
+               <td class="brand_namefont"><a href="{{route('user_get_brand_detail',['id'=> $brand->id]) }}">{{ $brand->brand_name }}</a></td>
+            </tr>
+            <tr>
+              <td class="brand_homepage">{{ $brand->home_page }}</td>
+            </tr>
+        </table>
+          <div class="intro">
+            <p><?php echo substr("{$brand->brand_introduction}",0,100);?>...</p>
+          </div>
+      </div>
   </div>
     @endforeach
 </div>
