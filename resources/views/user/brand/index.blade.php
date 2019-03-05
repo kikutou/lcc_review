@@ -107,7 +107,7 @@
         </tr>
     </table>
     <div class="intro">
-      <p><?php echo substr("{$brand->brand_introduction}",0,30);?></p>
+      <p><?php echo substr("{$brand->brand_introduction}",0,30);?>...</p>
     </div>
   </div>
 
