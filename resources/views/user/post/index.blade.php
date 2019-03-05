@@ -48,13 +48,13 @@
 
       <section class="search-sec">
         <div class="container">
-          <form action="#" method="post" novalidate="novalidate">
+          <form action="{{ route('user_get_post_index' )}}" method="get" novalidate="novalidate">
             <div class="row">
               <div class="col-lg-12">
                 <div class="row">
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                     <select class="form-control search-slt" name="mtb_category_id">
-                      <option>Select Category</option>
+                      <option value="">Select Category</option>
                       @foreach($categories as $category)
                       <option value="{{ $category->id }}"
                         @if(old('mtb_category_id') == $category->id)
@@ -67,10 +67,10 @@
 
                     <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                       <select class="form-control search-slt" name="brand_id">
-                        <option>Select Brand</option>
+                        <option value="">Select Brand</option>
                         @foreach($brands as $brand)
                         <option value="{{ $brand->id }}"
-                          @if(old('brand_id') == $brand->id)
+                          @if(Request::get('brand_id') == $brand->id)
                           selected
                           @endif
                           >{{ $brand->brand_name }}</option>
@@ -78,7 +78,7 @@
                         </select>
                       </div>
                       <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                        <input type="text" class="form-control search-slt" placeholder="Enter Keyword">
+                        <input type="text" class="form-control search-slt" placeholder="Enter Keyword" name="key_word" value="{{ Request::get('key_word') }}">
                       </div>
                       <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                         <button type="submit" class="btn btn-info wrn-btn">Search</button>
@@ -92,6 +92,7 @@
           <!-- post list -->
           <div class="row">
             @foreach($posts as $post)
+
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
                 <a href="{{route('user_get_post_detail',['id'=> $post->id]) }}"><img class="card-img-top" src="{{ asset($post->picture) }}" alt=""></a>
@@ -102,13 +103,11 @@
                 </div>
                 <div class="card-footer">
                   <a href="#" class="badge badge-info">{{ $post->category->category_name }}</a>
-
                     @foreach($post->brands as $brand)
                     <span>
-                    <a href="#" class="badge badge-secondary">{{ $brand->name }}</a>
+                    <a href="#" class="badge badge-secondary">{{ $brand->brand_name }}</a>
                     </span>
                     @endforeach
-
                   <p class="card-text">{{ $post->createdate }}</p>
                 </div>
               </div>

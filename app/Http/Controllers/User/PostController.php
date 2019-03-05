@@ -15,7 +15,34 @@ class PostController extends Controller
 {
     //index
     public function index(Request $request){
-      $posts = Post::paginate(9);
+
+
+      $posts = Post::query();
+      if($request->mtb_category_id) {
+        $posts->where("mtb_category_id", $request->mtb_category_id);
+      }
+
+      if($request->brand_id) {
+        // $brand_id = $request->brand_id;
+        // $posts->whereHas("brands", function($q) use($brand_id){
+        //   $q->where('brands.id', $brand_id);
+        // });
+
+        $brand_posts = PostBrand::query()->where("brand_id", $request->brand_id)->get();
+        $post_ids= array();
+        foreach($brand_posts as $brand_post) {
+          $post_ids[] = $brand_post->post_id;
+        }
+        $posts->whereIn("id", $post_ids);
+      }
+
+      if($request->key_word) {
+        $key_word = $request->key_word;
+        $posts->where("title", "LIKE", '%' . $key_word . '%');
+      }
+
+
+      $posts = $posts->paginate(9);
       $categories = Category::all();
       $brands = Brand::all();
       return view("user.post.index", ["posts" => $posts, 'brands'=> $brands, 'categories'=>$categories]);

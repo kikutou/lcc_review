@@ -40,7 +40,7 @@ class Post extends Model
     }
     //connect brand
     public function brands(){
-      return $this->belongsToMany('App\Model\Brand','brand_post');
+      return $this->belongsToMany('App\Model\Brand','brand_post', "post_id", "brand_id");
     }
 
     use SoftDeletes;
