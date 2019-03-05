@@ -64,6 +64,7 @@
     <!-- same_brand_posts -->
     <p class="h4 otherpostbar">同じ航空会社に関する記事</p>
     <div class="row">
+      @if(isset($same_brand_posts))
       @foreach($same_brand_posts as $same_brand_post)
       <div class="col-lg-3 mb-4">
         <div class="card h-100">
@@ -77,13 +78,21 @@
           </div>
           <div class="card-footer">
             <a href="#" class="badge badge-info">{{ $same_brand_post->category->category_name }}</a>
-
+            @foreach($post->brands as $brand)
+            <span>
+            <a href="#" class="badge badge-secondary">{{ $brand->brand_name }}</a>
+            </span>
+            @endforeach
             <p class="card-text">{{ $same_brand_post->createdate }}</p>
           </div>
 
         </div>
       </div>
       @endforeach
+      @else
+      <p>同じ航空会社に関する記事がございません</p>
+      @endif
+
     </div>
 
     <!-- same_category_posts -->
@@ -103,7 +112,11 @@
           </div>
           <div class="card-footer">
             <a href="#" class="badge badge-info">{{ $same_category_post->category->category_name }}</a>
-
+            @foreach($post->brands as $brand)
+            <span>
+            <a href="#" class="badge badge-secondary">{{ $brand->brand_name }}</a>
+            </span>
+            @endforeach
             <p class="card-text">{{ $same_category_post->createdate }}</p>
           </div>
         </div>
