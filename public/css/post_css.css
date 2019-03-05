@@ -49,6 +49,17 @@ body {
   margin: 30px 0;
   border-bottom: dashed;
 }
+.post_title_back{
+    background: gray;
+    background-size: cover;
+    width: 400px;
+    height: 100px;
+    position: relative;
+    margin: 40px 0;
+}
+.post_title{
+
+}
 
   /* #main {
     clear: both;

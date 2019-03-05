@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Post;
 use App\Model\Brand;
 use App\Model\Admin;
+use App\Model\PostBrand;
 use App\Model\Master\Category;
 use Illuminate\Support\Facades\Storage;
 use Validator;
@@ -35,13 +36,21 @@ class PostController extends Controller
       $post->title = $request->title;
       $post->picture = str_replace("public", "storage", $picture_path);
       $post->createdate = date('Y/m/d');
-      $post->brand_id = $request->brand_id;
       $post->mtb_category_id = $request->mtb_category_id;
       $post->admin_id = $request->admin_id;
       $post->start_time = $request->start_time;
       $post->finish_time = $request->finish_time;
       $post->content = $request->content;
       $post->save();
+
+      if($post->save()){
+        foreach($request->brand_ids as $brand_id){
+          $post_brand = new PostBrand;
+          $post_brand->post_id = $post->id;
+          $post_brand->brand_id = $brand_id;
+          $post_brand->save();
+        }
+      }
 
       return redirect(route("admin_get_post_index"));
     }
@@ -75,7 +84,6 @@ class PostController extends Controller
         $picture_path = $request->file('picture')->store('public/pictures');
         $post->picture = str_replace("public", "storage", $picture_path);
       }
-      $post->brand_id = $request->brand_id;
       $post->mtb_category_id = $request->mtb_category_id;
       $post->admin_id = $request->admin_id;
       $post->start_time = $request->start_time;
@@ -83,6 +91,14 @@ class PostController extends Controller
       $post->content = $request->content;
       $post->save();
 
+      if($post->save()){
+        foreach($request->brand_ids as $brand_id){
+          $post_brand = new PostBrand;
+          $post_brand->post_id = $post->id;
+          $post_brand->brand_id = $brand_id;
+          $post_brand->save();
+        }
+      }
 
       return redirect(route("admin_get_post_index"));
     }
@@ -99,6 +115,7 @@ class PostController extends Controller
 
     } else {
       $post = Post::find($request->post_id)->delete();
+      $post_brand = PostBrand::where('post_id', $request->post_id)->delete();
       return redirect(route("admin_get_post_index"));
     }
   }
@@ -106,7 +123,8 @@ class PostController extends Controller
 //detail
  public function detail(Request $request, $id){
    $post = Post::where('id',$id)->first();
-   return view("admin.post.detail",['post' => $post]);
+   $brands = PostBrand::where('post_id',$id)->get();
+   return view("admin.post.detail",['post' => $post, 'brands'=>$brands]);
  }
 
 }

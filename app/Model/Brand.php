@@ -43,13 +43,16 @@ class Brand extends Model
 
         }
         //connect postsbrands
-        public function postsbrands(){
-          return $this->hasMany('App\Model\PostsBrands');
+        public function postbrand(){
+          return $this->hasMany('App\Model\PostBrand');
         }
         //connect flight
         public function flight(){
           return $this->hasMany('App\Model\Flight','brand_id');
-
+        }
+        //connect post
+        public function posts(){
+          return $this->belongsToMany('App\Model\Post','brand_post');
         }
 
 }
