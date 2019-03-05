@@ -41,8 +41,15 @@ body {
 }
 
 .otherpost{
-  text-align: center;
+  text-align: left;
 }
+.otherpostbar{
+  color: #696969;
+  padding: 25px;
+  margin: 30px 0;
+  border-bottom: dashed;
+}
+
   /* #main {
     clear: both;
     width: 980px;

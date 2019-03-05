@@ -62,7 +62,7 @@
   <!-- other posts -->
   <div class="otherpost">
     <!-- same_brand_posts -->
-    <p class="h4">同じ航空会社に関する記事</p>
+    <p class="h4 otherpostbar">同じ航空会社に関する記事</p>
     <div class="row">
       @foreach($same_brand_posts as $same_brand_post)
       <div class="col-lg-3 mb-4">
@@ -87,7 +87,7 @@
       </div>
 
       <!-- same_category_posts -->
-      <p class="h4">同じカテゴリーに関する記事</p>
+      <p class="h4 otherpostbar">同じカテゴリーに関する記事</p>
       <div class="row">
         @foreach($same_category_posts as $same_category_post)
         <div class="col-lg-3 mb-4">
