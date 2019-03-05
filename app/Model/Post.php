@@ -34,9 +34,9 @@ class Post extends Model
       return $this->belongsTo('App\Model\Admin');
     }
 
-    //connect brand
-    public function brand(){
-      return $this->belongsTo('App\Model\Brand');
+    //connect postsbrands
+    public function postsbrands(){
+      return $this->hasMany('App\Model\PostsBrands');
     }
 
     use SoftDeletes;

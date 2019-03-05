@@ -37,14 +37,16 @@ class Brand extends Model
          */
         protected $dates = ['deleted_at'];
 
+        //connect comment
         public function comment(){
           return $this->hasMany('App\Model\Comment','brand_id');
 
         }
-        public function post(){
-          return $this->hasMany('App\Model\Post','brand_id');
-
+        //connect postsbrands
+        public function postsbrands(){
+          return $this->hasMany('App\Model\PostsBrands');
         }
+        //connect flight
         public function flight(){
           return $this->hasMany('App\Model\Flight','brand_id');
 
