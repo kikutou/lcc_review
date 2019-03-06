@@ -2,7 +2,6 @@
 
 @section("title", "記事情報")
 
-
 @section("content")
 
 <div class="main-content-inner">
@@ -20,9 +19,10 @@
               <li class="list-group-item">画像：<br><img src="{{ asset($post->picture) }}" alt="picture" width="200"></li>
               <li class="list-group-item">作成日；{{ $post->createdate }}</li>
               <li class="list-group-item">航空会社：
-                @foreach($brands as $brand)
-                <p>{{ $brand->brand->brand_name }}</p>
-                @endforeach</li>
+                @foreach($post->brands as $brand)
+                <p>{{ $brand->brand_name }}</p>
+                @endforeach
+              </li>
               <li class="list-group-item">カテゴリー：{{ $post->category->category_name }}</li>
               <li class="list-group-item">管理員：{{ $post->admin->admin_user }}</li>
               <li class="list-group-item">有効期間：{{ $post->start_time }} ～ {{ $post->finish_time }}</li>

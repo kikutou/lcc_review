@@ -2,10 +2,15 @@
 
 @section("title", "記事一覧")
 
-
 @section("content")
 
 <div class="main-content-inner">
+
+  <div>
+    <p>{{ Session::get("message") ?? ""  }}</p>
+  </div>
+
+
   <!-- table dark start -->
   <div class="col-lg-12 mt-5">
     <div class="card">

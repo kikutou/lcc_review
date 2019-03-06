@@ -19,15 +19,15 @@ Route::get('/', function () {
 Route::get("admin", "Admin\DashboardController@index");
 
 // post
+Route::get("admin/posts", "Admin\PostController@index")->name("admin_get_post_index");
+Route::get("admin/post/{id}/detail", "Admin\PostController@detail")->name("admin_get_post_detail");
 Route::get("admin/post/add", "Admin\PostController@add")->name("admin_get_post_add");
 Route::post("admin/post/add", "Admin\PostController@add")->name("admin_post_post_add");
-Route::get("admin/post/index", "Admin\PostController@index")->name("admin_get_post_index");
 Route::get("admin/post/{id}/edit", "Admin\PostController@edit")->name("admin_get_post_edit");
 Route::post("admin/post/{id}/edit", "Admin\PostController@edit")->name("admin_post_post_edit");
 Route::get("admin/post/{id}/delete", "Admin\PostController@delete")->name("admin_get_post_delete");
 Route::post("admin/post/{id}/delete", "Admin\PostController@delete")->name("admin_post_post_delete");
-//postdetail
-Route::get("admin/post/{id}/detail", "Admin\PostController@detail")->name("admin_get_post_detail");
+
 
 // brand
 Route::get("admin/brand/add", "Admin\BrandController@add")->name("admin_get_brand_add");
