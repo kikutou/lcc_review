@@ -40,7 +40,7 @@ class PostController extends Controller
       $post->admin_id = $request->admin_id;
       $post->start_time = $request->start_time;
       $post->finish_time = $request->finish_time;
-      $post->content = $request->content;
+      $post->content = $request->post_content;
       $post->save();
       if ($request->brand_ids) {
         if($post->save()){
@@ -90,7 +90,7 @@ class PostController extends Controller
       $post->admin_id = $request->admin_id;
       $post->start_time = $request->start_time;
       $post->finish_time = $request->finish_time;
-      $post->content = $request->content;
+      $post->content = $request->post_content;
       $post->save();
 
       if ($request->brand_ids) {
