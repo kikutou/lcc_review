@@ -6,6 +6,17 @@
 @section("content")
 
 <div class="main-content-inner">
+  <!-- session message -->
+  @if(Session::get("message"))
+  <div class="row">
+    <div class="alert alert-success alert-dismissible fade show col-md-6 offset-md-3" role="alert">
+      <strong>{{ Session::get("message") }}</strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span class="fa fa-times"></span>
+      </button>
+    </div>
+  </div>
+  @endif
 
   <!-- table dark start -->
   <div class="col-lg-12 mt-5">

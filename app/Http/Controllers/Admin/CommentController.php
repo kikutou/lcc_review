@@ -49,7 +49,7 @@ class CommentController extends Controller
       $comment->average_score = $comment->average_score = $comment->average_score($service,$clean,$food,$seat,$entertainment,$cost_performance);
       $comment->save();
 
-      return redirect(route("admin_get_comment_index"));
+      return redirect(route("admin_get_comment_index"))->with(["message" => '挿入成功']);
     }
   }
 
@@ -94,7 +94,7 @@ class CommentController extends Controller
       $comment->save();
 
 
-      return redirect(route("admin_get_comment_index", ["comment" => $comment]));
+      return redirect(route("admin_get_comment_index", ["comment" => $comment]))->with(["message" => '編集成功']);
     }
   }
 
@@ -109,7 +109,7 @@ class CommentController extends Controller
 
     } else {
       $comment = Comment::find($request->comment_id)->delete();
-      return redirect(route("admin_get_comment_index"));
+      return redirect(route("admin_get_comment_index"))->with(["message" => '削除成功']);
     }
   }
 

@@ -44,7 +44,7 @@ class UserController extends Controller
       $user_detail->save();
 
 
-      return redirect(route("admin_get_user_index"));
+      return redirect(route("admin_get_user_index"))->with(["message" => '挿入成功']);
     }
   }
   //index
@@ -92,7 +92,7 @@ class UserController extends Controller
       $user_detail->address_detail = $request->address_detail;
       $user_detail->gender_flg = $request->gender_flg;
       $user_detail->save();
-      return redirect(route("admin_get_user_index"));
+      return redirect(route("admin_get_user_index"))->with(["message" => '編集成功']);
     }
   }
 
@@ -109,7 +109,7 @@ class UserController extends Controller
       $user = User::find($request->user_id);
       $user_detail = $user->detail->where('user_id',$request->user_id)->delete();
       $user->delete();
-      return redirect(route("admin_get_user_index"));
+      return redirect(route("admin_get_user_index"))->with(["message" => '削除成功']);
     }
   }
 
