@@ -72,7 +72,7 @@ class PostController extends Controller
                     $post_brand->save();
                 }
             }
-
+            //with用来携带session去index
             return redirect(route("admin_get_post_index"))->with(["message" => '挿入成功']);
         }
     }
@@ -116,7 +116,7 @@ class PostController extends Controller
                     }
                 }
             }
-            return redirect(route("admin_get_post_index"));
+            return redirect(route("admin_get_post_index"))->with(['message'=>'変更成功']);
         }
     }
 
@@ -132,7 +132,7 @@ class PostController extends Controller
         } else {
             $post = Post::find($request->post_id)->delete();
             $post_brand = PostBrand::where('post_id', $request->post_id)->delete();
-            return redirect(route("admin_get_post_index"));
+            return redirect(route("admin_get_post_index"))->with(['message'=>'削除成功']);
         }
     }
 

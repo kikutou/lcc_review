@@ -6,6 +6,7 @@
 @section("content")
 
 <div class="main-content-inner">
+  
   <div class="row">
     <div class="col-lg-12 col-ml-12">
       <div class="row">
