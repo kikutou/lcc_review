@@ -66,60 +66,6 @@ body {
   margin-top: 50px;
 }
 
-  /* #main {
-    clear: both;
-    width: 980px;
-    margin: 20px auto;
-    padding: 0;
-    position: relative;
-    background-color:#f2f7fc;
-  }
-  em.category {
-      padding: 0 3px;
-      color: red;
-      background-color: #fe8;
-      border: 1px solid #fa6;
-      border-radius: 4px;
-      margin-right:10%;
-  }
-  span.brand {
-    background-color:gray;
-    margin: 2px 0;
-    padding: 0 10px;
-    color: #fff;
-    font-weight: 700;
-    line-height: 14px;
-}
-   div.ul {
-     margin: 10px 0;
-     text-align: center;
-   }
-  ul.pagination {
-      display: inline-block;
-      padding: 0;
-      margin: 0;
-  }
-
-  ul.pagination li {
-    display: inline;
-  }
-
-  ul.pagination li a {
-      color: black;
-      float: left;
-      padding: 8px 16px;
-      text-decoration: none;
-      border-radius: 5px;
-  }
-  ul.pagination li a.active {
-    background-color: #228aab;
-    color: white;
-    border-radius: 5px;
-}
-
-ul.pagination li a:hover:not(.active) {background-color: #ddd;}
-  /*for post_list page*/
-    /*for headline*/
     .search{
       display: block;
       margin: 20px auto 0;
