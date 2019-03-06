@@ -103,7 +103,7 @@
                 <div class="form-group">
                   <label for="content-input" class="col-form-label">内容</label>
                   <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-                  <textarea name="content" class="form-control my-editor form-control" id="content-input" rows="8" cols="80">{!! old('content') !!}</textarea>
+                  <textarea name="post_content" class="form-control my-editor form-control" id="content-input" rows="8" cols="80">{!! old('post_content') !!}</textarea>
                   <script>
                   var editor_config = {
                     path_absolute : "/",
@@ -140,8 +140,8 @@
 
                   tinymce.init(editor_config);
                   </script>
-                  @if($errors->has('content'))
-                  <p>{{ $errors->first('content') }}</p>
+                  @if($errors->has('post_content'))
+                  <p>{{ $errors->first('post_content') }}</p>
                   @endif
                 </div>
 
