@@ -53,16 +53,16 @@
                 <!-- 航空会社 -->
                 <div class="form-group">
                   <label class="col-form-label">航空会社</label><br>
-                  <div class="custom-control custom-checkbox custom-control-inline">
                     @foreach($brands as $brand)
+                  <div class="custom-control custom-checkbox custom-control-inline">
                     <input type="checkbox" name="brand_ids[]"
-                    @if(old('brand_ids', $post->postbrand->brand_id) == $brand->id)
-                    checked
+                    @if(old('brand_ids') && in_array($brand->id,old('brand_ids')))
+                     checked
                     @endif
-                    class="custom-control-input" id="customCheck5" value="{{ $brand->id }}">
-                    <label class="custom-control-label" for="customCheck5">{{ $brand->brand_name }}</label>
-                    @endforeach
+                     class="custom-control-input" id="{{ $brand->id }}" value="{{ $brand->id }}">
+                    <label class="custom-control-label" for="{{ $brand->id }}">{{ $brand->brand_name }}</label>
                   </div>
+                  @endforeach
                 </div>
 
                 <div class="row">

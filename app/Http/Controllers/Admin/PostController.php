@@ -42,15 +42,17 @@ class PostController extends Controller
       $post->finish_time = $request->finish_time;
       $post->content = $request->content;
       $post->save();
-
-      if($post->save()){
-        foreach($request->brand_ids as $brand_id){
-          $post_brand = new PostBrand;
-          $post_brand->post_id = $post->id;
-          $post_brand->brand_id = $brand_id;
-          $post_brand->save();
+      if ($request->brand_ids) {
+        if($post->save()){
+          foreach($request->brand_ids as $brand_id){
+            $post_brand = new PostBrand;
+            $post_brand->post_id = $post->id;
+            $post_brand->brand_id = $brand_id;
+            $post_brand->save();
+          }
         }
       }
+
 
       return redirect(route("admin_get_post_index"));
     }
@@ -91,15 +93,16 @@ class PostController extends Controller
       $post->content = $request->content;
       $post->save();
 
-      if($post->save()){
-        foreach($request->brand_ids as $brand_id){
-          $post_brand = new PostBrand;
-          $post_brand->post_id = $post->id;
-          $post_brand->brand_id = $brand_id;
-          $post_brand->save();
+      if ($request->brand_ids) {
+        if($post->save()){
+          foreach($request->brand_ids as $brand_id){
+            $post_brand = new PostBrand;
+            $post_brand->post_id = $post->id;
+            $post_brand->brand_id = $brand_id;
+            $post_brand->save();
+          }
         }
       }
-
       return redirect(route("admin_get_post_index"));
     }
   }
@@ -120,11 +123,11 @@ class PostController extends Controller
     }
   }
 
-//detail
- public function detail(Request $request, $id){
-   $post = Post::where('id',$id)->first();
-   $brands = PostBrand::where('post_id',$id)->get();
-   return view("admin.post.detail",['post' => $post, 'brands'=>$brands]);
- }
+  //detail
+  public function detail(Request $request, $id){
+    $post = Post::where('id',$id)->first();
+    $brands = PostBrand::where('post_id',$id)->get();
+    return view("admin.post.detail",['post' => $post, 'brands'=>$brands]);
+  }
 
 }

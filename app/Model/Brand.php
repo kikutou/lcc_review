@@ -52,7 +52,7 @@ class Brand extends Model
         }
         //connect post
         public function posts(){
-          return $this->belongsToMany('App\Model\Post','brand_post');
+          return $this->belongsToMany('App\Model\Post','brand_post', "brand_id","post_id");
         }
 
 }

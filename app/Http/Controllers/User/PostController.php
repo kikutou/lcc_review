@@ -54,14 +54,30 @@ class PostController extends Controller
     //detail
     public function detail(Request $request,$id){
       $post = Post::where('id', $id)->first();
-      $brand = PostBrand::where('post_id',$id)->first();
+
+
+      //same brand posts brand id
+      $brands = $post->brands;
+      $brand = null;
+      foreach($brands as $one_brand) {
+        $brand = $one_brand;
+        break;
+      }
+
+      //get same brand posts
       if ($brand) {
-        $same_brand_posts = PostBrand::where('brand_id',$brand->brand_id)->posts->offset(1)->limit(4)->get();
+        $posts = Post::query();
+        $same_brand_posts = $posts->whereHas("brands", function($q) use($brand){
+          $q->where('brands.id', $brand->id);
+        })->get();
       }else {
         $same_brand_posts = null;
       }
 
-      $same_category_posts = Post::where('mtb_category_id',$post->mtb_category_id)->offset(1)->limit(4)->get();
+
+
+      //same category posts
+      $same_category_posts = Post::where('mtb_category_id',$post->mtb_category_id)->get();
 
       return view("user.post.detail", ['post' => $post, "same_brand_posts" => $same_brand_posts, "same_category_posts" => $same_category_posts]);
     }
