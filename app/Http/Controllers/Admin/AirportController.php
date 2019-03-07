@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Master\Airport;
 use App\Model\Master\City;
+use App\Model\Flight;
 use Validator;
 
 class AirportController extends Controller

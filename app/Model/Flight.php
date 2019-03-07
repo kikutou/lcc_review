@@ -27,13 +27,17 @@ class Flight extends Model
 
     ];
 
-    public function comment(){
+    public function comments(){
       return $this->hasMany('App\Model\Comment','flight_id');
 
     }
 
-    public function mtb_airport(){
-      return $this->belongsTo('App\Model\Master\Airport','mtb_airport_id');
+    public function start_airport(){
+      return $this->belongsTo('App\Model\Master\Airport','mtb_start_airport_id');
+
+    }
+    public function destination_airport(){
+      return $this->belongsTo('App\Model\Master\Airport','mtb_destination_airport_id');
 
     }
     public function brand(){

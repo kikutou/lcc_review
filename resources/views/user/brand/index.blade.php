@@ -58,30 +58,19 @@
                   <div class="col-lg-12">
                     <div class="row">
                       <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                        <select class="form-control search-slt" id="exampleFormControlSelect1">
-                          <option>Select Category</option>
-                          <option>Example one</option>
-                          <option>Example one</option>
-                          <option>Example one</option>
-                          <option>Example one</option>
-                          <option>Example one</option>
-                          <option>Example one</option>
-                        </select>
-                      </div>
-
-                      <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                        <select class="form-control search-slt" id="exampleFormControlSelect1">
-                          <option>Select Brand</option>
-                          <option>Example one</option>
-                          <option>Example one</option>
-                          <option>Example one</option>
-                          <option>Example one</option>
-                          <option>Example one</option>
-                          <option>Example one</option>
-                        </select>
+                        <select class="form-control search-slt" name="brand_id">
+                          <option value="">Select Brand</option>
+                          @foreach($brands as $brand)
+                          <option value="{{ $brand->brand_name }}"
+                            @if(old('$brand->brand_name ') == $brand->brand_name )
+                            selected
+                            @endif
+                            >{{ $brand->brand_name }}</option>
+                            @endforeach
+                          </select>
                       </div>
                       <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                        <input type="text" class="form-control search-slt" placeholder="Enter Keyword">
+                        <input type="text" class="form-control search-slt" placeholder="Enter Keyword"  name="key_word" value="{{ Request::get('key_word') }}">
                       </div>
                       <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                         <button type="button" class="btn btn-info wrn-btn">Search</button>
@@ -92,26 +81,22 @@
               </form>
             </div>
           </section>
+　　　
+          @foreach($brands as $brand)
+              <table align="center">
+                  <tr>
+                     <td class="pic" rowspan="2"><img src="{{ asset($brand->logo_picture) }}" alt="logo" width="100" ></td>
+                     <td class="brand_namefont"><a href="{{route('user_get_brand_detail',['id'=> $brand->id]) }}">{{ $brand->brand_name }}</a></td>
+                  </tr>
+                  <tr>
+                    <td class="brand_homepage">{{ $brand->home_page }}</td>
+                  </tr>
+              </table>
+                <div class="intro">
+                  <p><?php echo substr("{$brand->brand_introduction}",0,100);?>...</p>
+                </div>
+          @endforeach
 
-
-    @foreach($brands as $brand)
-    <div>
-      <div>
-        <table align="center">
-            <tr>
-               <td class="pic" rowspan="2"><img src="{{ asset($brand->logo_picture) }}" alt="logo" width="100" ></td>
-               <td class="brand_namefont"><a href="{{route('user_get_brand_detail',['id'=> $brand->id]) }}">{{ $brand->brand_name }}</a></td>
-            </tr>
-            <tr>
-              <td class="brand_homepage">{{ $brand->home_page }}</td>
-            </tr>
-        </table>
-          <div class="intro">
-            <p><?php echo substr("{$brand->brand_introduction}",0,100);?>...</p>
-          </div>
-      </div>
-  </div>
-    @endforeach
 </div>
 </div>
 </div>

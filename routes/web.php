@@ -43,6 +43,8 @@ Route::get("admin/brand/{id}/detail", "Admin\BrandController@detail")->name("adm
 Route::get("admin/flight/add", "Admin\FlightController@add")->name("admin_get_flight_add");
 Route::post("admin/flight/add", "Admin\FlightController@add")->name("admin_post_flight_add");
 Route::get("admin/flight/index", "Admin\FlightController@index")->name("admin_get_flight_index");
+Route::get("admin/flight/{id}/edit","Admin\FlightController@edit")->name("admin_get_flight_edit");
+Route::post("admin/flight/{id}/edit","Admin\FlightController@edit")->name("admin_post_flight_edit");
 
 // country
 Route::get("admin/country/add", "Admin\CountryController@add")->name("admin_get_country_add");

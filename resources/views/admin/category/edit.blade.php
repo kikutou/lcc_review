@@ -1,4 +1,4 @@
-@extends("layouts.admin.layout", ["type" => "category", "action" => "add"])
+@extends("layouts.admin.layout", ["type" => "category"])
 <!-- layout继承，php7的函数特有简略表达[]，传递了2个值 -->
 
 @section("title", "カテゴリの編集")

@@ -59,7 +59,7 @@
                         @foreach($airports as $airport)
 
                         <option value="{{ $airport->id }}"
-                          @if(old('airport_id') == $airport->id)
+                          @if(old('mtb_destination_airport_id') == $airport->id)
                             selected
                           @endif
                           >{{ $airport->airport_name }}</option>
