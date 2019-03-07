@@ -117,9 +117,10 @@ Route::get("user", "User\HomepageController@index");
 
 //post
 Route::get("user/posts", "User\PostController@index")->name("user_get_post_index");
-//postdetail
 Route::get("user/post/{id}/detail", "User\PostController@detail")->name("user_get_post_detail");
 //brand
 Route::get("user/brands", "User\BrandController@index")->name("user_get_brand_index");
-//brand detail
 Route::get("user/brand/{id}/detail", "User\BrandController@detail")->name("user_get_brand_detail");
+//user
+Route::get("user/user/add", "User\UserController@add")->name("user_get_user_add");
+Route::post("user/user/add", "User\UserController@add")->name("user_post_user_add");

@@ -44,16 +44,12 @@
                 <div class="form-group">
                     <label for="name-input" class="col-form-label">名前</label>
                     <input class="form-control" type="text" value="{{old('name')}}" id="name-input" name="name">
-                    @if($errors->has('name'))
-                      <p>{{ $errors->first('name') }}</p>
-                    @endif
+
                 </div>
                 <div class="form-group">
                     <label for="birthday-input" class="col-form-label">生年月日</label>
                     <input class="form-control" type="date" value="{{old('birthday')}}" id="birthday-input" name="birthday">
-                    @if($errors->has('birthday'))
-                      <p>{{ $errors->first('birthday') }}</p>
-                    @endif
+
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">所在地</label>
@@ -71,9 +67,7 @@
                 <div class="form-group">
                     <label for="address_detail-input" class="col-form-label">住所</label>
                     <input class="form-control" type="text" value="{{old('address_detail')}}" id="address_detail-input" name="address_detail">
-                    @if($errors->has('address_detail'))
-                      <p>{{ $errors->first('address_detail') }}</p>
-                    @endif
+
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">性別</label>
@@ -95,6 +89,9 @@
                       >{{ $user_status->value }}</option>
                     @endforeach
                     </select>
+                    @if($errors->has('user_status'))
+                      <p>{{ $errors->first('user_status') }}</p>
+                    @endif
                 </div>
 
                 <!-- button -->
