@@ -43,10 +43,10 @@ class PostController extends Controller
       }
 
       $posts = $posts->paginate(9);
-
-
       $categories = Category::all();
       $brands = Brand::all();
+
+      
       return view("user.post.index", ["posts" => $posts, 'brands'=> $brands, 'categories'=>$categories]);
     }
 

@@ -3,6 +3,7 @@
 @section("title", "記事一覧")
 
 @section("content")
+<link href="{{ URL::asset('css/post_css.css') }}" rel="stylesheet" type="text/css"/>
 <!-- Page Content -->
 <div class="container">
   <!-- session message -->
@@ -99,7 +100,8 @@
                 </div>
               </form>
             </div>
-          </section>
+        </section>
+        <!-- end search -->
           <!-- post list -->
           <div class="row">
             @foreach($posts as $post)
@@ -114,11 +116,11 @@
                 </div>
                 <div class="card-footer">
                   <a href="#" class="badge badge-info">{{ $post->category->category_name }}</a>
-                    @foreach($post->brands as $brand)
-                    <span>
+                  @foreach($post->brands as $brand)
+                  <span>
                     <a href="#" class="badge badge-secondary">{{ $brand->brand_name }}</a>
-                    </span>
-                    @endforeach
+                  </span>
+                  @endforeach
                   <p class="card-text">{{ $post->createdate }}</p>
                 </div>
               </div>

@@ -16,7 +16,7 @@
   <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
   <!-- Custom styles for this template -->
-  <link href="{{ URL::asset('css/post_css.css') }}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="{{ URL::asset('css/css.css') }}">
 
 </head>
 
