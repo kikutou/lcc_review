@@ -106,8 +106,8 @@
                             @foreach($brands as $brand)
                             <div class="col-md-2">
                               <div class="custom-control custom-checkbox custom-control-inline">
-                                  <input type="checkbox" name="brand_id" class="custom-control-input" id="brandcheck" value="{{ $brand->id }}">
-                                  <label class="custom-control-label form_check_text" for="brandcheck">{{ $brand->brand_name }}</label>
+                                  <input type="checkbox" name="brand_id" class="custom-control-input" id="{{ $brand->brand_name }}" value="{{ $brand->id }}">
+                                  <label class="custom-control-label form_check_text" for="{{ $brand->brand_name }}">{{ $brand->brand_name }}</label>
                               </div>
                             </div>
                             @endforeach
@@ -122,8 +122,8 @@
                             @foreach($categories as $category)
                             <div class="col-md-2">
                               <div class="custom-control custom-checkbox custom-control-inline">
-                                  <input type="checkbox" name="category_id" class="custom-control-input" id="categorycheck" value="{{ $category->id }}">
-                                  <label class="custom-control-label form_check_text" for="categorycheck">{{ $category->category_name }}</label>
+                                  <input type="checkbox" name="category_id" class="custom-control-input" id="{{ $category->category_name }}" value="{{ $category->id }}">
+                                  <label class="custom-control-label form_check_text" for="{{ $category->category_name }}">{{ $category->category_name }}</label>
                               </div>
                             </div>
                             @endforeach
