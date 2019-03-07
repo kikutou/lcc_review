@@ -52,15 +52,8 @@
           >
             <a class="nav-link" href="{{ route('user_get_brand_index') }}">Brand</a>
           </li>
-          <li class="nav-item dropdown">
-            <button class="dropdown-toggle btn btn-outline nav-item" type="button" data-toggle="dropdown">
-                User
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="{{ route('user_get_user_add') }}">新規会員</a>
-              <a class="dropdown-item" href="#">ログイン</a>
-            </div>
-
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('user_get_user_add') }}">User</a>
           </li>
 
           <li class="nav-item">
