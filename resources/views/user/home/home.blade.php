@@ -150,7 +150,7 @@
           </div>
         </div>
         <div class="row hosting">
-            @define $out=1
+            @php $out=1 @endphp
             @foreach($posts as $post)
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-4" data-aos="fade" data-aos-delay="100">
 
@@ -176,7 +176,7 @@
           @if($out>5)
             @break
           @else
-            @define $out++
+            @php $out++ @endphp
           @endif
         @endforeach
         </div>
