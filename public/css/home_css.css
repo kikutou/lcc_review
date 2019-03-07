@@ -1,0 +1,21 @@
+/* email bar */
+.email_mag{
+  background-image: url(/assets/images/home_background.jpg);
+}
+.post_title{
+  margin-left: 20px;
+}
+.form_check_text{
+  color: black;
+}
+.brand_check{
+  margin: 10px 0;
+}
+.category_check{
+  margin: 10px 0;
+}
+/* end email bar */
+/* brand list */
+.brand_img{
+  width: 100px;
+}
