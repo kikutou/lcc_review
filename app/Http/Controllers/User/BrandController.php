@@ -16,12 +16,14 @@ class BrandController extends Controller
 
 
     public function index(Request $request){
-        // $brands = Brand::query();
-        // if($request->key_word) {
-        //   $key_word = $request->key_word;
-        //
-        //   $brands->where("brand_name", "LIKE", '%' . $key_word . '%');
-        // }
+
+        $brands = Brand::query();
+        if($request->key_word) {
+
+          $key_word = $request->key_word;
+
+          $brands->where("brand_name", "LIKE", '%'.$key_word.'%');
+        }
 
         // $start_id = Flight::find($brand->mtb_start_airport_id);
         // $dstination_id = Flight::find($brand->mtb_destination_airport_id);

@@ -51,35 +51,13 @@
 
       <section class="search-sec">
         <div class="container">
-          <form action="#" method="post" novalidate="novalidate">
+          <form action="{{ route('user_get_brand_index' )}}" method="get" novalidate="novalidate">
             <div class="row">
               <div class="col-lg-12">
                 <div class="row">
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                    <select class="form-control search-slt" id="exampleFormControlSelect1">
-                      <option>Select Category</option>
-                      <option>Example one</option>
-                      <option>Example one</option>
-                      <option>Example one</option>
-                      <option>Example one</option>
-                      <option>Example one</option>
-                      <option>Example one</option>
-                    </select>
-                  </div>
 
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                    <select class="form-control search-slt" id="exampleFormControlSelect1">
-                      <option>Select Brand</option>
-                      <option>Example one</option>
-                      <option>Example one</option>
-                      <option>Example one</option>
-                      <option>Example one</option>
-                      <option>Example one</option>
-                      <option>Example one</option>
-                    </select>
-                  </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                    <input type="text" class="form-control search-slt" placeholder="Enter Keyword">
+                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="iput-type">
+                    <input type="text" class="form-control search-slt" placeholder="キーワード" name="key_word" value="{{ Request::get('key_word') }}">
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                     <button type="button" class="btn btn-info wrn-btn">Search</button>
