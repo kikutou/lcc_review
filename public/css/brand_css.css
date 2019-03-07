@@ -1,4 +1,6 @@
+/* for brand list */
 
+<<<<<<< HEAD
 #logotable{
 
   rowspan="2";
@@ -10,40 +12,33 @@ table{
       border:1px solid #00BFFF;
       margin-top:3px;
       margin-bottom:3px;
+=======
+.brand_img{
+  border-right: 1px dotted black;
+  width:250px;
+  padding: 20px;
+>>>>>>> 5071731b0d10347caa21acaab4fdf0b242ffdf89
 }
-td{
-     border:1px solid #00BFFF;
-     margin:1px;
-}
-.brand_namefont{
-  font-size: 150%;
+.brand_name{
   text-align: center;
+  margin-top: 50px;
+  padding: 10px;
+  border-bottom: 1px solid;
+}
+.brand_url{
+  text-align: center;
+  margin-top: 50px;
+padding: 10px;
+}
+.brand_intro{
+  background-color:#000000;
+  background-color:rgba(162,162,162,0.3);
+  border-radius:20px;
+  margin: 20px;
+  padding: 50px;
 }
 
-.font2{
-  font-size: 140%;
-}
-
-.intro{
-  margin:0 auto;
-  padding:1px;
-  border:1px solid #00BFFF;
-  text-align:center;
-  width: 60%;
-}
-.pic{
-  text-align:center;
-
-}
-
-.name{
-  font-size: 150%;
-  padding-top: 2%;
-}
-
-.brand_homepage{
-  text-align:center;
-}
+/* detail */
 
 .detaildiv{
   width: 60%;

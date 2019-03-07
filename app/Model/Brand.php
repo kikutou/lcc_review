@@ -55,4 +55,9 @@ class Brand extends Model
           return $this->belongsToMany('App\Model\Post','brand_post', "brand_id","post_id");
         }
 
+        public function intro($intro){
+          $brand_intro = substr($intro,0,100);
+          return $brand_intro;
+        }
+
 }

@@ -3,20 +3,8 @@
 @section("title", "記事一覧")
 
 @section("content")
-<link href="{{ URL::asset('css/post_css.css') }}" rel="stylesheet" type="text/css"/>
 <!-- Page Content -->
 <div class="container">
-  <!-- session message -->
-  @if(Session::get("message"))
-  <div class="row">
-    <div class="alert alert-success alert-dismissible fade show col-md-6 offset-md-3" role="alert">
-      <strong>{{ Session::get("message") }}</strong>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span class="fa fa-times"></span>
-      </button>
-    </div>
-  </div>
-  @endif
 
   <div class="row">
 
@@ -100,8 +88,7 @@
                 </div>
               </form>
             </div>
-        </section>
-        <!-- end search -->
+          </section>
           <!-- post list -->
           <div class="row">
             @foreach($posts as $post)
@@ -116,11 +103,11 @@
                 </div>
                 <div class="card-footer">
                   <a href="#" class="badge badge-info">{{ $post->category->category_name }}</a>
-                  @foreach($post->brands as $brand)
-                  <span>
+                    @foreach($post->brands as $brand)
+                    <span>
                     <a href="#" class="badge badge-secondary">{{ $brand->brand_name }}</a>
-                  </span>
-                  @endforeach
+                    </span>
+                    @endforeach
                   <p class="card-text">{{ $post->createdate }}</p>
                 </div>
               </div>

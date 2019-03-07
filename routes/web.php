@@ -47,9 +47,9 @@ Route::get("admin/flight/{id}/edit","Admin\FlightController@edit")->name("admin_
 Route::post("admin/flight/{id}/edit","Admin\FlightController@edit")->name("admin_post_flight_edit");
 
 // country
+Route::get("admin/countries", "Admin\CountryController@index")->name("admin_get_country_index");
 Route::get("admin/country/add", "Admin\CountryController@add")->name("admin_get_country_add");
 Route::post("admin/country/add", "Admin\CountryController@add")->name("admin_post_country_add");
-Route::get("admin/country/index", "Admin\CountryController@index")->name("admin_get_country_index");
 Route::get("admin/country/{id}/edit", "Admin\CountryController@edit")->name("admin_get_country_edit");
 Route::post("admin/country/{id}/edit", "Admin\CountryController@edit")->name("admin_post_country_edit");
 Route::get("admin/country/{id}/delete", "Admin\CountryController@delete")->name("admin_get_country_delete");
@@ -80,36 +80,35 @@ Route::get("admin/category/{id}/delete", "Admin\CategoryController@delete")->nam
 Route::post("admin/category/{id}/delete", "Admin\CategoryController@delete")->name("admin_post_category_delete");
 
 // user
+Route::get("admin/users", "Admin\UserController@index")->name("admin_get_user_index");
+Route::get("admin/user/{id}/detail", "Admin\UserController@detail")->name("admin_get_user_detail");
 Route::get("admin/user/add", "Admin\UserController@add")->name("admin_get_user_add");
 Route::post("admin/user/add", "Admin\UserController@add")->name("admin_post_user_add");
-Route::get("admin/user/index", "Admin\UserController@index")->name("admin_get_user_index");
 Route::get("admin/user/{id}/edit", "Admin\UserController@edit")->name("admin_get_user_edit");
 Route::post("admin/user/{id}/edit", "Admin\UserController@edit")->name("admin_post_user_edit");
 Route::get("admin/user/{id}/delete", "Admin\UserController@delete")->name("admin_get_user_delete");
 Route::post("admin/user/{id}/delete", "Admin\UserController@delete")->name("admin_post_user_delete");
-//userdetail
-Route::get("admin/user/{id}/detail", "Admin\UserController@detail")->name("admin_get_user_detail");
 
 // admin
+Route::get("admin/admins", "Admin\AdminController@index")->name("admin_get_admin_index");
 Route::get("admin/admin/add", "Admin\AdminController@add")->name("admin_get_admin_add");
 Route::post("admin/admin/add", "Admin\AdminController@add")->name("admin_post_admin_add");
-Route::get("admin/admin/index", "Admin\AdminController@index")->name("admin_get_admin_index");
 Route::get("admin/admin/{id}/edit", "Admin\AdminController@edit")->name("admin_get_admin_edit");
 Route::post("admin/admin/{id}/edit", "Admin\AdminController@edit")->name("admin_post_admin_edit");
 Route::get("admin/admin/{id}/delete", "Admin\AdminController@delete")->name("admin_get_admin_delete");
 Route::post("admin/admin/{id}/delete", "Admin\AdminController@delete")->name("admin_post_admin_delete");
 
 // comment
+Route::get("admin/comments", "Admin\CommentController@index")->name("admin_get_comment_index");
+Route::get("admin/comment/{id}/detail", "Admin\CommentController@detail")->name("admin_get_comment_detail");
+Route::post("admin/comment/{id}/detail", "Admin\CommentController@detail")->name("admin_post_comment_detail");
 Route::get("admin/comment/add", "Admin\CommentController@add")->name("admin_get_comment_add");
 Route::post("admin/comment/add", "Admin\CommentController@add")->name("admin_post_comment_add");
-Route::get("admin/comment/index", "Admin\CommentController@index")->name("admin_get_comment_index");
 Route::get("admin/comment/{id}/edit", "Admin\CommentController@edit")->name("admin_get_comment_edit");
 Route::post("admin/comment/{id}/edit", "Admin\CommentController@edit")->name("admin_post_comment_edit");
 Route::get("admin/comment/{id}/delete", "Admin\CommentController@delete")->name("admin_get_comment_delete");
 Route::post("admin/comment/{id}/delete", "Admin\CommentController@delete")->name("admin_post_comment_delete");
-//commentsdetail
-Route::get("admin/comment/{id}/detail", "Admin\CommentController@detail")->name("admin_get_comment_detail");
-Route::post("admin/comment/{id}/detail", "Admin\CommentController@detail")->name("admin_post_comment_detail");
+
 
 
 
@@ -119,10 +118,11 @@ Route::post("admin/comment/{id}/detail", "Admin\CommentController@detail")->name
 Route::get("user", "User\HomepageController@index");
 
 //post
-Route::get("user/post/index", "User\PostController@index")->name("user_get_post_index");
-//postdetail
+Route::get("user/posts", "User\PostController@index")->name("user_get_post_index");
 Route::get("user/post/{id}/detail", "User\PostController@detail")->name("user_get_post_detail");
 //brand
-Route::get("user/brand/index", "User\BrandController@index")->name("user_get_brand_index");
-//brand detail
+Route::get("user/brands", "User\BrandController@index")->name("user_get_brand_index");
 Route::get("user/brand/{id}/detail", "User\BrandController@detail")->name("user_get_brand_detail");
+//user
+Route::get("user/user/add", "User\UserController@add")->name("user_get_user_add");
+Route::post("user/user/add", "User\UserController@add")->name("user_post_user_add");

@@ -4,13 +4,12 @@
 
 
 @section("content")
-<link rel="stylesheet" href="{{ URL::asset('css/post_css.css') }}">
 <div class="container">
 
   <!-- title -->
   <div class="row justify-content-md-center">
     <div class="col-md-8">
-      <div class="grid-col post_title">
+      <div class="grid-col  post_title">
         <h2>{{ $post->title }}</h2>
       </div>
     </div>
