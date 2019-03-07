@@ -37,7 +37,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('user_get_post_index') }}">Home</a>
+            <a class="nav-link" href="{{ route('user_get_home') }}">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('user_get_post_index') }}">Post</a>
