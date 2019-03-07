@@ -104,7 +104,7 @@
                           </div>
                           <div class="row">
                             @foreach($brands as $brand)
-                            <div class="col-md-2">
+                            <div class="col-md-auto">
                               <div class="custom-control custom-checkbox custom-control-inline">
                                   <input type="checkbox" name="brand_id" class="custom-control-input" id="{{ $brand->brand_name }}" value="{{ $brand->id }}">
                                   <label class="custom-control-label form_check_text" for="{{ $brand->brand_name }}">{{ $brand->brand_name }}</label>
