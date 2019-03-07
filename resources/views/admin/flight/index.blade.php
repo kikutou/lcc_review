@@ -25,25 +25,23 @@
                   <th scope="col">到着時刻</th>
                 </tr>
               </thead>
-              <tbody>
                 @foreach($flights as $flight)
+              <tbody>
                 <tr>
                   <th scope="row"><a>{{ $flight->id }}</a></th>
                   <td>{{ $flight->brand->brand_name }}</td>
                   <td>{{ $flight->flight_number }}</td>
-                  <td>{{ $flight->mtb_airport->airport_name}}</td>
-                  <td>{{ $flight->mtb_airport->airport_name}}</td>
-                  <td>{{ $flight->start_time}}</td>
-                  <td>{{ $flight->destination_time}}</td>
+                  <td>{{ $flight->start_airport->airport_name }}</td>
+                  <td>{{ $flight->destination_airport->airport_name }}</td>
+                  <td>{{ $flight->start_time }}</td>
+                  <td>{{ $flight->destination_time }}</td>
 
-                  <td><i class="ti-pencil-alt">編集</i>
+                  <td><a href="{{ route('admin_get_flight_edit',['id'=> $flight->id]) }}"><i class="ti-pencil-alt">編集</i></a>
                       <i class="ti-trash">削除</i>
                   </td>
-
                 </tr>
-                @endforeach
-
               </tbody>
+                @endforeach
             </table>
           </div>
         </div>

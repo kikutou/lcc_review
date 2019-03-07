@@ -23,8 +23,25 @@ padding: 10px;
   margin: 20px;
   padding: 50px;
 }
-
+.div-inline{
+  display:inline;
+}
+#input-type{
+ width:    ;
+}
+#flights-color{
+  background-color:#000000;
+  background-color:rgba(162,162,162,0.3);
+  border-radius:20px;
+  margin: 20px;
+  padding: 50px;
+}
 /* detail */
+
+.name{
+   font-size: 150%;
+
+}
 
 .detaildiv{
   width: 60%;
@@ -42,4 +59,9 @@ padding: 10px;
  text-align:justify;
  /* 文本缩进属性是用来指定文本的第一行的缩进。 */
  text-indent:15px;
+}
+
+.flights{
+
+   text-align: center;
 }

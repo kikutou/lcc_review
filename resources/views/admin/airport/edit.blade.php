@@ -1,4 +1,4 @@
-@extends("layouts.admin.layout", ["type" => "airport", "action" => "add"])
+@extends("layouts.admin.layout", ["type" => "airport"])
 <!-- layout继承，php7的函数特有简略表达[]，传递了2个值 -->
 
 @section("title", "空港情報の編集")

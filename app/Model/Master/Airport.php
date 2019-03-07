@@ -28,13 +28,17 @@ class Airport extends Model
 
 
 
-  public function flight(){
-    return $this->hasMany('App\Model\Flight','mtb_airport_id');
+    public function start_flight(){
+      return $this->hasMany('App\Model\Flight','mtb_start_airport_id');
 
-  }
+    }
+    public function destination_flight(){
+      return $this->hasMany('App\Model\Flight','mtb_destination_airport_id');
+      }
 
-  public function city(){
+    public function city(){
     return $this->belongsTo('App\Model\Master\City','mtb_city_id');
+    }
 
-  }
+
 }

@@ -1,4 +1,4 @@
-@extends("layouts.admin.layout", ["type" => "brand", "action" => "add"])
+@extends("layouts.admin.layout", ["type" => "brand"])
 
 @section("title", "航空会社の編集")
 
