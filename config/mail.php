@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.163.com'),
+    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,9 +56,9 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'mailtest1321@163.com'),
-        'name' => env('MAIL_FROM_NAME', 'mailtest1321'),
-    ],
+          'address' => env('MAIL_FROM_ADDRESS', 'cheng19941029@gmail.com'),
+          'name' => env('MAIL_FROM_NAME', 'testemail'),
+      ],
 
     /*
     |--------------------------------------------------------------------------
@@ -83,10 +83,9 @@ return [
     | connection. You may also set the "password" value below this one.
     |
     */
+    'username' => env('MAIL_USERNAME','cheng19941029@gmail.com'),
 
-    'username' => env('MAIL_USERNAME','mailtest1321@163.com',
-
-    'password' => env('MAIL_PASSWORD'.'mailtest1321'),
+    'password' => env('MAIL_PASSWORD','Asd2436492934'),
 
     /*
     |--------------------------------------------------------------------------

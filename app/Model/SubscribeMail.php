@@ -28,4 +28,14 @@ class SubscribeMail extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    //connect brand
+    public function brands(){
+      return $this->belongsToMany('App\Model\Brand','subscribe_mail_brand', "subscribe_mail_id","brand_id");
+    }
+    //connect category
+    public function categories(){
+      return $this->belongsToMany('App\Model\Master\Category','subscribe_mail_category', "subscribe_mail_id","category_id");
+    }
+
 }

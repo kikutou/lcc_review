@@ -17,4 +17,5 @@ class MailBrand extends Model
        */
       protected $dates = ['deleted_at'];
 
+
 }

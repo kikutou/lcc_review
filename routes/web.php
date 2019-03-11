@@ -130,6 +130,9 @@ Route::get("user/brand/{id}/detail", "User\BrandController@detail")->name("user_
 Route::get("user/user/add", "User\UserController@add")->name("user_get_user_add");
 Route::post("user/user/add", "User\UserController@add")->name("user_post_user_add");
 
+
+
+//login
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

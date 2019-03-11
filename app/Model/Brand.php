@@ -54,6 +54,10 @@ class Brand extends Model
         public function posts(){
           return $this->belongsToMany('App\Model\Post','brand_post', "brand_id","post_id");
         }
+        //connect subscribe mail
+        public function subscribemails(){
+          return $this->belongsToMany('App\Model\SubscribeMail','subscribe_mail_brand', "brand_id","subscribe_mail_id");
+        }
 
         public function intro($intro){
           $brand_intro = substr($intro,0,100);

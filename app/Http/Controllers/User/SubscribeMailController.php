@@ -12,12 +12,11 @@ use App\Model\Brand;
 use App\Model\User;
 use App\Model\Master\Category;
 use Carbon\Carbon;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 use Validator;
 
 class SubscribeMailController extends Controller
 {
-
 
   //index
   public function index(Request $request){
@@ -64,13 +63,22 @@ class SubscribeMailController extends Controller
         }
 
         // ここで認証メールを発送
+        $mail_address = $request->mail;
+        $token = $mail->token;
+        $send_mail = Mail::send('user.home.mail',['token'=>$token, 'mail'=>$mail], function($message) use($mail_address){
+          $message->from('cheng19941029@gmail.com','DYJ');
+          $message->subject('【LCCの記事購読】購読確認メール');
+          $message->to($mail_address);
+        });
 
-        
-        // session Message
-        return redirect(route('user_get_home'))->with(["message"=>"購読成功"]);
+
+       // session Message
+       return redirect(route('user_get_home'))->with(["message"=>"購読成功"]);
 
       }else {
         // already have this mail
+        echo "already exist";
+        exit();
         $canceled_check = SubscribeMail::where('mail',$request->mail)->first()->canceled_at;
         $verify_check = SubscribeMail::where('mail',$request->mail)->first()->verified_at;
         if (!$canceled_check && $verify_check) {
@@ -105,4 +113,5 @@ class SubscribeMailController extends Controller
       }
     }
   }
+}
 }
