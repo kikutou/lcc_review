@@ -92,6 +92,9 @@
                         <div class="row">
                           <div class="col-md-9">
                             <input type="email" name="mail" class="form-control border-0 mb-3 mb-md-0" placeholder="メールアドレス">
+                            @if($errors->has('mail'))
+                              <p>{{ $errors->first('mail') }}</p>
+                            @endif
                           </div>
                           <div class="col-md-3">
                             <button type="submit" class="btn btn-dark mb-3" height=" 45">購読する</button>
@@ -108,6 +111,9 @@
                               <div class="custom-control custom-checkbox custom-control-inline">
                                   <input type="checkbox" name="brand_id" class="custom-control-input" id="{{ $brand->brand_name }}" value="{{ $brand->id }}">
                                   <label class="custom-control-label form_check_text" for="{{ $brand->brand_name }}">{{ $brand->brand_name }}</label>
+                                  @if($errors->has('brand_id'))
+                                    <p>{{ $errors->first('brand_id') }}</p>
+                                  @endif
                               </div>
                             </div>
                             @endforeach
@@ -124,6 +130,9 @@
                               <div class="custom-control custom-checkbox custom-control-inline">
                                   <input type="checkbox" name="category_id" class="custom-control-input" id="{{ $category->category_name }}" value="{{ $category->id }}">
                                   <label class="custom-control-label form_check_text" for="{{ $category->category_name }}">{{ $category->category_name }}</label>
+                                  @if($errors->has('category_id'))
+                                    <p>{{ $errors->first('category_id') }}</p>
+                                  @endif
                               </div>
                             </div>
                             @endforeach
