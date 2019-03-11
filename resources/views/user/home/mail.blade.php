@@ -11,7 +11,7 @@
       <p>お申し込み頂きましたご購読情報は以下となります。</p><br>
       航空会社名:
       <br>
-      @if(isset($mail->brands))
+      @if(count($mail->brands) != 0)
       @foreach($mail->brands as $brand)
 
       {{ $brand->brand_name }}
@@ -25,7 +25,7 @@
 
       カテゴリー名:
       <br>
-      @if(isset($mail->categories))
+      @if(count($mail->categories) != 0)
       @foreach($mail->categories as $category)
 
       {{ $category->category_name }}
