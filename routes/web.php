@@ -129,7 +129,6 @@ Route::post("user/user/add", "User\UserController@add")->name("user_post_user_ad
 //Home
 Route::get("home", "User\HomeController@index")->name("user_get_home");
 //mail test
-//mail test
-Route::get('mail/send','MailController@send');
+//Route::get('mail/send','MailController@send');
 // mail
 //Route::get("mail", "User\HomeController@mail")->name("user_get_mail");
