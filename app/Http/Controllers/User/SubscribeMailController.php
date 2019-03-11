@@ -62,6 +62,10 @@ class SubscribeMailController extends Controller
             $mail_category->save();
           }
         }
+
+        // ここで認証メールを発送
+
+        
         // session Message
         return redirect(route('user_get_home'))->with(["message"=>"購読成功"]);
 
@@ -71,6 +75,28 @@ class SubscribeMailController extends Controller
         $verify_check = SubscribeMail::where('mail',$request->mail)->first()->verified_at;
         if (!$canceled_check && $verify_check) {
           // キャンセルせずに再購読
+          $mail_id = SubscribeMail::where('mail',$request->mail)->first()->id;
+          // softdelete old data
+          $brand_delete = MailBrand::where('subscribe_mail_id',$mail_id)->delete();
+          $category_delete = MailCategory::where('subscribe_mail_id',$mail_id)->delete();
+
+          if ($request->brand_ids) {
+            // brand
+            foreach($request->brand_ids as $brand_id){
+              $mail_brand = new MailBrand;
+              $mail_brand->subscribe_mail_id = $mail->id;
+              $mail_brand->brand_id = $brand_id;
+              $mail_brand->save();
+            }
+          }
+          if ($request->category_ids) {
+            // category
+            foreach($request->category_ids as $category_id){
+              $mail_category = new MailCategory;
+              $mail_category->subscribe_mail_id = $mail->id;
+              $mail_category->category_id = $category_id;
+              $mail_category->save();
+            }
         }elseif ($canceled_check && !$verify_check) {
           // 認証せずに再購読
         } elseif ($canceled_check && $verify_check) {

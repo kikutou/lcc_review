@@ -107,14 +107,12 @@ class PostController extends Controller
             $post->save();
 
             if ($request->brand_ids) {
-                if ($post->save()) {
                     foreach ($request->brand_ids as $brand_id) {
                         $post_brand = new PostBrand;
                         $post_brand->post_id = $post->id;
                         $post_brand->brand_id = $brand_id;
                         $post_brand->save();
                     }
-                }
             }
             return redirect(route("admin_get_post_index"))->with(['message'=>'変更成功']);
         }
