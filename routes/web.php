@@ -135,4 +135,4 @@ Route::get("mail", "User\HomeController@mail")->name("user_get_mail");
 //login
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('user/login', 'HomeController@index')->name('home');

@@ -66,7 +66,7 @@ class SubscribeMailController extends Controller
         $mail_address = $request->mail;
         $token = $mail->token;
         $send_mail = Mail::send('user.home.mail',['token'=>$token, 'mail'=>$mail], function($message) use($mail_address){
-          $message->from('cheng19941029@gmail.com','DYJ');
+          $message->from('cheng19941029@gmail.com','LCC Review');
           $message->subject('【LCCの記事購読】購読確認メール');
           $message->to($mail_address);
         });
