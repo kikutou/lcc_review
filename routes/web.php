@@ -135,4 +135,4 @@ Route::post("user/user/add", "User\UserController@add")->name("user_post_user_ad
 //login
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('user/login', 'HomeController@index')->name('home');
