@@ -56,10 +56,10 @@
               <div class="col-lg-12">
                 <div class="row">
 
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0" id="iput-type">
+                  <div class="col-lg-8 col-md-8 col-sm-12 p-0" id="iput-type">
                     <input type="text" class="form-control search-slt" placeholder="キーワード" name="key_word" value="{{ Request::get('key_word') }}">
                   </div>
-                  <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                  <div class="col-lg-4 col-md-4 col-sm-12 p-0">
                     <button type="button" class="btn btn-info wrn-btn">Search</button>
                   </div>
                 </div>
