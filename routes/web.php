@@ -115,7 +115,10 @@ Route::post("admin/comment/{id}/delete", "Admin\CommentController@delete")->name
 
 // User pages
 
-Route::get("user", "User\HomepageController@index");
+//Home
+Route::get("user", "User\SubscribeMailController@index")->name("user_get_home");
+// mail
+Route::post("user/mail", "User\SubscribeMailController@index")->name("user_post_home");
 
 //post
 Route::get("user/posts", "User\PostController@index")->name("user_get_post_index");
@@ -126,9 +129,8 @@ Route::get("user/brand/{id}/detail", "User\BrandController@detail")->name("user_
 //user
 Route::get("user/user/add", "User\UserController@add")->name("user_get_user_add");
 Route::post("user/user/add", "User\UserController@add")->name("user_post_user_add");
-//Home
-Route::get("home", "User\HomeController@index")->name("user_get_home");
-//mail test
-//Route::get('mail/send','MailController@send');
-// mail
-//Route::get("mail", "User\HomeController@mail")->name("user_get_mail");
+
+//login
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

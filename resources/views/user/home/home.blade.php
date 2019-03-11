@@ -71,10 +71,22 @@
       </nav>
     </header>
     <!-- end Navigation -->
+
     <!-- content -->
     <div class="site-blocks-cover email_mag" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row row-custom align-items-center">
+          <!-- session message -->
+          @if(Session::get("message"))
+          <div class="row">
+            <div class="alert alert-success alert-dismissible fade show col-md-6 offset-md-3" role="alert">
+              <strong>{{ Session::get("message") }}</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span class="fa fa-times"></span>
+              </button>
+            </div>
+          </div>
+          @endif
           <div class="col-md-10">
             <h1 class="mb-2 text-black w-75"><span class="font-weight-bold">Largest LCC</span> Site On The Net</h1>
             <div class="job-search">
@@ -88,12 +100,13 @@
                           <h2 class="text-white h2 font-weihgt-normal mb-4">Post Subscribe</h2>
                         </div>
                       </div>
-                      <form action="" method="post">
+                      <form action="{{ route('user_post_home') }}" method="post">
+                        @csrf
                         <div class="row">
                           <div class="col-md-9">
                             <input type="email" name="mail" class="form-control border-0 mb-3 mb-md-0" placeholder="メールアドレス">
                             @if($errors->has('mail'))
-                              <p>{{ $errors->first('mail') }}</p>
+                              <p class="text-black form_check_text">{{ $errors->first('mail') }}</p>
                             @endif
                           </div>
                           <div class="col-md-3">
@@ -102,18 +115,19 @@
                         </div>
 
                         <div class="brand_check">
-                          <div class="col-md-3">
-                            <div class="text-black form_check_text">航空会社：</div>
+                          <div class="col-md-auto">
+                            <div class="text-black form_check_text">航空会社：
+                              @if($errors->has('brand_ids'))
+                                <p class="text-black form_check_text">{{ $errors->first('brand_ids') }}</p>
+                              @endif
+                            </div>
                           </div>
                           <div class="row">
                             @foreach($brands as $brand)
                             <div class="col-md-auto">
                               <div class="custom-control custom-checkbox custom-control-inline">
-                                  <input type="checkbox" name="brand_id" class="custom-control-input" id="{{ $brand->brand_name }}" value="{{ $brand->id }}">
+                                  <input type="checkbox" name="brand_ids[]" class="custom-control-input" id="{{ $brand->brand_name }}" value="{{ $brand->id }}">
                                   <label class="custom-control-label form_check_text" for="{{ $brand->brand_name }}">{{ $brand->brand_name }}</label>
-                                  @if($errors->has('brand_id'))
-                                    <p>{{ $errors->first('brand_id') }}</p>
-                                  @endif
                               </div>
                             </div>
                             @endforeach
@@ -121,18 +135,20 @@
                         </div>
 
                         <div class="category_check">
-                          <div class="col-md-3">
-                            <div class="text-black form_check_text">カテゴリー：</div>
+                          <div class="col-md-auto">
+                            <div class="text-black form_check_text">カテゴリー：
+                              @if($errors->has('category_ids'))
+                                <p class="text-black form_check_text">{{ $errors->first('category_ids') }}</p>
+                              @endif
+                            </div>
                           </div>
                           <div class="row">
                             @foreach($categories as $category)
                             <div class="col-md-2">
                               <div class="custom-control custom-checkbox custom-control-inline">
-                                  <input type="checkbox" name="category_id" class="custom-control-input" id="{{ $category->category_name }}" value="{{ $category->id }}">
+                                  <input type="checkbox" name="category_ids[]" class="custom-control-input" id="{{ $category->category_name }}" value="{{ $category->id }}">
                                   <label class="custom-control-label form_check_text" for="{{ $category->category_name }}">{{ $category->category_name }}</label>
-                                  @if($errors->has('category_id'))
-                                    <p>{{ $errors->first('category_id') }}</p>
-                                  @endif
+
                               </div>
                             </div>
                             @endforeach

@@ -33,4 +33,8 @@ class Category extends Model
     public function post(){
       return $this->hasMany('App\Model\Post','mtb_category_id');
     }
+    //connect subscribe mail
+    public function subscribemails(){
+      return $this->belongsToMany('App\Model\SubscribeMail','subscribe_mail_category', "category_id","subscribe_mail_id");
+    }
 }
