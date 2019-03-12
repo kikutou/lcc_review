@@ -13,7 +13,8 @@
     <div class="row">
       <div class="col-lg-12">
 
-
+        <form action="{{ route('user_post_brand_detail', ['id' => $brand->id ]) }}" method=post>
+          @csrf
           <div class=detaildiv>
             <div class=namepage>
               <div>
@@ -31,6 +32,71 @@
               </div>
             </div>
           </div>
+          <!-- 只有设定了name才能在传递时用于传递数据 -->
+          <div>
+            <p>サービス</p>
+            <select class="" name="service">
+              @for($i=5; $i>=1; $i--)
+                <option value="{{ $i }}">{{ $i }}</option>
+              @endfor
+            </select>
+          <br>
+
+            <p>清潔感</p>
+            <select class="" name="cleaness">
+              @for($i=5; $i>=1; $i--)
+                <option value="{{ $i }}">{{ $i }}</option>
+              @endfor
+            </select>
+          <br>
+
+            <p>飲食</p>
+            <select class="" name="food">
+              @for($i=5; $i>=1; $i--)
+                <option value="{{ $i }}">{{ $i }}</option>
+              @endfor
+            </select>
+          <br>
+
+            <p>席の快適</p>
+            <select class="" name="chair">
+              @for($i=5; $i>=1; $i--)
+                <option value="{{ $i }}">{{ $i }}</option>
+              @endfor
+            </select>
+          <br>
+
+          <p>エンターテインメント</p>
+          <select class="" name="entertainment">
+            @for($i=5; $i>=1; $i--)
+              <option value="{{ $i }}">{{ $i }}</option>
+            @endfor
+          </select>
+        <br>
+
+        <p>コストパフォーマンス</p>
+        <select class="" name="cost">
+          @for($i=5; $i>=1; $i--)
+            <option value="{{ $i }}">{{ $i }}</option>
+          @endfor
+        </select>
+      <br>
+
+
+      <p>コメントタイトル</p>
+      <input type="text" name="comment_title">
+
+
+      <p>コメント内容</p>
+<textarea name="comment_content">
+</textarea>
+
+          <input type="submit" value="提出">
+        </div>
+          <!-- <div>
+            评价展示
+          </div> -->
+        </form>
               <div class="flights">
               <div class="row" id="flights-color">
                 <div class="col-md-2">
