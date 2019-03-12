@@ -33,11 +33,16 @@ class Post extends Model
     public function admin(){
       return $this->belongsTo('App\Model\Admin');
     }
+    //connect comments
+    public function comments(){
+      return $this->hasMany('App\Model\Comment');
+    }
 
     //connect postsbrands
     public function postbrand(){
       return $this->hasMany('App\Model\PostBrand');
     }
+
     //connect brand
     public function brands(){
       return $this->belongsToMany('App\Model\Brand','brand_post', "post_id", "brand_id");

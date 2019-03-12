@@ -8,6 +8,7 @@ use App\Model\Post;
 use App\Model\Brand;
 use App\Model\PostBrand;
 use App\Model\Master\Category;
+use App\Service\CommentService;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -54,7 +55,21 @@ class PostController extends Controller
     //detail
     public function detail(Request $request,$id){
       $post = Post::where('id', $id)->first();
+   
 
+      $comment = new CommentService;
+      $topic_code = 'post_'.$id;
+      $comment = $request->comment;
+      $items[] = $request->service;
+      $items[] = $request->clean;
+      $items[] = $request->food;
+      $items[] = $request->seat;
+      $items[] = $request->entertainment;
+      $items[] = $request->cost_performance;
+    
+      $comments = $commetn->get_comments($topic_code);
+      $add_comment = $comment->add_comment($topic_code,  $comment, $items);
+      
 
       //same brand posts brand id
       $brands = $post->brands;
@@ -79,6 +94,14 @@ class PostController extends Controller
       //same category posts
       $same_category_posts = Post::where('mtb_category_id',$post->mtb_category_id)->get();
 
-      return view("user.post.detail", ['post' => $post, "same_brand_posts" => $same_brand_posts, "same_category_posts" => $same_category_posts]);
+      return view("user.post.detail", [
+        
+        'post' => $post, 
+        "same_brand_posts" => $same_brand_posts, 
+        "same_category_posts" => $same_category_posts,
+        "comments" => $comments
+        ]);
     }
+
+
 }
