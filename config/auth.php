@@ -12,7 +12,7 @@ return [
     | as required, but they're a perfect start for most applications.
     |
     */
-
+//默认
     'defaults' => [
         'guard' => 'web',
         'passwords' => 'users',
@@ -34,7 +34,7 @@ return [
     | Supported: "session", "token"
     |
     */
-
+//安全
     'guards' => [
         'web' => [
             'driver' => 'session',

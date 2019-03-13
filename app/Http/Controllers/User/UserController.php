@@ -47,4 +47,5 @@ class UserController extends Controller
       return redirect(route("user_get_post_index"))->with(["message" => '会員加入が成功しました']);
     }
   }
+
 }

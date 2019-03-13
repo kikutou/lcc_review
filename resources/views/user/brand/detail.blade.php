@@ -120,6 +120,12 @@
           <div class="col-md-2">{{ $value['grade'] }}</div>
           @endforeach
 
+
+          @foreach($comments as $comment => $value)
+          <div class="col-md-6"><p>タイトル:{{ $value['title'] }}<p></div>
+          <div class="col-md-6"><p>コメント:{{ $value['content'] }}</p></div>
+          @endforeach
+
         </div>
         </form>
               <div class="flights">
