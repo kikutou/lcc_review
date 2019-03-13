@@ -108,4 +108,21 @@
     border-bottom: 1px dashed;
     padding: inherit;
     margin:10px;
-  } */
+  } 
+
+  /* for comment list */
+  .user_name{
+    margin-left: 20px;
+    font-size: 80%;
+  }
+  .comment_list{
+    margin-left: 40px;
+  }
+  .comment_title{
+    font-size: 80%;
+    color: #696969;
+  }
+  .comment_content{
+    font-size: 90%;
+  }
+  /* end comment list */

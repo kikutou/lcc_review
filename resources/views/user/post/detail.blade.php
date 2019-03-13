@@ -4,7 +4,19 @@
 
 
 @section("content")
-<link rel="stylesheet" href="{{ URL::asset('css/post_css.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('css/post_css.css') }}">
+  <!-- session message -->
+  @if(Session::get("message"))
+  <div class="row">
+      <div class="alert alert-success alert-dismissible fade show col-md-6 offset-md-3" role="alert">
+        <strong>{{ Session::get("message") }}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span class="fa fa-times"></span>
+        </button>
+      </div>
+    </div>
+  @endif
+  <!-- session end -->
 <div class="container">
 
   <!-- title -->
@@ -146,6 +158,85 @@
 
     <!-- /other posts -->
   </div>
-</div>
 
+
+  <!-- comment area -->
+  <p class="h4 otherpostbar">コメント</p>
+  <!-- Horizontal material form -->
+  <form action="{{ route('user_post_post_detail', ['id'=> $post->id]) }}" method="POST">
+  @csrf
+  <input type="hidden" value="{{ $post->id }}" name="id">
+    <!-- Grid row -->
+    <div class="form-group row">
+      <!-- Material input -->
+      <label for="commenttitle" class="col-sm-1 col-form-label">タイトル</label>
+      <div class="col-md-4">
+        <div class="md-form mt-0">
+          <input type="text" name="title" class="form-control" id="commenttitle" placeholder="Title">
+        </div>
+      </div>
+    </div>
+    <!-- Grid row -->
+
+    <!-- Grid row -->
+    <div class="form-group row">
+      <!-- Material input -->
+      <label for="contentarea" class="col-lg-1 col-form-label">内容</label>
+      <div class="col-md-8">
+        <div class="md-form mt-0">
+          <textarea name="content" class="form-control" id="contentarea"></textarea>
+        </div>
+      </div>
+    </div>
+    <!-- Grid row -->
+
+    <!-- Grid row -->
+    <div class="form-group row">
+      <div class="col-sm-4">
+        <button type="submit" class="btn btn-secondary btn-md offset-md-6">提出</button>
+      </div>
+    </div>
+    <!-- Grid row -->
+  </form>
+  <!-- Horizontal material form -->
+  <!-- comment area end  -->
+  <p class="h4 otherpostbar">コメント一覧</p>
+  @if($comments)
+  @define $out=1
+  @foreach($comments as $key => $values)
+  
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <div class="row">
+          <div class="col-md-auto user_name">ユーザーニックネーム</div>
+      </div><br>
+      <div class="comment_list">
+        <div class="row">
+          <div class="col-md-auto comment_title">タイトル：</div>
+          <div class="col-md-8">{{ $values['title'] }}</div>
+        </div>
+        <div class="row">
+          <div class="col-md-auto comment_title">内容：</div>
+          <div class="col-md-8 comment_content">{{ $values['content'] }}</div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  @if($out>10)
+    @break
+  @else
+    @define $out++
+  @endif
+  @endforeach
+  @else
+  <ul class="list-group">
+    <li class="list-group-item">
+        <div class="row">
+          <div class="col-md-auto comment_content">当記事に関するコメントがございません</div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  @endif
+</div>
 @endsection

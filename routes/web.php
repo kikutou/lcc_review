@@ -123,6 +123,7 @@ Route::post("user/mail", "User\SubscribeMailController@index")->name("user_post_
 //post
 Route::get("user/posts", "User\PostController@index")->name("user_get_post_index");
 Route::get("user/post/{id}/detail", "User\PostController@detail")->name("user_get_post_detail");
+Route::post("user/post/{id}/detail","User\PostController@detail")->name("user_post_post_detail");
 //brand
 Route::get("user/brands", "User\BrandController@index")->name("user_get_brand_index");
 Route::get("user/brand/{id}/detail", "User\BrandController@detail")->name("user_get_brand_detail");
@@ -136,11 +137,3 @@ Route::get("mail", "User\HomeController@mail")->name("user_get_mail");
 Auth::routes();
 
 Route::get('user/login', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
