@@ -26,7 +26,7 @@ class UserController extends Controller
       }
 
       $user = new User;
-      $user->email = $request->mail;
+      $user->email = $request->email;
       $user->setPassword($request->password);
       $user->code = $user->generateUserCode();
       $user->nickname = $request->nickname;
@@ -70,7 +70,7 @@ class UserController extends Controller
       $user_detail = $user->detail;
 
       //Validator
-      if ($user->email != $request->mail) {
+      if ($user->email != $request->email) {
         $validator = Validator::make($request->all(), User::$validation_rules_for_edit, User::$validation_messages_for_edit);
         if($validator->fails()) {
           return redirect(route("admin_get_user_edit", ['id' => $request->id]))->withErrors($validator)->withInput();
@@ -78,7 +78,7 @@ class UserController extends Controller
       }
 
 
-      $user->email = $request->mail;
+      $user->email = $request->email;
       $user->nickname = $request->nickname;
       if ($request->password) {
         $user->setPassword($request->password);

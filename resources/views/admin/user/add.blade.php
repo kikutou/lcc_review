@@ -20,9 +20,9 @@
                 @csrf
                 <div class="form-group">
                     <label for="email-input" class="col-form-label">メールアドレス</label>
-                    <input class="form-control" type="email" value="{{old('mail')}}" id="email-input" name="mail">
-                    @if($errors->has('mail'))
-                      <p>{{ $errors->first('mail') }}</p>
+                    <input class="form-control" type="email" value="{{old('email')}}" id="email-input" name="email">
+                    @if($errors->has('email'))
+                      <p>{{ $errors->first('email') }}</p>
                     @endif
                 </div>
                 <div class="form-group">
