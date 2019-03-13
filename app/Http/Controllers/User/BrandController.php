@@ -32,13 +32,22 @@ class BrandController extends Controller
 
 
     public function detail(Request $request, $id){
+      //传值的话 new commrntservice后面加()
         $service = new CommentService();
+        //判断是get方法或者是post方法
         if($request->isMethod("get")) {
-
         $comments = $service->get_comments("brand_" . $id);
-        $brand = Brand::where('id',$id)->first();
 
-        return view("user.brand.detail",['brand' => $brand, "comments" => $comments]);
+        $result = array();
+        foreach($comments as $comment){
+          foreach($comment["items"] as $something){
+            $result[] = $something;
+
+          }
+        }
+
+        $brand = Brand::where('id',$id)->first();
+        return view("user.brand.detail",['brand' => $brand,"comments" => $comments,"results" => $result]);
       } else {
 
         $service = new CommentService();
@@ -78,6 +87,7 @@ class BrandController extends Controller
         );
 
         $service->add_comment($topic_code, $comment, $items);
+
 
         return redirect(route("user_get_brand_detail", ["id" => $id]));
 
