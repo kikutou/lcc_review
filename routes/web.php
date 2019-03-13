@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 
-Route::get("admin", "Admin\DashboardController@index");
+Route::get("admin", "Admin\DashboardController@index")->name("admin_get_admin");
 
 // post
 Route::get("admin/posts", "Admin\PostController@index")->name("admin_get_post_index");
@@ -132,10 +132,6 @@ Route::post("user/brand/{id}/detail", "User\BrandController@detail")->name("user
 //user
 Route::get("user/user/add", "User\UserController@add")->name("user_get_user_add");
 Route::post("user/user/add", "User\UserController@add")->name("user_post_user_add");
-
-Route::get("mail", "User\HomeController@mail")->name("user_get_mail");
-
-//login
-Auth::routes();
-
-Route::get('user/login', 'HomeController@index')->name('home');
+    //login
+Route::get("uer/user/login", "User\UserController@login")->name("user_get_login");
+Route::post("uer/user/login", "User\UserController@login")->name("user_post_login");

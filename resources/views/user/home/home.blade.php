@@ -1,20 +1,19 @@
 @extends("layouts.user.home_layout")
 @section("content")
-    <!-- content -->
-    <div class="site-blocks-cover email_mag" data-aos="fade" data-stellar-background-ratio="0.5">
-      <div class="container">
-        <div class="row row-custom align-items-center">
-          <!-- session message -->
-          @if(Session::get("message"))
+<!-- session message -->
+@if(Session::get("message"))
           <div class="row">
             <div class="alert alert-success alert-dismissible fade show col-md-6 offset-md-3" role="alert">
               <strong>{{ Session::get("message") }}</strong>
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span class="fa fa-times"></span>
-              </button>
             </div>
           </div>
           @endif
+          <!-- end session -->
+    <!-- content -->
+    <div class="site-blocks-cover email_mag" data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="container">
+         
+        <div class="row row-custom align-items-center">
           <div class="col-md-10">
             <h1 class="mb-2 text-black w-75"><span class="font-weight-bold">Largest LCC</span> Site On The Net</h1>
             <div class="job-search">

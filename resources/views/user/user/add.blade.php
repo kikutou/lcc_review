@@ -16,10 +16,10 @@
           <div class="login-form-body">
             <div class="form-gp">
               <p>メールアドレス</p>
-              @if($errors->has('mail'))
-              <strong>{{ $errors->first('mail') }}</strong>
+              @if($errors->has('email'))
+              <strong>{{ $errors->first('email') }}</strong>
               @endif
-              <input type="email" name="mail" value="{{old('mail')}}">
+              <input type="email" name="email" value="{{old('email')}}">
               <i class="ti-email"></i>
             </div>
             <div class="form-gp">
@@ -96,10 +96,10 @@
                 </div>
                 <!-- end 折叠 -->
                 <div class="submit-btn-area">
-                  <button id="form_submit" type="submit">Submit <i class="ti-arrow-right"></i></button>
+                  <button id="form_submit" type="submit">提出 <i class="ti-arrow-right"></i></button>
                 </div>
                 <div class="form-footer text-center mt-5">
-                  <p class="text-muted">Already have an account? <a href="#">Sign in</a></p>
+                  <p class="text-muted">既に会員の方はこちら <a href="{{ route('user_get_login') }}">ログイン</a></p>
                 </div>
               </div>
             </form>
