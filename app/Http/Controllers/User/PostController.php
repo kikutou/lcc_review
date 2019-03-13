@@ -80,7 +80,6 @@ class PostController extends Controller
       $comments = new CommentService;
       $topic_code = 'post_'.$id;
       $comments = $comments->get_comments($topic_code);
-      $comments = arsort($comments)
       return view("user.post.detail", [
         'post' => $post, 
         "same_brand_posts" => $same_brand_posts, 
