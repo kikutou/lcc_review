@@ -23,7 +23,7 @@ class UserController extends Controller
       $user_statuses = UserStatus::all();
       return view("user.user.add",['prefectures'=>$prefectures, 'user_statuses'=>$user_statuses]);
     }else {
-     
+
 
       $validator = Validator::make($request->all(), User::$validation_sign_up_rules, User::$validation_sign_up_messages);
       if($validator->fails()) {
@@ -40,7 +40,7 @@ class UserController extends Controller
       $user->mtb_user_status_id ="1";
       $user->save();
 
-        //add detail
+      //add detail
       $user_detail = new UserDetail;
       $user_detail->user_id = $user->id;
       $user_detail->name = $request->name;
@@ -49,7 +49,7 @@ class UserController extends Controller
       $user_detail->address_detail = $request->address_detail;
       $user_detail->gender_flg = $request->gender_flg;
       $user_detail->save();
-      
+
       // ここで認証メールを発送
       $mail_address = $request->email;
       $token = $user->token;
@@ -81,36 +81,36 @@ class UserController extends Controller
 
   public function login(Request $request)
   {
-    if($request->isMethod("get")) 
+    if($request->isMethod("get"))
     {
       return view('user.user.login');
     } else
-     {
+    {
       $email = $request->email;
       $password = $request->password;
 
       $user = User::where('email',$email)->first();
       if ($user->mtb_user_status_id == 1) {
-        $mail_address = $request->mail;
+        $mail_address = $email;
         $token = $user->token;
         $send_mail = Mail::send('user.user.mail',['token'=>$token], function($message) use($mail_address){
-        $message->from('cheng19941029@gmail.com','LCC Review');
-        $message->subject('【LCCの会員認証】認証確認メール');
-        $message->to($mail_address);
-      });
+          $message->from('cheng19941029@gmail.com','LCC Review');
+          $message->subject('【LCCの会員認証】認証確認メール');
+          $message->to($mail_address);
+        });
         return redirect(route("user_get_home"))->with(["message" => '会員認証を完了してください']);
       }else {
-        if (Auth::attempt(['email'=>$email, 'password'=>$password])) 
+        if (Auth::attempt(['email'=>$email, 'password'=>$password]))
         {
-        return redirect(route("user_get_home"))->with(["message" => "ログイン成功しました"]);
+          return redirect(route("user_get_home"))->with(["message" => "ログイン成功しました"]);
         }else
         {
           return redirect(route("user_get_login"))->with(["message" => "エラーが発生した、もう一回ログインしてください"]);
         }
       }
-        
 
-       
+
+
 
 
 

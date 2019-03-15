@@ -13,6 +13,12 @@
   <link rel="stylesheet" href="{{URL::asset('assets/css/metisMenu.css')}}">
   <link rel="stylesheet" href="{{URL::asset('assets/css/owl.carousel.min.css')}}">
   <link rel="stylesheet" href="{{URL::asset('assets/css/slicknav.min.css')}}">
+  
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
   <!-- amchart css -->
   <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
   <!-- others css -->
