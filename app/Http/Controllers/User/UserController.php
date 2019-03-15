@@ -52,14 +52,14 @@ class UserController extends Controller
       $user_detail->save();
 
         // ここで認証メールを発送
-        $to = $request->email;
-        $subject = '【LCCの会員認証】認証確認メール';
+      $to = $request->email;
+      $subject = '【LCCの会員認証】認証確認メール';
 
-        $token = $user->token;
-        $view = 'user.user.mail';
-        $data = ['token' => $token];
-        $send_mail = new SendMailService;
-        $send_mail->sendmail($to, $subject, $view, $data);
+      $token = $user->token;
+      $view = 'user.user.mail';
+      $data = ['token' => $token];
+      $send_mail = new SendMailService;
+      $send_mail->sendmail($to, $subject, $view, $data);
 
       return redirect(route("user_get_home"))->with(["message" => '会員加入が成功しました']);
     }
@@ -99,10 +99,10 @@ class UserController extends Controller
 
       $user = User::where('email',$email)->first();
       if ($user->mtb_user_status_id == 1) {
-          // ここで認証メールを発送
+          // もう一度認証メールを発送
         $to = $request->email;
-        
-        $subject = '【LCCの会員認証】認証確認メール';
+        $subject = '【LCCの会員認証】再認証確認メール';
+
         $token = $user->token;
         $view = 'user.user.mail';
         $data = ['token' => $token];
