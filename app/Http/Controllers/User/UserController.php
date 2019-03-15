@@ -108,12 +108,6 @@ class UserController extends Controller
           return redirect(route("user_get_login"))->with(["message" => "エラーが発生した、もう一回ログインしてください"]);
         }
       }
-
-
-
-
-
-
     }
   }
 }
