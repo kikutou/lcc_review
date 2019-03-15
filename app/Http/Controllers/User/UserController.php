@@ -51,16 +51,15 @@ class UserController extends Controller
       $user_detail->gender_flg = $request->gender_flg;
       $user_detail->save();
 
-      // ここで認証メールを発送
-      $to = $request->email;
-      $type = 'send';
-      $from = "cheng19941029@gmail.com";
-      $subject = '【LCCの会員認証】認証確認メール';
-      $content = 'user.user.mail';
-      $token = $user->token;
-      $items = array("token" => $token);
-      $send_mail = new SendMailService;
-      $send_mail->sendmail($type, $from, $to, $subject, $content, $items);
+        // ここで認証メールを発送
+        $to = $request->email;
+        $subject = '【LCCの会員認証】認証確認メール';
+
+        $token = $user->token;
+        $view = 'user.user.mail';
+        $data = ['token' => $token];
+        $send_mail = new SendMailService;
+        $send_mail->sendmail($to, $subject, $view, $data);
 
       return redirect(route("user_get_home"))->with(["message" => '会員加入が成功しました']);
     }
@@ -102,14 +101,13 @@ class UserController extends Controller
       if ($user->mtb_user_status_id == 1) {
           // ここで認証メールを発送
         $to = $request->email;
-        $type = 'send';
-        $from = "cheng19941029@gmail.com";
+        
         $subject = '【LCCの会員認証】認証確認メール';
-        $content = 'user.user.mail';
         $token = $user->token;
-        $items = array("token" => $token);
+        $view = 'user.user.mail';
+        $data = ['token' => $token];
         $send_mail = new SendMailService;
-        $send_mail->sendmail($type, $from, $to, $subject, $content, $items);
+        $send_mail->sendmail($to, $subject, $view, $data);
 
         return redirect(route("user_get_home"))->with(["message" => '会員認証を完了してください']);
       }else {
