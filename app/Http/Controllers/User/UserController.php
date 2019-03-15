@@ -9,6 +9,7 @@ use App\Model\UserDetail;
 use App\Model\Master\AddressPrefecture;
 use App\Model\Master\UserStatus;
 use Validator;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -27,7 +28,7 @@ class UserController extends Controller
       }
 
       $user = new User;
-      $user->email = $request->mail;
+      $user->email = $request->email;
       $user->setPassword($request->password);
       $user->code = $user->generateUserCode();
       $user->nickname = $request->nickname;
@@ -48,4 +49,29 @@ class UserController extends Controller
     }
   }
 
+  public function login(Request $request)
+  {
+    if($request->isMethod("get"))
+    {
+      return view('user.user.login');
+    } else
+     {
+       $email = $request->email;
+       $password = $request->password;
+
+       // check if admin
+      if(Auth::guard('admin')->attempt(['admin_user'=>$email,'password'=>$password]))
+      {
+        return redirect(route("admin_get_admin"));
+      }elseif (Auth::attempt(['email'=>$email, 'password'=>$password]))
+      {
+       return redirect(route("user_get_home"))->with(["message" => "ログイン成功しました"]);
+      }else
+      {
+        return redirect(route("user_get_login"))->with(["message" => "エラーが発生した、もう一回ログインしてください"]);
+      }
+
+
+    }
+  }
 }
