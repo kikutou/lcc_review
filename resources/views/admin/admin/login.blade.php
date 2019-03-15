@@ -1,9 +1,3 @@
-@extends("", ["" => "admin", "action" => ""])
-
-@section("title", "管理員のログイン")
-
-
-@section("content")
 
 <div class="main-content-inner">
   <div class="row">
@@ -20,19 +14,17 @@
                 @csrf
                 <div class="form-group">
                   <label for="admin_user-input" class="col-form-label">管理員名</label>
-                  <input class="form-control" type="text"  id="admin_user-input" placeholder="ネームを10桁まで入力してください。" name="admin_user" value="">
-                  <!-- @if($errors->has('admin_user'))
+                  <input class="form-control" type="text"  id="admin_user-input" placeholder="ネームを10桁まで入力してください。" name="admin_user" value="{{old('admin_user')}}">
+                  @if($errors->has('admin_user'))
                     <p>{{ $errors->first('admin_user') }}</p>
-                  @endif -->
-                  <p>11111</p>
+                  @endif
                 </div>
                 <div class="form-group">
                     <label for="inputPassword" class="">パスワード</label>
-                    <input type="password" class="form-control" id="inputPassword" value="" placeholder="6桁～8桁のパスワードを入力してください。" name="password">
-                    <!-- @if($errors->has('password'))
+                    <input type="password" class="form-control" id="inputPassword" value="{{old('password')}}" placeholder="6桁～8桁のパスワードを入力してください。" name="password">
+                    @if($errors->has('password'))
                       <p>{{ $errors->first('password') }}</p>
-                    @endif -->
-                    <p>11111</p>
+                    @endif
                 </div>
 
                 <!-- button -->
@@ -56,4 +48,3 @@
     </div>
   </div>
 </div>
-@endsection

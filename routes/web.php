@@ -90,7 +90,7 @@ Route::get("admin/user/{id}/delete", "Admin\UserController@delete")->name("admin
 Route::post("admin/user/{id}/delete", "Admin\UserController@delete")->name("admin_post_user_delete");
 
 // admin
-Route::get("admin/admins", "Admin\AdminController@index")->name("admin_get_admin_index");
+Route::get("admin/admins", "Admin\AdminController@index")->name("admin_get_admin_index")->middleware("auth:admin");
 Route::get("admin/admin/add", "Admin\AdminController@add")->name("admin_get_admin_add");
 Route::post("admin/admin/add", "Admin\AdminController@add")->name("admin_post_admin_add");
 Route::get("admin/admin/{id}/edit", "Admin\AdminController@edit")->name("admin_get_admin_edit");
@@ -100,6 +100,8 @@ Route::post("admin/admin/{id}/delete", "Admin\AdminController@delete")->name("ad
 //admin login
 Route::get("admin/admin/login", "Admin\AdminController@login")->name("admin_get_admin_login");
 Route::post("admin/admin/login", "Admin\AdminController@login")->name("admin_post_admin_login");
+
+Route::get("admin/admin/logout", "Admin\AdminController@logout")->name("admin_get_admin_logout");
 
 // comment
 Route::get("admin/comments", "Admin\CommentController@index")->name("admin_get_comment_index");

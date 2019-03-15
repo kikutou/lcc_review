@@ -14,9 +14,7 @@ class AddColumnToAdmins extends Migration
     public function up()
     {
         Schema::table('admins', function (Blueprint $table) {
-
-           $table->string('token',20)->after('password');
-           $table->string('verified_at');
+            $table->string('token',20)->after('password');
         });
     }
 
