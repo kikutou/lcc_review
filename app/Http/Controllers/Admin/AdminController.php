@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admin;
+use Auth;
 use Validator;
 
 
@@ -77,6 +78,27 @@ class AdminController extends Controller
       return redirect(route("admin_get_admin_index"));
     }
   }
+
+  //login
+   public function login(Request $request){
+
+     if($request->isMethod("get"))
+     {
+       return view('admin.admin.login');
+     } else{
+
+
+       $admin = new Admin;
+       $admin->admin_user = $request->admin_user;
+       $admin->setPassword($request->password);
+       $admin->save();
+
+       return view('admin.admin.login');
+     }
+
+
+    }
+
 
 
 }

@@ -97,6 +97,9 @@ Route::get("admin/admin/{id}/edit", "Admin\AdminController@edit")->name("admin_g
 Route::post("admin/admin/{id}/edit", "Admin\AdminController@edit")->name("admin_post_admin_edit");
 Route::get("admin/admin/{id}/delete", "Admin\AdminController@delete")->name("admin_get_admin_delete");
 Route::post("admin/admin/{id}/delete", "Admin\AdminController@delete")->name("admin_post_admin_delete");
+//admin login
+Route::get("admin/admin/login", "Admin\AdminController@login")->name("admin_get_admin_login");
+Route::post("admin/admin/login", "Admin\AdminController@login")->name("admin_post_admin_login");
 
 // comment
 Route::get("admin/comments", "Admin\CommentController@index")->name("admin_get_comment_index");
@@ -137,5 +140,3 @@ Route::any("user/user/verify/{token}", "User\UserController@verify")->name("user
     //login
 Route::get("user/user/login", "User\UserController@login")->name("user_get_login");
 Route::post("user/user/login", "User\UserController@login")->name("user_post_login");
-
-//user admin

@@ -23,13 +23,14 @@ class UserController extends Controller
       $user_statuses = UserStatus::all();
       return view("user.user.add",['prefectures'=>$prefectures, 'user_statuses'=>$user_statuses]);
     }else {
-     
+
 
       $validator = Validator::make($request->all(), User::$validation_sign_up_rules, User::$validation_sign_up_messages);
       if($validator->fails()) {
         return redirect(route("user_get_user_add"))->withInput()->withErrors($validator);
       }
 
+      }
 
       $user = new User;
       $user->email = $request->email;
@@ -49,7 +50,7 @@ class UserController extends Controller
       $user_detail->address_detail = $request->address_detail;
       $user_detail->gender_flg = $request->gender_flg;
       $user_detail->save();
-      
+
       // ここで認証メールを発送
       $mail_address = $request->email;
       $token = $user->token;
@@ -86,21 +87,6 @@ class UserController extends Controller
       return view('user.user.login');
     } else
      {
-<<<<<<< HEAD
-       $email = $request->email;
-       $password = $request->password;
-
-       // check if admin
-      if(Auth::guard('admin')->attempt(['admin_user'=>$email,'password'=>$password]))
-      {
-        return redirect(route("admin_get_admin"));
-      }elseif (Auth::attempt(['email'=>$email, 'password'=>$password]))
-      {
-       return redirect(route("user_get_home"))->with(["message" => "ログイン成功しました"]);
-      }else
-      {
-        return redirect(route("user_get_login"))->with(["message" => "エラーが発生した、もう一回ログインしてください"]);
-=======
       $email = $request->email;
       $password = $request->password;
 
@@ -115,18 +101,17 @@ class UserController extends Controller
       });
         return redirect(route("user_get_home"))->with(["message" => '会員認証を完了してください']);
       }else {
-        if (Auth::attempt(['email'=>$email, 'password'=>$password])) 
+        if (Auth::attempt(['email'=>$email, 'password'=>$password]))
         {
         return redirect(route("user_get_home"))->with(["message" => "ログイン成功しました"]);
         }else
         {
           return redirect(route("user_get_login"))->with(["message" => "エラーが発生した、もう一回ログインしてください"]);
         }
->>>>>>> 349c72daf436257d2c6e7a786661a6ec46917850
       }
-        
 
-       
+
+
 
 
 
