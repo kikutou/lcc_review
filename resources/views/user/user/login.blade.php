@@ -24,8 +24,11 @@
         <div class="login-form-body">
           <div class="form-gp">
             <label for="exampleInputEmail1">メールアドレス</label>
-            <input type="email" name="email" id="exampleInputEmail1">
+            <input type="email" name="email" value="{{ old('email') }}" id="exampleInputEmail1">
             <i class="ti-email"></i>
+            @if($errors->has('email'))
+              <strong>{{ $errors->first('email') }}</strong>
+              @endif
           </div>
           <div class="form-gp">
             <label for="exampleInputPassword1">パスワード</label>
@@ -35,7 +38,7 @@
           <div class="row mb-4 rmber-area">
             <div class="col-6">
               <div class="custom-control custom-checkbox mr-sm-2">
-                <input type="checkbox" class="custom-control-input" name="" id="customControlAutosizing">
+                <input type="checkbox" class="custom-control-input" name="remember" value="1" id="customControlAutosizing">
                 <label class="custom-control-label" for="customControlAutosizing">Remember Me</label>
               </div>
             </div>

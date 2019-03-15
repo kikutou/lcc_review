@@ -54,6 +54,13 @@ class User extends Authenticatable
     "nickname.required" => "ニックネームを入力してください。",
     "nickname.between" => ":min桁から:max桁までのニックネームを入力してください。",
   ];
+  public static $validation_sign_in_rules = [
+    "email" => "exists:users,email",
+  ];
+  public static $validation_sign_in_messages = [
+    "email.exists" => "まず会員登録お願いいたします。",
+  ];
+
   public function setPassword($password) {
     $this->password = Hash::make($password);
   }
