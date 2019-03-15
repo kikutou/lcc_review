@@ -9,27 +9,14 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500">
     <link rel="stylesheet" href="fonts/icomoon/style.css')}}">
-
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
-  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
+    <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
     <link rel="stylesheet" href="{{URL::asset('assets/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('assets/css/magnific-popup.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('assets/css/jquery-ui.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('assets/css/owl.carousel.min.css')}}">
+<!-- amchart css -->
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
     <link rel="stylesheet" href="{{URL::asset('assets/css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('assets/css/bootstrap-datepicker.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('assets/css/animate.css')}}">
-
-    <link rel="stylesheet" href="{{URL::asset('assets/css/fl-bigmug-line.css')}}">
-
     <link rel="stylesheet" href="{{URL::asset('assets/css/aos.css')}}">
-
     <link rel="stylesheet" href="{{URL::asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/home_css.css')}}">
-
   </head>
   <body>
 
@@ -53,7 +40,7 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
+          <div class="collapse navbar-collapse user_drop" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <a class="nav-link active" href="{{ route('user_get_home') }}">Home</a>

@@ -12,6 +12,7 @@ use Validator;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Service\SendMailService;
 
 class UserController extends Controller
 {
@@ -51,13 +52,16 @@ class UserController extends Controller
       $user_detail->save();
 
       // ここで認証メールを発送
-      $mail_address = $request->email;
+      $to = $request->email;
+      $type = 'send';
+      $from = "cheng19941029@gmail.com";
+      $subject = '【LCCの会員認証】認証確認メール';
+      $content = 'user.user.mail';
       $token = $user->token;
-      $send_mail = Mail::send('user.user.mail',['token'=>$token], function($message) use($mail_address){
-        $message->from('cheng19941029@gmail.com','LCC Review');
-        $message->subject('【LCCの会員認証】認証確認メール');
-        $message->to($mail_address);
-      });
+      $items = array("token" => $token);
+      $send_mail = new SendMailService;
+      $send_mail->sendmail($type, $from, $to, $subject, $content, $items);
+
       return redirect(route("user_get_home"))->with(["message" => '会員加入が成功しました']);
     }
   }

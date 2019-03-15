@@ -13,11 +13,7 @@
   <link rel="stylesheet" href="{{URL::asset('assets/css/metisMenu.css')}}">
   <link rel="stylesheet" href="{{URL::asset('assets/css/owl.carousel.min.css')}}">
   <link rel="stylesheet" href="{{URL::asset('assets/css/slicknav.min.css')}}">
-  
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
-  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
 
   <!-- amchart css -->
   <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
@@ -52,7 +48,7 @@
             <a class="nav-link" href="{{ route('user_get_brand_index') }}">Brand</a>
           </li>
           <li class="nav-item dropdown">
-            <p class="nav-link dropdown-toggle" data-toggle="dropdown">User<i class="fa fa-angle-down"></i></p>
+            <p class="nav-link dropdown-toggle" data-toggle="dropdown">User</p>
             <div class="dropdown-menu">
               <a class="dropdown-item"  href="{{route('user_get_user_add') }}">Sign Up</a>
               <a class="dropdown-item" href="{{route('user_get_login') }}">Sign In</a>

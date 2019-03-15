@@ -1,14 +1,6 @@
 @extends("layouts.user.home_layout")
 @section("content")
-<!-- session message -->
-@if(Session::get("message"))
-          <div class="row">
-            <div class="alert alert-success alert-dismissible fade show col-md-6 offset-md-3" role="alert">
-              <strong>{{ Session::get("message") }}</strong>
-            </div>
-          </div>
-          @endif
-          <!-- end session -->
+
     <!-- content -->
     <div class="site-blocks-cover email_mag" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
@@ -85,7 +77,15 @@
                       </form>
                     </div>
                   </div>
-
+                  <!-- session message -->
+                  @if(Session::get("message"))
+                  <div class="row">
+                    <div class="alert alert-success alert-dismissible fade show col-md-6 offset-md-3" role="alert">
+                      <strong>{{ Session::get("message") }}</strong>
+                    </div>
+                  </div>
+                  @endif
+                  <!-- end session -->
                 </div>
               </div>
             </div>
