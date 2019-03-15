@@ -52,8 +52,12 @@
           >
             <a class="nav-link" href="{{ route('user_get_brand_index') }}">Brand</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('user_get_user_add') }}">User</a>
+          <li class="nav-item dropdown">
+            <p class="nav-link dropdown-toggle" data-toggle="dropdown">User<i class="fa fa-angle-down"></i></p>
+            <div class="dropdown-menu">
+              <a class="dropdown-item"  href="{{route('user_get_user_add') }}">Sign Up</a>
+              <a class="dropdown-item" href="{{route('user_get_login') }}">Sign In</a>
+            </div>
           </li>
 
           <li class="nav-item">
