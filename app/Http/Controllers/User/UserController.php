@@ -9,7 +9,9 @@ use App\Model\UserDetail;
 use App\Model\Master\AddressPrefecture;
 use App\Model\Master\UserStatus;
 use Validator;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -21,21 +23,24 @@ class UserController extends Controller
       $user_statuses = UserStatus::all();
       return view("user.user.add",['prefectures'=>$prefectures, 'user_statuses'=>$user_statuses]);
     }else {
+     
 
       $validator = Validator::make($request->all(), User::$validation_sign_up_rules, User::$validation_sign_up_messages);
       if($validator->fails()) {
         return redirect(route("user_get_user_add"))->withInput()->withErrors($validator);
       }
 
+
       $user = new User;
       $user->email = $request->email;
       $user->setPassword($request->password);
       $user->code = $user->generateUserCode();
+      $user->token = str_random(20);
       $user->nickname = $request->nickname;
       $user->mtb_user_status_id ="1";
       $user->save();
 
-      //detail
+        //add detail
       $user_detail = new UserDetail;
       $user_detail->user_id = $user->id;
       $user_detail->name = $request->name;
@@ -44,10 +49,35 @@ class UserController extends Controller
       $user_detail->address_detail = $request->address_detail;
       $user_detail->gender_flg = $request->gender_flg;
       $user_detail->save();
-
-      return redirect(route("user_get_post_index"))->with(["message" => '会員加入が成功しました']);
+      
+      // ここで認証メールを発送
+      $mail_address = $request->email;
+      $token = $user->token;
+      $send_mail = Mail::send('user.user.mail',['token'=>$token], function($message) use($mail_address){
+        $message->from('cheng19941029@gmail.com','LCC Review');
+        $message->subject('【LCCの会員認証】認証確認メール');
+        $message->to($mail_address);
+      });
+      return redirect(route("user_get_home"))->with(["message" => '会員加入が成功しました']);
     }
   }
+
+  public function verify(Request $request,$token)
+  {
+    $user = User::where('token',$token)->first();
+    if($user)
+    {
+      $user->email_verified_at = Carbon::now();
+      $user->mtb_user_status_id = 2;
+      $user->save();
+
+      return view("user.user.verify");
+    }else
+    {
+      return redirect(route("user_get_home"))->with(["message" => '会員認証が失敗しました']);
+    }
+  }
+
 
   public function login(Request $request)
   {
@@ -56,6 +86,7 @@ class UserController extends Controller
       return view('user.user.login');
     } else
      {
+<<<<<<< HEAD
        $email = $request->email;
        $password = $request->password;
 
@@ -69,7 +100,34 @@ class UserController extends Controller
       }else
       {
         return redirect(route("user_get_login"))->with(["message" => "エラーが発生した、もう一回ログインしてください"]);
+=======
+      $email = $request->email;
+      $password = $request->password;
+
+      $user = User::where('email',$email)->first();
+      if ($user->mtb_user_status_id == 1) {
+        $mail_address = $request->mail;
+        $token = $user->token;
+        $send_mail = Mail::send('user.user.mail',['token'=>$token], function($message) use($mail_address){
+        $message->from('cheng19941029@gmail.com','LCC Review');
+        $message->subject('【LCCの会員認証】認証確認メール');
+        $message->to($mail_address);
+      });
+        return redirect(route("user_get_home"))->with(["message" => '会員認証を完了してください']);
+      }else {
+        if (Auth::attempt(['email'=>$email, 'password'=>$password])) 
+        {
+        return redirect(route("user_get_home"))->with(["message" => "ログイン成功しました"]);
+        }else
+        {
+          return redirect(route("user_get_login"))->with(["message" => "エラーが発生した、もう一回ログインしてください"]);
+        }
+>>>>>>> 349c72daf436257d2c6e7a786661a6ec46917850
       }
+        
+
+       
+
 
 
     }

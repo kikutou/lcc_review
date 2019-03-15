@@ -132,6 +132,8 @@ Route::post("user/brand/{id}/detail", "User\BrandController@detail")->name("user
 //user
 Route::get("user/user/add", "User\UserController@add")->name("user_get_user_add");
 Route::post("user/user/add", "User\UserController@add")->name("user_post_user_add");
+    //verify
+Route::any("user/user/verify/{token}", "User\UserController@verify")->name("user_verify");
     //login
 Route::get("user/user/login", "User\UserController@login")->name("user_get_login");
 Route::post("user/user/login", "User\UserController@login")->name("user_post_login");
