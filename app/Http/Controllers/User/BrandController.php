@@ -8,6 +8,7 @@ use App\Model\Brand;
 use App\Model\Flight;
 use Illuminate\Support\Facades\Storage;
 use App\Service\CommentService;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -44,6 +45,7 @@ class BrandController extends Controller
             $result[] = $something;
           }
         }
+        $comments = array_reverse($comments); 
         // login check
         $login_check = Auth::check();
         $brand = Brand::where('id',$id)->first();
