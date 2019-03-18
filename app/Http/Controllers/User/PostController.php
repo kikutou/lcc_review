@@ -78,18 +78,22 @@ class PostController extends Controller
       $same_category_posts = Post::where('mtb_category_id',$post->mtb_category_id)->get();
 
       // login check
-      $login_check = Auth::check();
+      $login_check = Auth::user();
+
+
       // comment list
       $comments = new CommentService;
       $topic_code = 'post_'.$id;
       $comments = $comments->get_comments($topic_code);
 
+      $comments = array_reverse($comments); 
+     
       return view("user.post.detail", [
         'post' => $post, 
         "same_brand_posts" => $same_brand_posts, 
         "same_category_posts" => $same_category_posts,
         "comments" => $comments,
-        "login_check" => $login_check
+        "login_check" => $login_check,
         ]);
       }else{
         // add comment
@@ -101,7 +105,18 @@ class PostController extends Controller
           "title" => $request->title,
           "content" => $request->content
         );
-        $items = ["anonymity" => $request->anonymity];
+        // check anonymity
+        if ($request->anonymity) {
+          $anonymity = 1;
+        }else{
+          $anonymity = 0;
+        }
+        $items = array(
+          array(
+            "item_code" => "anonymity",
+            "grade" =>  $anonymity
+          )
+        );
 
         $add_comment = $comment->add_comment($topic_code, $comment_content, $items);
 

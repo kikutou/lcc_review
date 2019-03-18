@@ -42,12 +42,12 @@ class BrandController extends Controller
         foreach($comments as $comment){
           foreach($comment["items"] as $something){
             $result[] = $something;
-
           }
         }
-
+        // login check
+        $login_check = Auth::check();
         $brand = Brand::where('id',$id)->first();
-        return view("user.brand.detail",['brand' => $brand,"comments" => $comments,"results" => $result]);
+        return view("user.brand.detail",['brand' => $brand,"comments" => $comments,"results" => $result, "login_check" => $login_check]);
       } else {
 
         $service = new CommentService();

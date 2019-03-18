@@ -209,7 +209,7 @@
   @else
 
   <div class="row justify-content-md-center loginbutton">
-    <div class="col-md-8"><a href="route('user_get_login')" type="button" class="btn btn-secondary btn-md">ログイン</a></div>
+    <div class="col-md-8"><a href="{{route('user_get_login')}}" type="button" class="btn btn-secondary btn-md">ログイン</a></div>
   </div>
   <div class="row justify-content-md-center loginbutton">
     <div class="col-md-8">ログインしてからコメントをしてください。</div>
@@ -225,7 +225,14 @@
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
       <div class="row">
-          <div class="col-md-auto user_name">ユーザーニックネーム</div>
+      @foreach ($values['items'] as $item => $value) 
+        @if($value['grade'] == 1)
+          <div class="col-md-auto user_name">匿名さん</div>
+        @else
+          <div class="col-md-auto user_name">{{$login_check->nickname}}</div>
+        @endif
+      @endforeach
+        
       </div><br>
       <div class="comment_list">
         <div class="row">
@@ -234,7 +241,7 @@
         </div>
         <div class="row">
           <div class="col-md-auto comment_title">内容：</div>
-          <div class="col-md-8 comment_content">{{ $values['content'] }}</div>
+          <div class="col-md-8 comment_content">{!!  @nl2br($values['content']) !!}</div>
         </div>
       </div>
     </li>

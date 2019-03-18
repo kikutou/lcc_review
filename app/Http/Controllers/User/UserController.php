@@ -111,13 +111,18 @@ class UserController extends Controller
 
         return redirect(route("user_get_home"))->with(["message" => '会員認証を完了してください']);
       }else {
-        $remember = $request->remember;
+        if ($request->remember) {
+          $remember = $request->remember;
+        }else{
+          $remember = 0;
+        }
+        
         if (Auth::attempt(['email'=>$email, 'password'=>$password], $remember))
         {
-          return redirect(route("user_get_home"))->with(["message" => "ログイン成功しました"]);
+          return redirect()->back()->with(["message" => "ログイン成功しました"]);
         }else
         {
-          return redirect(route("user_get_login"))->with(["message" => "エラーが発生した、もう一回ログインしてください"]);
+          return redirect()->back()->with(["message" => "エラーが発生した、もう一回ログインしてください"]);
         }
       }
     }
