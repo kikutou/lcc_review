@@ -111,7 +111,7 @@
         </div>
       </div>
     </div>
-
+  </form>
         <div class="row" id="flights-color">
 
           @foreach($results as $result => $value)
@@ -127,7 +127,7 @@
           @endforeach
 
         </div>
-        </form>
+
               <div class="flights">
               <div class="row" id="flights-color">
                 <div class="col-md-2">
