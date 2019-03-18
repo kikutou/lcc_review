@@ -15,21 +15,21 @@ class Checklogin
      */
     public function handle($request, Closure $next)
     {
-      if (Auth::check()) {
-    // ユーザーはログインしている
-
-       $log = 0;
-
-       return $next($request, ["log" => $log]);
-
-      }
-
-      else{
-
-        $log = 1;
-        return $next($request, ["log" => $log]);
-
-        // return redirect(route("user_get_user_login"));
-      }
+    //   if (Auth::check()) {
+    // // ユーザーはログインしている
+    //
+    //    $log = 0;
+    //
+    //    return $next($request, ["log" => $log]);
+    //
+    //   }
+    //
+    //   else{
+    //
+    //     $log = 1;
+    //     return $next($request, ["log" => $log]);
+    //
+    //     // return redirect(route("user_get_user_login"));
+      // }
     }
 }
