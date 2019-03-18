@@ -241,7 +241,7 @@
         </div>
         <div class="row">
           <div class="col-md-auto comment_title">内容：</div>
-          <div class="col-md-8 comment_content">{!! $values['content'] !!}</div>
+          <div class="col-md-8 comment_content">{!!  @nl2br($values['content']) !!}</div>
         </div>
       </div>
     </li>

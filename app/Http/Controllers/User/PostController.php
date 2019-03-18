@@ -86,7 +86,8 @@ class PostController extends Controller
       $topic_code = 'post_'.$id;
       $comments = $comments->get_comments($topic_code);
 
-      $comments = array_reverse($comments);
+      $comments = array_reverse($comments); 
+     
       return view("user.post.detail", [
         'post' => $post, 
         "same_brand_posts" => $same_brand_posts, 
