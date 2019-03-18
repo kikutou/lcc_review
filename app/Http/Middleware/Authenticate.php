@@ -37,7 +37,7 @@ class Authenticate extends Middleware
                 {
                     return redirect()->guest('admin/admin/login');
                 } else {
-                    return redirect()->guest('login');
+                    return redirect()->guest('user/user/login');
                 }
             }
         }

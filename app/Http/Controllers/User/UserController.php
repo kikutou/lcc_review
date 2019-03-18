@@ -31,7 +31,6 @@ class UserController extends Controller
         return redirect(route("user_get_user_add"))->withInput()->withErrors($validator);
       }
 
-      }
 
       $user = new User;
       $user->email = $request->email;
@@ -66,7 +65,7 @@ class UserController extends Controller
     }
   }
 
-  public function verify(Request $request,$token)
+  public function verify(Request $request, $token)
   {
     $user = User::where('token',$token)->first();
     if($user)
@@ -122,5 +121,11 @@ class UserController extends Controller
         }
       }
     }
+  }
+
+  public function logout(Request $request)
+  {
+    Auth::guard("user")->logout();
+    return redirect(route('user_get_home'));
   }
 }
