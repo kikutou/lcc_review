@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: juteng
+ * User: dongyanjun
  * Date: 2019/03/12
  * Time: 13:44
  */
@@ -14,24 +14,26 @@ use Illuminate\Support\Facades\Mail;
 
 class SendMailService extends Model
 {
-    public function sendmail($type, $from, $to, $subject, $content, Array $items = null)
+    public function sendmail($to, $subject, $view, $date = null, $type = 'send', $from = ['from'=>'cheng19941029@gmail.com', 'name'=>'LCC Review'])
     {
-        $info = array("from" => $from, "to" => $to, "subject" => $subject);
+        $info = ["to" => $to, "subject" => $subject, "from" => $from];
 
         if($type == "send"){
             //html mail
-            $send_mail = Mail::$type($content, $items, function($message) use($info)
-            {
-                $message->from($info['from'],'LCC Review');
+            $send_mail = Mail::$type($view, $date, function($message) use($info)
+            {   
+                $from = $info['from'];
+                $message->from($from['from'], $from['name']);
                 $message->subject($info['subject']);
                 $message->to($info['to']);
             });
              return $send_mail;
         }else{
             //text mail
-            $send_mail = Mail::$type($content, function($message) use($info)
+            $send_mail = Mail::$type($view, $date, function($message) use($info)
             {
-                $message->from($info['from'],'LCC Review');
+                $from = $info['from'];
+                $message->from($from['from'], $from['name']);
                 $message->subject($info['subject']);
                 $message->to($info['to']);
             });
