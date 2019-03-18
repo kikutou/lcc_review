@@ -143,4 +143,4 @@ Route::any("user/user/verify/{token}", "User\UserController@verify")->name("user
 Route::get("user/user/login", "User\UserController@login")->name("user_get_login");
 Route::post("user/user/login", "User\UserController@login")->name("user_post_login");
     //logout
-Route::get("user/logout", "User\UserController@logout");
+Route::get("user/logout", "User\UserController@logout")->name("user_get_logout");

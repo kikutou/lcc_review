@@ -18,13 +18,18 @@ class Checklogin
       if (Auth::check()) {
     // ユーザーはログインしている
 
-       return $next($request);
+       $log = 0;
+
+       return $next($request, ["log" => $log]);
 
       }
 
       else{
 
-        return redirect(route("user_get_user_login"));
+        $log = 1;
+        return $next($request, ["log" => $log]);
+
+        // return redirect(route("user_get_user_login"));
       }
     }
 }
