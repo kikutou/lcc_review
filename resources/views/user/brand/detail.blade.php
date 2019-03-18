@@ -12,7 +12,8 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-
+          <!-- login check -->
+        @if($login_check)
         <form action="{{ route('user_post_brand_detail', ['id' => $brand->id ]) }}" method=post>
           @csrf
           <div class=detaildiv>
@@ -111,6 +112,14 @@
         </div>
       </div>
     </div>
+    @else
+    <div class="row justify-content-md-center loginbutton">
+      <div class="col-md-8"><a href="{{route('user_get_login')}}" type="button" class="btn btn-secondary btn-md">ログイン</a></div>
+    </div>
+    <div class="row justify-content-md-center loginbutton">
+      <div class="col-md-8">ログインしてからコメントをしてください。</div>
+    </div>
+    @endif
   </form>
         <div class="row" id="flights-color">
 

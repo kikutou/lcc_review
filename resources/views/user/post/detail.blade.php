@@ -209,7 +209,7 @@
   @else
 
   <div class="row justify-content-md-center loginbutton">
-    <div class="col-md-8"><a href="route('user_get_login')" type="button" class="btn btn-secondary btn-md">ログイン</a></div>
+    <div class="col-md-8"><a href="{{route('user_get_login')}}" type="button" class="btn btn-secondary btn-md">ログイン</a></div>
   </div>
   <div class="row justify-content-md-center loginbutton">
     <div class="col-md-8">ログインしてからコメントをしてください。</div>

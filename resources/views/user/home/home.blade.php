@@ -104,14 +104,11 @@
         <div class="row hosting">
             @php $out=1 @endphp
             @foreach($posts as $post)
+        <a href="{{route('user_get_post_detail',['id'=> $post->id]) }}">
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-4" data-aos="fade" data-aos-delay="100">
-
             <div class="unit-3 h-100 bg-white">
-
               <div class="d-flex align-items-center mb-3 unit-3-heading">
-                <a href="{{route('user_get_post_detail',['id'=> $post->id]) }}">
-                  <img src="{{asset($post->picture)}}" alt="" width="100">
-                </a>
+                <img src="{{asset($post->picture)}}" alt="" width="100">
                 <h2 class="h5 post_title">{{ $post->title }}</h2>
               </div>
               <div class="unit-3-body">
@@ -125,6 +122,7 @@
               </div>
             </div>
           </div>
+        </a>
           @if($out>5)
             @break
           @else

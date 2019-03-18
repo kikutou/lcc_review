@@ -114,10 +114,10 @@ class UserController extends Controller
         $remember = $request->remember;
         if (Auth::attempt(['email'=>$email, 'password'=>$password], $remember))
         {
-          return redirect(route("user_get_home"))->with(["message" => "ログイン成功しました"]);
+          return redirect()->back()->with(["message" => "ログイン成功しました"]);
         }else
         {
-          return redirect(route("user_get_login"))->with(["message" => "エラーが発生した、もう一回ログインしてください"]);
+          return redirect()->back()->with(["message" => "エラーが発生した、もう一回ログインしてください"]);
         }
       }
     }
