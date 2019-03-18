@@ -111,6 +111,9 @@
   } 
 
   /* for comment list */
+  .loginbutton{
+    text-align: center;
+  }
   .user_name{
     margin-left: 20px;
     font-size: 80%;

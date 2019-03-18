@@ -10,6 +10,7 @@ use App\Model\PostBrand;
 use App\Model\Master\Category;
 use App\Service\CommentService;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 
 class PostController extends Controller
@@ -76,15 +77,19 @@ class PostController extends Controller
       //same category posts
       $same_category_posts = Post::where('mtb_category_id',$post->mtb_category_id)->get();
 
+      // login check
+      $login_check = Auth::check();
       // comment list
       $comments = new CommentService;
       $topic_code = 'post_'.$id;
       $comments = $comments->get_comments($topic_code);
+
       return view("user.post.detail", [
         'post' => $post, 
         "same_brand_posts" => $same_brand_posts, 
         "same_category_posts" => $same_category_posts,
-        "comments" => $comments
+        "comments" => $comments,
+        "login_check" => $login_check
         ]);
       }else{
         // add comment
@@ -96,7 +101,7 @@ class PostController extends Controller
           "title" => $request->title,
           "content" => $request->content
         );
-        $items = array();
+        $items = ["anonymity" => $request->anonymity];
 
         $add_comment = $comment->add_comment($topic_code, $comment_content, $items);
 
