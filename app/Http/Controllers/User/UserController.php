@@ -125,7 +125,7 @@ class UserController extends Controller
 
   public function logout(Request $request)
   {
-    Auth::guard("user")->logout();
+    Auth::guard("web")->logout();
     return redirect(route('user_get_home'));
   }
 }

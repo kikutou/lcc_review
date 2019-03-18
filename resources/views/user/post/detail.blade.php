@@ -162,7 +162,10 @@
 
   <!-- comment area -->
   <p class="h4 otherpostbar">コメント</p>
-  <!-- Horizontal material form -->
+
+  <!-- login check -->
+  @if($login_check)
+  <!-- comment form -->
   <form action="{{ route('user_post_post_detail', ['id'=> $post->id]) }}" method="POST">
   @csrf
   <input type="hidden" value="{{ $post->id }}" name="id">
@@ -192,13 +195,27 @@
 
     <!-- Grid row -->
     <div class="form-group row">
-      <div class="col-sm-4">
-        <button type="submit" class="btn btn-secondary btn-md offset-md-6">提出</button>
+      <div class="col-sm-2">
+        <button type="submit" class="btn btn-secondary btn-md">提出</button>
+      </div>
+      <div class="custom-control custom-checkbox col-sm-2">
+        <input type="checkbox" class="custom-control-input" name="anonymity" value="1" id="anonymitycheck">
+        <label class="custom-control-label" for="anonymitycheck">匿名</label>
       </div>
     </div>
     <!-- Grid row -->
   </form>
-  <!-- Horizontal material form -->
+  <!-- comment form -->
+  @else
+
+  <div class="row justify-content-md-center loginbutton">
+    <div class="col-md-8"><a href="route('user_get_login')" type="button" class="btn btn-secondary btn-md">ログイン</a></div>
+  </div>
+  <div class="row justify-content-md-center loginbutton">
+    <div class="col-md-8">ログインしてからコメントをしてください。</div>
+  </div>
+  @endif
+
   <!-- comment area end  -->
   <p class="h4 otherpostbar">コメント一覧</p>
   @if($comments)
