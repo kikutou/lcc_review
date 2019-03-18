@@ -42,7 +42,6 @@ class BrandController extends Controller
         foreach($comments as $comment){
           foreach($comment["items"] as $something){
             $result[] = $something;
-
           }
         }
         // login check

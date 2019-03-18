@@ -225,7 +225,14 @@
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
       <div class="row">
-          <div class="col-md-auto user_name">ユーザーニックネーム</div>
+      @foreach ($values['items'] as $item => $value) 
+        @if($value['grade'] == 1)
+          <div class="col-md-auto user_name">匿名さん</div>
+        @else
+          <div class="col-md-auto user_name">{{$login_check->nickname}}</div>
+        @endif
+      @endforeach
+        
       </div><br>
       <div class="comment_list">
         <div class="row">
