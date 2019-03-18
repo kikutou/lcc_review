@@ -50,8 +50,11 @@
           <li class="nav-item dropdown">
             <p class="nav-link dropdown-toggle" data-toggle="dropdown">User</p>
             <div class="dropdown-menu">
-              <a class="dropdown-item"  href="{{route('user_get_user_add') }}">Sign Up</a>
+              @if(Auth::check())
+              <a class="dropdown-item"  href="{{route('user_get_logout') }}">Logout</a>
+              @else
               <a class="dropdown-item" href="{{route('user_get_login') }}">Sign In</a>
+              @endif
            </div>
           </li>
           <li class="nav-item">
