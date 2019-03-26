@@ -119,7 +119,7 @@ class UserController extends Controller
         
         if (Auth::attempt(['email'=>$email, 'password'=>$password], $remember))
         {
-          return redirect()->back()->with(["message" => "ログイン成功しました"]);
+          return redirect()->back();
         }else
         {
           return redirect()->back()->with(["message" => "エラーが発生した、もう一回ログインしてください"]);
@@ -131,6 +131,6 @@ class UserController extends Controller
   public function logout(Request $request)
   {
     Auth::guard("web")->logout();
-    return redirect(route('user_get_home'));
+    return redirect()->back();
   }
 }

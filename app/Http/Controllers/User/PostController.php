@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Post;
+use App\Model\User;
 use App\Model\Brand;
 use App\Model\PostBrand;
 use App\Model\Master\Category;
@@ -87,7 +88,9 @@ class PostController extends Controller
       $comments = $comments->get_comments($topic_code);
 
       $comments = array_reverse($comments); 
-     
+
+
+
       return view("user.post.detail", [
         'post' => $post, 
         "same_brand_posts" => $same_brand_posts, 
@@ -105,20 +108,23 @@ class PostController extends Controller
           "title" => $request->title,
           "content" => $request->content
         );
-        // check anonymity
-        if ($request->anonymity) {
-          $anonymity = 1;
-        }else{
-          $anonymity = 0;
-        }
-        $items = array(
-          array(
-            "item_code" => "anonymity",
-            "grade" =>  $anonymity
-          )
-        );
 
-        $add_comment = $comment->add_comment($topic_code, $comment_content, $items);
+        $user_code = Auth::user()->nickname;
+                
+        // check anonymity
+        if ($request->anonymity == 1) {
+          $items[] = array(
+            "item_code" => "anonymity",
+            "grade" =>  "1"
+          );
+        }else{
+          $items[] = array(
+            "item_code" => "anonymity",
+            "grade" =>  "0"
+          );
+        }
+
+        $add_comment = $comment->add_comment($topic_code, $comment_content, $items, $user_code);
 
         if ($add_comment) {
           return redirect()->back()->with(["message" => "コメント成功"]);

@@ -229,9 +229,10 @@
         @if($value['grade'] == 1)
           <div class="col-md-auto user_name">匿名さん</div>
         @else
-          <div class="col-md-auto user_name">{{$login_check->nickname}}</div>
+          <div class="col-md-auto user_name">{{ $values['user_code']  }}</div>
         @endif
       @endforeach
+      
         
       </div><br>
       <div class="comment_list">
