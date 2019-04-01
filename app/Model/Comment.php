@@ -20,6 +20,10 @@ class Comment extends Model
   public function flight(){
     return $this->belongsTo('App\Model\Flight');
   }
+ //connect posts
+ public function post(){
+  return $this->belongsTo('App\Model\Post');
+}
 
   //SoftDeletes
   use SoftDeletes;

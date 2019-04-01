@@ -5,10 +5,13 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Post;
+use App\Model\User;
 use App\Model\Brand;
 use App\Model\PostBrand;
 use App\Model\Master\Category;
+use App\Service\CommentService;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 
 class PostController extends Controller
@@ -53,9 +56,8 @@ class PostController extends Controller
 
     //detail
     public function detail(Request $request,$id){
-      $post = Post::where('id', $id)->first();
-
-
+      if ($request->isMethod("GET")) {
+        $post = Post::where('id', $id)->first();
       //same brand posts brand id
       $brands = $post->brands;
       $brand = null;
@@ -63,7 +65,6 @@ class PostController extends Controller
         $brand = $one_brand;
         break;
       }
-
       //get same brand posts
       if ($brand) {
         $posts = Post::query();
@@ -74,11 +75,62 @@ class PostController extends Controller
         $same_brand_posts = null;
       }
 
-
-
       //same category posts
       $same_category_posts = Post::where('mtb_category_id',$post->mtb_category_id)->get();
 
-      return view("user.post.detail", ['post' => $post, "same_brand_posts" => $same_brand_posts, "same_category_posts" => $same_category_posts]);
+      // login check
+      $login_check = Auth::user();
+
+
+      // comment list
+      $comments = new CommentService;
+      $topic_code = 'post_'.$id;
+      $comments = $comments->get_comments($topic_code);
+
+      $comments = array_reverse($comments); 
+
+
+
+      return view("user.post.detail", [
+        'post' => $post, 
+        "same_brand_posts" => $same_brand_posts, 
+        "same_category_posts" => $same_category_posts,
+        "comments" => $comments,
+        "login_check" => $login_check,
+        ]);
+      }else{
+        // add comment
+        $comment = new CommentService();
+        $id = $request->id;
+
+        $topic_code = 'post_' . $id;
+        $comment_content = array(
+          "title" => $request->title,
+          "content" => $request->content
+        );
+
+        $user_code = Auth::user()->nickname;
+                
+        // check anonymity
+        if ($request->anonymity == 1) {
+          $items[] = array(
+            "item_code" => "anonymity",
+            "grade" =>  "1"
+          );
+        }else{
+          $items[] = array(
+            "item_code" => "anonymity",
+            "grade" =>  "0"
+          );
+        }
+
+        $add_comment = $comment->add_comment($topic_code, $comment_content, $items, $user_code);
+
+        if ($add_comment) {
+          return redirect()->back()->with(["message" => "コメント成功"]);
+        }else{
+          return redirect()->back()->with(["message" => "コメント失敗"]);
+        }
+      } 
     }
 }

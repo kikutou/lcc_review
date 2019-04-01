@@ -118,7 +118,7 @@ class CommentService implements CommentServiceInterface
 
             $response_arr = json_decode($response, true);
 
-            if(is_array($response_arr)) {
+            if(is_array($response_arr) && isset($response_arr["topic_id"])) {
                 return true;
             } else {
                 return false;

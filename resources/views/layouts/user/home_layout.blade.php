@@ -9,22 +9,14 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500">
     <link rel="stylesheet" href="fonts/icomoon/style.css')}}">
-
+    <link rel="shortcut icon" type="image/png" href="assets/images/icon/favicon.ico">
     <link rel="stylesheet" href="{{URL::asset('assets/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('assets/css/magnific-popup.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('assets/css/jquery-ui.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('assets/css/owl.carousel.min.css')}}">
+<!-- amchart css -->
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
     <link rel="stylesheet" href="{{URL::asset('assets/css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('assets/css/bootstrap-datepicker.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('assets/css/animate.css')}}">
-
-    <link rel="stylesheet" href="{{URL::asset('assets/css/fl-bigmug-line.css')}}">
-
     <link rel="stylesheet" href="{{URL::asset('assets/css/aos.css')}}">
-
     <link rel="stylesheet" href="{{URL::asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/home_css.css')}}">
-
   </head>
   <body>
 
@@ -44,11 +36,11 @@
       <!-- Navigation -->
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="#">Lcc Mamol</a>
+          <a class="navbar-brand" href="{{ route('user_get_home') }}">Lcc Mamol</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
+          <div class="collapse navbar-collapse user_drop" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <a class="nav-link active" href="{{ route('user_get_home') }}">Home</a>
@@ -59,8 +51,15 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('user_get_brand_index') }}">Brand</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{route('user_get_user_add') }}">User</a>
+              <li class="nav-item dropdown">
+                <p class="nav-link dropdown-toggle" data-toggle="dropdown">User<i class="fa fa-angle-down"></i></p>
+                <div class="dropdown-menu">
+                  @if(Auth::check())
+                  <a class="dropdown-item"  href="{{route('user_get_logout') }}">Logout</a>
+                  @else
+                  <a class="dropdown-item" href="{{route('user_get_login') }}">Sign In</a>
+                  @endif
+                </div>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Contact</a>

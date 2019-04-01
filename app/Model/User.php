@@ -5,26 +5,29 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model
+class User extends Authenticatable
 {
   protected $table = 'users';
 
   public static $validation_rules = [
-    "mail" => "required|unique:users,mail",
+    "email" => "required|unique:users,email",
     "password" => "required|between:6,8",
     "nickname" => "required|between:1,10",
     "user_status" => "required"
   ];
   public static $validation_rules_for_edit = [
-    "mail" => "required|unique:users,mail",
+    "email" => "required|unique:users,email",
     "nickname" => "required|between:1,10",
     "user_status" => "required"
   ];
 
   public static $validation_messages = [
-    "mail.required" => "メールを入力してください。",
-    "mail.unique" => "このメールは既に存在している",
+    "email.required" => "メールを入力してください。",
+    "email.unique" => "このメールは既に存在している",
     "password.required" => "パスワードを入力してください。",
     "password.between" => ":min桁から:max桁までのパスワードを入力してください。",
     "nickname.required" => "ニックネームを入力してください。",
@@ -32,25 +35,32 @@ class User extends Model
     "user_status.required" => "会員状態を選択してください"
   ];
   public static $validation_messages_for_edit = [
-    "mail.required" => "メールを入力してください。",
-    "mail.unique" => "このメールは既に存在している",
+    "email.required" => "メールを入力してください。",
+    "email.unique" => "このメールは既に存在している",
     "nickname.required" => "ニックネームを入力してください。",
     "nickname.between" => ":min桁から:max桁までのニックネームを入力してください。",
     "user_status.required" => "会員状態を選択してください"
   ];
   public static $validation_sign_up_rules = [
-    "mail" => "required|unique:users,mail",
+    "email" => "required|unique:users,email",
     "password" => "required|between:6,8",
     "nickname" => "required|between:1,10",
   ];
   public static $validation_sign_up_messages = [
-    "mail.required" => "メールを入力してください。",
-    "mail.unique" => "このメールは既に存在している",
+    "email.required" => "メールを入力してください。",
+    "email.unique" => "このメールは既に存在している",
     "password.required" => "パスワードを入力してください。",
     "password.between" => ":min桁から:max桁までのパスワードを入力してください。",
     "nickname.required" => "ニックネームを入力してください。",
     "nickname.between" => ":min桁から:max桁までのニックネームを入力してください。",
   ];
+  public static $validation_sign_in_rules = [
+    "email" => "exists:users,email",
+  ];
+  public static $validation_sign_in_messages = [
+    "email.exists" => "まず会員登録お願いいたします。",
+  ];
+
   public function setPassword($password) {
     $this->password = Hash::make($password);
   }

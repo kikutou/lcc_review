@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admin;
+use Auth;
 use Validator;
+use Illuminate\Support\Facades\Hash;
 
 
 class AdminController extends Controller
@@ -24,6 +26,7 @@ class AdminController extends Controller
       $admin = new Admin;
       $admin->admin_user = $request->admin_user;
       $admin->setPassword($request->password);
+      $admin->token = str_random(20);
       $admin->save();
 
       return redirect(route("admin_get_admin_index"));
@@ -77,6 +80,47 @@ class AdminController extends Controller
       return redirect(route("admin_get_admin_index"));
     }
   }
+
+  //login
+   public function login(Request $request){
+
+     if($request->isMethod("get"))
+     {
+       return view('admin.admin.login');
+     } else{
+
+       if(Auth::guard("admin")->attempt(["admin_user" => $request->admin_user, "password" => $request->password]) ) {
+         return redirect()->route("admin_get_admin_index");
+       } else {
+         return redirect()->back();
+       }
+     }
+    }
+
+    public function logout(Request $request)
+    {
+      Auth::guard("admin")->logout();
+      return redirect()->route("admin_get_admin_login");
+    }
+
+
+
+    // public function verify(Request $request,$token)
+    // {
+    //   $admin = Admin::where('token',$token)->first();
+    //   if($admin)
+    //   {
+    //     $admin->
+    //     $admin->
+    //     $admin->save();
+    //
+    //     return view("admin.admin.verify");
+    //   }else
+    //   {
+    //     return redirect(route("admin_get_admin_login"))->with(["message" => '会員認証が失敗しました']);
+    //   }
+    // }
+
 
 
 }

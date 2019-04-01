@@ -4,9 +4,13 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
-class Admin extends Model
+class Admin extends Model implements AuthenticatableContract
 {
+
+  use Authenticatable;
     protected $table = "admins";
 
     //conect posts

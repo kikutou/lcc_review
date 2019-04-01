@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 
-Route::get("admin", "Admin\DashboardController@index");
+Route::get("admin", "Admin\DashboardController@index")->name("admin_get_admin");
 
 // post
 Route::get("admin/posts", "Admin\PostController@index")->name("admin_get_post_index");
@@ -90,13 +90,18 @@ Route::get("admin/user/{id}/delete", "Admin\UserController@delete")->name("admin
 Route::post("admin/user/{id}/delete", "Admin\UserController@delete")->name("admin_post_user_delete");
 
 // admin
-Route::get("admin/admins", "Admin\AdminController@index")->name("admin_get_admin_index");
+Route::get("admin/admins", "Admin\AdminController@index")->name("admin_get_admin_index")->middleware("auth:admin");
 Route::get("admin/admin/add", "Admin\AdminController@add")->name("admin_get_admin_add");
 Route::post("admin/admin/add", "Admin\AdminController@add")->name("admin_post_admin_add");
 Route::get("admin/admin/{id}/edit", "Admin\AdminController@edit")->name("admin_get_admin_edit");
 Route::post("admin/admin/{id}/edit", "Admin\AdminController@edit")->name("admin_post_admin_edit");
 Route::get("admin/admin/{id}/delete", "Admin\AdminController@delete")->name("admin_get_admin_delete");
 Route::post("admin/admin/{id}/delete", "Admin\AdminController@delete")->name("admin_post_admin_delete");
+//admin login
+Route::get("admin/admin/login", "Admin\AdminController@login")->name("admin_get_admin_login");
+Route::post("admin/admin/login", "Admin\AdminController@login")->name("admin_post_admin_login");
+
+Route::get("admin/admin/logout", "Admin\AdminController@logout")->name("admin_get_admin_logout");
 
 // comment
 Route::get("admin/comments", "Admin\CommentController@index")->name("admin_get_comment_index");
@@ -123,24 +128,19 @@ Route::post("user/mail", "User\SubscribeMailController@index")->name("user_post_
 //post
 Route::get("user/posts", "User\PostController@index")->name("user_get_post_index");
 Route::get("user/post/{id}/detail", "User\PostController@detail")->name("user_get_post_detail");
+Route::post("user/post/{id}/detail","User\PostController@detail")->name("user_post_post_detail");
 //brand
 Route::get("user/brands", "User\BrandController@index")->name("user_get_brand_index");
 Route::get("user/brand/{id}/detail", "User\BrandController@detail")->name("user_get_brand_detail");
+Route::post("user/brand/{id}/detail", "User\BrandController@detail")->name("user_post_brand_detail");
+
 //user
 Route::get("user/user/add", "User\UserController@add")->name("user_get_user_add");
 Route::post("user/user/add", "User\UserController@add")->name("user_post_user_add");
-
-Route::get("mail", "User\HomeController@mail")->name("user_get_mail");
-
-//login
-Auth::routes();
-
-Route::get('user/login', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+    //verify
+Route::any("user/user/verify/{token}", "User\UserController@verify")->name("user_verify");
+    //login
+Route::get("user/user/login", "User\UserController@login")->name("user_get_login");
+Route::post("user/user/login", "User\UserController@login")->name("user_post_login");
+    //logout
+Route::get("user/logout", "User\UserController@logout")->name("user_get_logout");

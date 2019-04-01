@@ -40,7 +40,7 @@
                 @foreach($users as $user)
                 <tr>
                   <th scope="row"><a href="{{route('admin_get_user_detail',['id'=> $user->id]) }}">{{ $user->id }}</a></th>
-                  <td>{{ $user->mail }}</td>
+                  <td>{{ $user->email }}</td>
                   <td>{{ $user->code }}</td>
                   <td>{{ $user->nickname }}</td>
                   <td>{{ $user->user_status->value }}</td>

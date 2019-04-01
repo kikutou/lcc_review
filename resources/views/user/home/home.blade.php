@@ -1,20 +1,11 @@
 @extends("layouts.user.home_layout")
 @section("content")
+
     <!-- content -->
     <div class="site-blocks-cover email_mag" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
+         
         <div class="row row-custom align-items-center">
-          <!-- session message -->
-          @if(Session::get("message"))
-          <div class="row">
-            <div class="alert alert-success alert-dismissible fade show col-md-6 offset-md-3" role="alert">
-              <strong>{{ Session::get("message") }}</strong>
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span class="fa fa-times"></span>
-              </button>
-            </div>
-          </div>
-          @endif
           <div class="col-md-10">
             <h1 class="mb-2 text-black w-75"><span class="font-weight-bold">Largest LCC</span> Site On The Net</h1>
             <div class="job-search">
@@ -86,7 +77,15 @@
                       </form>
                     </div>
                   </div>
-
+                  <!-- session message -->
+                  @if(Session::get("message"))
+                  <div class="row">
+                    <div class="alert alert-success alert-dismissible fade show col-md-6 offset-md-3" role="alert">
+                      <strong>{{ Session::get("message") }}</strong>
+                    </div>
+                  </div>
+                  @endif
+                  <!-- end session -->
                 </div>
               </div>
             </div>
@@ -105,14 +104,11 @@
         <div class="row hosting">
             @php $out=1 @endphp
             @foreach($posts as $post)
+        <a href="{{route('user_get_post_detail',['id'=> $post->id]) }}">
           <div class="col-md-6 col-lg-4 mb-5 mb-lg-4" data-aos="fade" data-aos-delay="100">
-
             <div class="unit-3 h-100 bg-white">
-
               <div class="d-flex align-items-center mb-3 unit-3-heading">
-                <a href="{{route('user_get_post_detail',['id'=> $post->id]) }}">
-                  <img src="{{asset($post->picture)}}" alt="" width="100">
-                </a>
+                <img src="{{asset($post->picture)}}" alt="" width="100">
                 <h2 class="h5 post_title">{{ $post->title }}</h2>
               </div>
               <div class="unit-3-body">
@@ -126,6 +122,7 @@
               </div>
             </div>
           </div>
+        </a>
           @if($out>5)
             @break
           @else
