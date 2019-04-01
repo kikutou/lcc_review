@@ -16,5 +16,4 @@ interface CommentServiceInterface
 
     public function add_comment($topic_code, Array $comment, Array $items, $user_code = null);
 
-
 }
