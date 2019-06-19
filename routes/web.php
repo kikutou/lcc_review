@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 
 Route::prefix('admin')->middleware(["auth:admin"])->namespace('Admin')->group(function () {
-    Route::get("admin", "DashboardController@index")->name("admin_get_admin");
+    Route::get("/", "DashboardController@index")->name("admin_get_admin");
 
     // post
     Route::get("posts", "PostController@index")->name("admin_get_post_index");
