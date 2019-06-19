@@ -12,6 +12,14 @@ use Validator;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use App\Service\SendMailService;
+use App\Model\SubscribeMail;
+use App\Model\MailBrand;
+use App\Model\MailCategory;
+use App\Model\Brand;
+use App\Model\Master\Category;
+
+
+
 
 class UserController extends Controller
 {
@@ -33,6 +41,7 @@ class UserController extends Controller
 
             $user = new User;
             $user->email = $request->email;
+            $mail_for_subscribe = $request->email;
             $user->setPassword($request->password);
             $user->code = $user->generateUserCode();
             $user->token = str_random(20);
@@ -50,6 +59,30 @@ class UserController extends Controller
             $user_detail->gender_flg = $request->gender_flg;
             $user_detail->save();
 
+            //add subscribe mail and detail
+            if($request->subscribe == 1)
+            {
+                $mail = new SubscribeMail;
+                $mail->mail = $mail_for_subscribe;
+                $mail->token = str_random(20);
+                $mail->subscribed_at = Carbon::now();
+                $mail->save();
+
+                foreach (Brand::pluck('id') as $brandid) {
+                    $mail_brand = new MailBrand;
+                    $mail_brand->subscribe_mail_id = $mail->id;
+                    $mail_brand->brand_id = $brandid;
+                    $mail_brand->save();
+                }
+
+                foreach (Category::pluck('id') as $categoryid) {
+                    $mail_category = new MailCategory;
+                    $mail_category->subscribe_mail_id = $mail->id;
+                    $mail_category->category_id = $categoryid;
+                    $mail_category->save();
+                }
+            }
+
             // ここで認証メールを発送
             $to = $request->email;
             $subject = '【LCCの会員認証】認証確認メール';
@@ -60,7 +93,7 @@ class UserController extends Controller
             $send_mail = new SendMailService;
             $send_mail->sendmail($to, $subject, $view, $data);
 
-            return redirect(route("user_get_home"))->with(["message" => '会員加入が成功しました']);
+            return redirect(route("user_get_home"))->with(["message" => '会員加入が成功しました。購読成功。']);
         }
     }
 

@@ -90,6 +90,11 @@
                           </select>
                           <i class="fa fa-venus-mars"></i>
                         </div>
+                        <div class="form-gp">
+                          <p for="subscribe">メルマガ購読</p>
+                          <input type="checkbox" id="subscribe" name="subscribe" value ="1" @if (old('subscribe') == "1") {{ 'checked' }} @endif>
+                          <i class=ti-info-alt></i>
+                        </div>
                       </div>
                     </div>
                   </div>
