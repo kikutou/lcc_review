@@ -53,7 +53,9 @@
                                                                 <input type="checkbox" name="brand_ids[]"
                                                                        class="custom-control-input"
                                                                        id="{{ $brand->brand_name }}"
-                                                                       value="{{ $brand->id }}">
+                                                                       value="{{ $brand->id }}"
+                                                                       checked
+                                                                >
                                                                 <label class="custom-control-label form_check_text"
                                                                        for="{{ $brand->brand_name }}">{{ $brand->brand_name }}</label>
                                                             </div>
@@ -77,7 +79,9 @@
                                                                 <input type="checkbox" name="category_ids[]"
                                                                        class="custom-control-input"
                                                                        id="{{ $category->category_name }}"
-                                                                       value="{{ $category->id }}">
+                                                                       value="{{ $category->id }}"
+                                                                       checked
+                                                                >
                                                                 <label class="custom-control-label form_check_text"
                                                                        for="{{ $category->category_name }}">{{ $category->category_name }}</label>
 
