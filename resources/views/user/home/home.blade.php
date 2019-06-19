@@ -112,7 +112,7 @@
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-md-6" data-aos="fade">
-                    <h2 class="text-black">Lcc Mamol <strong>Posts</strong></h2>
+                    <h2 class="text-black">Lcc Scanner <strong>Posts</strong></h2>
                 </div>
             </div>
             <div class="row hosting">

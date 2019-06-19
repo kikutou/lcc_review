@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d476cadc-5928-47b2-b065-ea99525c8573" name="本環境" url="http://kikurin.sakura.ne.jp">
+        <fileTransfer host="kikurin.sakura.ne.jp" port="21" rootFolder="/home/kikurin/www/lcc_review">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

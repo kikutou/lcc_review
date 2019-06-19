@@ -109,7 +109,7 @@ class UserController extends Controller
                 }
 
                 if (Auth::attempt(['email' => $email, 'password' => $password], $remember)) {
-                    return redirect()->route("user_get_home");
+                    return redirect()->intended();
                 } else {
                     return redirect()->back()->with(["message" => "ログインできませんでした。"]);
                 }
